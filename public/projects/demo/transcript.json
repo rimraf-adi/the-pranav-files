@@ -1,0 +1,682 @@
+{
+ "words": [
+  {
+   "text": "ट्रम्प",
+   "start": 0.0,
+   "end": 0.4,
+   "needs_romanize": true
+  },
+  {
+   "text": "ने",
+   "start": 0.4,
+   "end": 0.5,
+   "needs_romanize": true
+  },
+  {
+   "text": "अपना",
+   "start": 0.5,
+   "end": 0.7,
+   "needs_romanize": true
+  },
+  {
+   "text": "Fedship",
+   "start": 0.7,
+   "end": 1.08,
+   "needs_romanize": false
+  },
+  {
+   "text": "इसलिए",
+   "start": 1.08,
+   "end": 1.34,
+   "needs_romanize": true
+  },
+  {
+   "text": "बनाया",
+   "start": 1.34,
+   "end": 1.62,
+   "needs_romanize": true
+  },
+  {
+   "text": "था",
+   "start": 1.62,
+   "end": 1.76,
+   "needs_romanize": true
+  },
+  {
+   "text": "ताकि",
+   "start": 1.76,
+   "end": 1.96,
+   "needs_romanize": true
+  },
+  {
+   "text": "rate",
+   "start": 1.96,
+   "end": 2.18,
+   "needs_romanize": false
+  },
+  {
+   "text": "घटे,",
+   "start": 2.18,
+   "end": 2.94,
+   "needs_romanize": true
+  },
+  {
+   "text": "फिर",
+   "start": 2.94,
+   "end": 3.1,
+   "needs_romanize": true
+  },
+  {
+   "text": "भी",
+   "start": 3.1,
+   "end": 3.22,
+   "needs_romanize": true
+  },
+  {
+   "text": "उस",
+   "start": 3.22,
+   "end": 3.38,
+   "needs_romanize": true
+  },
+  {
+   "text": "बन्दे",
+   "start": 3.38,
+   "end": 3.6,
+   "needs_romanize": true
+  },
+  {
+   "text": "ने",
+   "start": 3.6,
+   "end": 3.7,
+   "needs_romanize": true
+  },
+  {
+   "text": "rate",
+   "start": 3.7,
+   "end": 3.9,
+   "needs_romanize": false
+  },
+  {
+   "text": "बढ़ा",
+   "start": 3.9,
+   "end": 4.18,
+   "needs_romanize": true
+  },
+  {
+   "text": "दिये.",
+   "start": 4.18,
+   "end": 4.62,
+   "needs_romanize": true
+  },
+  {
+   "text": "कल",
+   "start": 4.62,
+   "end": 4.76,
+   "needs_romanize": true
+  },
+  {
+   "text": "Fed",
+   "start": 4.76,
+   "end": 5.04,
+   "needs_romanize": false
+  },
+  {
+   "text": "ने",
+   "start": 5.04,
+   "end": 5.16,
+   "needs_romanize": true
+  },
+  {
+   "text": "अपना",
+   "start": 5.16,
+   "end": 5.42,
+   "needs_romanize": true
+  },
+  {
+   "text": "interest",
+   "start": 5.42,
+   "end": 5.7,
+   "needs_romanize": false
+  },
+  {
+   "text": "rate",
+   "start": 5.7,
+   "end": 5.9,
+   "needs_romanize": false
+  },
+  {
+   "text": "3.75",
+   "start": 5.9,
+   "end": 6.68,
+   "needs_romanize": false
+  },
+  {
+   "text": "से",
+   "start": 6.68,
+   "end": 6.86,
+   "needs_romanize": true
+  },
+  {
+   "text": "4%",
+   "start": 6.86,
+   "end": 7.28,
+   "needs_romanize": false
+  },
+  {
+   "text": "कर",
+   "start": 7.28,
+   "end": 7.58,
+   "needs_romanize": true
+  },
+  {
+   "text": "दिया.",
+   "start": 7.58,
+   "end": 8.04,
+   "needs_romanize": true
+  },
+  {
+   "text": "2003",
+   "start": 7.72,
+   "end": 8.5,
+   "needs_romanize": false
+  },
+  {
+   "text": "के",
+   "start": 8.5,
+   "end": 8.76,
+   "needs_romanize": true
+  },
+  {
+   "text": "बाद",
+   "start": 8.76,
+   "end": 8.9,
+   "needs_romanize": true
+  },
+  {
+   "text": "से",
+   "start": 8.9,
+   "end": 9.08,
+   "needs_romanize": true
+  },
+  {
+   "text": "ये",
+   "start": 9.08,
+   "end": 9.16,
+   "needs_romanize": true
+  },
+  {
+   "text": "पहला",
+   "start": 9.16,
+   "end": 9.52,
+   "needs_romanize": true
+  },
+  {
+   "text": "hike",
+   "start": 9.52,
+   "end": 9.7,
+   "needs_romanize": false
+  },
+  {
+   "text": "था.",
+   "start": 9.7,
+   "end": 10.18,
+   "needs_romanize": true
+  },
+  {
+   "text": "सब",
+   "start": 10.24,
+   "end": 10.42,
+   "needs_romanize": true
+  },
+  {
+   "text": "इसके",
+   "start": 10.42,
+   "end": 10.66,
+   "needs_romanize": true
+  },
+  {
+   "text": "favor",
+   "start": 10.66,
+   "end": 10.94,
+   "needs_romanize": false
+  },
+  {
+   "text": "में",
+   "start": 10.94,
+   "end": 11.1,
+   "needs_romanize": true
+  },
+  {
+   "text": "थे.",
+   "start": 11.1,
+   "end": 11.48,
+   "needs_romanize": true
+  },
+  {
+   "text": "12",
+   "start": 11.56,
+   "end": 11.76,
+   "needs_romanize": false
+  },
+  {
+   "text": "to",
+   "start": 11.76,
+   "end": 11.92,
+   "needs_romanize": false
+  },
+  {
+   "text": "0",
+   "start": 11.92,
+   "end": 12.2,
+   "needs_romanize": false
+  },
+  {
+   "text": "votes",
+   "start": 12.2,
+   "end": 12.4,
+   "needs_romanize": false
+  },
+  {
+   "text": "से",
+   "start": 12.4,
+   "end": 12.54,
+   "needs_romanize": true
+  },
+  {
+   "text": "ये",
+   "start": 12.54,
+   "end": 12.64,
+   "needs_romanize": true
+  },
+  {
+   "text": "pass",
+   "start": 12.64,
+   "end": 12.86,
+   "needs_romanize": false
+  },
+  {
+   "text": "हुआ.",
+   "start": 12.86,
+   "end": 13.08,
+   "needs_romanize": true
+  },
+  {
+   "text": "यही",
+   "start": 13.2,
+   "end": 13.38,
+   "needs_romanize": true
+  },
+  {
+   "text": "बन्दा,",
+   "start": 13.38,
+   "end": 13.8,
+   "needs_romanize": true
+  },
+  {
+   "text": "Kevin",
+   "start": 13.8,
+   "end": 14.1,
+   "needs_romanize": false
+  },
+  {
+   "text": "Walsh,",
+   "start": 14.1,
+   "end": 14.44,
+   "needs_romanize": false
+  },
+  {
+   "text": "इसको",
+   "start": 14.44,
+   "end": 14.62,
+   "needs_romanize": true
+  },
+  {
+   "text": "ट्रम",
+   "start": 14.62,
+   "end": 14.84,
+   "needs_romanize": true
+  },
+  {
+   "text": "ने",
+   "start": 14.84,
+   "end": 15.0,
+   "needs_romanize": true
+  },
+  {
+   "text": "FedShip",
+   "start": 15.0,
+   "end": 15.36,
+   "needs_romanize": false
+  },
+  {
+   "text": "बनाय",
+   "start": 15.36,
+   "end": 15.68,
+   "needs_romanize": true
+  },
+  {
+   "text": "था,",
+   "start": 15.68,
+   "end": 15.9,
+   "needs_romanize": true
+  },
+  {
+   "text": "ताकि",
+   "start": 16.22,
+   "end": 16.44,
+   "needs_romanize": true
+  },
+  {
+   "text": "वो",
+   "start": 16.44,
+   "end": 16.62,
+   "needs_romanize": true
+  },
+  {
+   "text": "interest",
+   "start": 16.62,
+   "end": 16.96,
+   "needs_romanize": false
+  },
+  {
+   "text": "rate",
+   "start": 16.96,
+   "end": 17.12,
+   "needs_romanize": false
+  },
+  {
+   "text": "कम",
+   "start": 17.12,
+   "end": 17.3,
+   "needs_romanize": true
+  },
+  {
+   "text": "कर",
+   "start": 17.3,
+   "end": 17.44,
+   "needs_romanize": true
+  },
+  {
+   "text": "सके.",
+   "start": 17.44,
+   "end": 18.16,
+   "needs_romanize": true
+  },
+  {
+   "text": "लेकिन",
+   "start": 18.14,
+   "end": 18.38,
+   "needs_romanize": true
+  },
+  {
+   "text": "उसने",
+   "start": 18.38,
+   "end": 18.72,
+   "needs_romanize": true
+  },
+  {
+   "text": "Senate",
+   "start": 18.72,
+   "end": 19.1,
+   "needs_romanize": false
+  },
+  {
+   "text": "को",
+   "start": 19.1,
+   "end": 19.24,
+   "needs_romanize": true
+  },
+  {
+   "text": "ये",
+   "start": 19.24,
+   "end": 19.34,
+   "needs_romanize": true
+  },
+  {
+   "text": "वादा",
+   "start": 19.34,
+   "end": 19.62,
+   "needs_romanize": true
+  },
+  {
+   "text": "किया",
+   "start": 19.62,
+   "end": 19.86,
+   "needs_romanize": true
+  },
+  {
+   "text": "था,",
+   "start": 19.86,
+   "end": 19.98,
+   "needs_romanize": true
+  },
+  {
+   "text": "इसका",
+   "start": 20.0,
+   "end": 22.0,
+   "needs_romanize": true
+  },
+  {
+   "text": "सीधा",
+   "start": 28.1,
+   "end": 30.1,
+   "needs_romanize": true
+  },
+  {
+   "text": "असर",
+   "start": 32.52,
+   "end": 32.8,
+   "needs_romanize": true
+  },
+  {
+   "text": "डॉलर",
+   "start": 32.8,
+   "end": 33.18,
+   "needs_romanize": true
+  },
+  {
+   "text": "स्ट्रॉंग",
+   "start": 33.18,
+   "end": 33.56,
+   "needs_romanize": true
+  },
+  {
+   "text": "हो",
+   "start": 33.56,
+   "end": 33.66,
+   "needs_romanize": true
+  },
+  {
+   "text": "रहे",
+   "start": 33.66,
+   "end": 33.72,
+   "needs_romanize": true
+  },
+  {
+   "text": "हैं.",
+   "start": 33.72,
+   "end": 34.08,
+   "needs_romanize": true
+  },
+  {
+   "text": "गोल",
+   "start": 34.08,
+   "end": 34.26,
+   "needs_romanize": true
+  },
+  {
+   "text": "अभी",
+   "start": 34.26,
+   "end": 34.48,
+   "needs_romanize": true
+  },
+  {
+   "text": "भी",
+   "start": 34.48,
+   "end": 34.64,
+   "needs_romanize": true
+  },
+  {
+   "text": "प्रेशर",
+   "start": 34.64,
+   "end": 35.06,
+   "needs_romanize": true
+  },
+  {
+   "text": "में",
+   "start": 35.06,
+   "end": 35.22,
+   "needs_romanize": true
+  },
+  {
+   "text": "है",
+   "start": 35.22,
+   "end": 35.32,
+   "needs_romanize": true
+  },
+  {
+   "text": "और",
+   "start": 35.32,
+   "end": 36.0,
+   "needs_romanize": true
+  },
+  {
+   "text": "क्रिप्टो",
+   "start": 36.0,
+   "end": 36.34,
+   "needs_romanize": true
+  },
+  {
+   "text": "जैसे",
+   "start": 36.34,
+   "end": 36.52,
+   "needs_romanize": true
+  },
+  {
+   "text": "रिस्क",
+   "start": 36.52,
+   "end": 36.82,
+   "needs_romanize": true
+  },
+  {
+   "text": "एसेट्स",
+   "start": 36.82,
+   "end": 37.34,
+   "needs_romanize": true
+  },
+  {
+   "text": "दब",
+   "start": 37.34,
+   "end": 37.88,
+   "needs_romanize": true
+  },
+  {
+   "text": "सकते",
+   "start": 37.88,
+   "end": 38.26,
+   "needs_romanize": true
+  },
+  {
+   "text": "हैं.",
+   "start": 38.26,
+   "end": 38.36,
+   "needs_romanize": true
+  },
+  {
+   "text": "तुम",
+   "start": 38.36,
+   "end": 38.88,
+   "needs_romanize": true
+  },
+  {
+   "text": "लोग",
+   "start": 38.88,
+   "end": 39.0,
+   "needs_romanize": true
+  },
+  {
+   "text": "क्या",
+   "start": 39.0,
+   "end": 39.18,
+   "needs_romanize": true
+  },
+  {
+   "text": "सोचते",
+   "start": 39.18,
+   "end": 39.46,
+   "needs_romanize": true
+  },
+  {
+   "text": "हैं",
+   "start": 39.46,
+   "end": 39.54,
+   "needs_romanize": true
+  },
+  {
+   "text": "बारे",
+   "start": 39.54,
+   "end": 39.82,
+   "needs_romanize": true
+  },
+  {
+   "text": "में?",
+   "start": 39.82,
+   "end": 39.92,
+   "needs_romanize": true
+  },
+  {
+   "text": "Tell",
+   "start": 40.0,
+   "end": 40.16,
+   "needs_romanize": false
+  },
+  {
+   "text": "me",
+   "start": 40.16,
+   "end": 40.28,
+   "needs_romanize": false
+  },
+  {
+   "text": "in",
+   "start": 40.28,
+   "end": 40.38,
+   "needs_romanize": false
+  },
+  {
+   "text": "the",
+   "start": 40.38,
+   "end": 40.54,
+   "needs_romanize": false
+  },
+  {
+   "text": "comments.",
+   "start": 40.54,
+   "end": 41.38,
+   "needs_romanize": false
+  },
+  {
+   "text": "मिलते",
+   "start": 41.44,
+   "end": 41.66,
+   "needs_romanize": true
+  },
+  {
+   "text": "हैं",
+   "start": 41.66,
+   "end": 41.74,
+   "needs_romanize": true
+  },
+  {
+   "text": "next",
+   "start": 41.74,
+   "end": 41.98,
+   "needs_romanize": false
+  },
+  {
+   "text": "time.",
+   "start": 41.98,
+   "end": 42.7,
+   "needs_romanize": false
+  }
+ ]
+}

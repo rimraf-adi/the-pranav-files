@@ -1,5 +1,11 @@
 import React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  interpolate,
+  spring,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import type { Word } from "../schema/timeline";
 import style from "../../styles/gadzhi.json";
 
@@ -15,7 +21,9 @@ export const Captions: React.FC<{ words: Word[] }> = ({ words }) => {
   for (let i = 0; i < words.length; i += s.wordsPerPage) {
     pages.push(words.slice(i, i + s.wordsPerPage));
   }
-  const page = pages.find((p) => t >= p[0].start && t < p[p.length - 1].end + 0.15);
+  const page = pages.find(
+    (p) => t >= p[0].start && t < p[p.length - 1].end + 0.15,
+  );
   if (!page) return null;
 
   return (
@@ -43,7 +51,11 @@ export const Captions: React.FC<{ words: Word[] }> = ({ words }) => {
       >
         {page.map((w, i) => {
           const active = t >= w.start;
-          const pop = spring({ frame: frame - Math.round(w.start * fps), fps, config: { damping: 12, stiffness: 220 } });
+          const pop = spring({
+            frame: frame - Math.round(w.start * fps),
+            fps,
+            config: { damping: 12, stiffness: 220 },
+          });
           const scale = active ? interpolate(pop, [0, 1], [0.7, 1]) : 0;
           return (
             <span

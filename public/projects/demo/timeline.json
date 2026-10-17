@@ -1,0 +1,688 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "source": "projects/demo/raw/demo.mp4",
+ "segments": [
+  {
+   "from": 0.0,
+   "to": 42.26
+  }
+ ],
+ "words": [
+  {
+   "text": "trump",
+   "start": 0.0,
+   "end": 0.4,
+   "emphasis": false
+  },
+  {
+   "text": "ne",
+   "start": 0.4,
+   "end": 0.5,
+   "emphasis": false
+  },
+  {
+   "text": "apna",
+   "start": 0.5,
+   "end": 0.7,
+   "emphasis": false
+  },
+  {
+   "text": "Fedship",
+   "start": 0.7,
+   "end": 1.08,
+   "emphasis": false
+  },
+  {
+   "text": "isliye",
+   "start": 1.08,
+   "end": 1.34,
+   "emphasis": false
+  },
+  {
+   "text": "banaya",
+   "start": 1.34,
+   "end": 1.64,
+   "emphasis": false
+  },
+  {
+   "text": "tha",
+   "start": 1.64,
+   "end": 1.76,
+   "emphasis": false
+  },
+  {
+   "text": "taki",
+   "start": 1.76,
+   "end": 1.98,
+   "emphasis": false
+  },
+  {
+   "text": "rate",
+   "start": 1.98,
+   "end": 2.18,
+   "emphasis": false
+  },
+  {
+   "text": "ghate,",
+   "start": 2.18,
+   "end": 2.94,
+   "emphasis": false
+  },
+  {
+   "text": "phir",
+   "start": 2.94,
+   "end": 3.08,
+   "emphasis": false
+  },
+  {
+   "text": "bhi",
+   "start": 3.08,
+   "end": 3.22,
+   "emphasis": false
+  },
+  {
+   "text": "us",
+   "start": 3.22,
+   "end": 3.38,
+   "emphasis": false
+  },
+  {
+   "text": "bande",
+   "start": 3.38,
+   "end": 3.6,
+   "emphasis": false
+  },
+  {
+   "text": "ne",
+   "start": 3.6,
+   "end": 3.7,
+   "emphasis": false
+  },
+  {
+   "text": "rate",
+   "start": 3.7,
+   "end": 3.9,
+   "emphasis": false
+  },
+  {
+   "text": "badha",
+   "start": 3.9,
+   "end": 4.16,
+   "emphasis": false
+  },
+  {
+   "text": "diye.",
+   "start": 4.16,
+   "end": 4.62,
+   "emphasis": false
+  },
+  {
+   "text": "kal",
+   "start": 4.62,
+   "end": 4.76,
+   "emphasis": false
+  },
+  {
+   "text": "Fed",
+   "start": 4.76,
+   "end": 5.04,
+   "emphasis": false
+  },
+  {
+   "text": "ne",
+   "start": 5.04,
+   "end": 5.16,
+   "emphasis": false
+  },
+  {
+   "text": "apna",
+   "start": 5.16,
+   "end": 5.42,
+   "emphasis": false
+  },
+  {
+   "text": "interest",
+   "start": 5.42,
+   "end": 5.72,
+   "emphasis": false
+  },
+  {
+   "text": "rate",
+   "start": 5.72,
+   "end": 5.9,
+   "emphasis": false
+  },
+  {
+   "text": "3.75",
+   "start": 5.9,
+   "end": 6.68,
+   "emphasis": false
+  },
+  {
+   "text": "se",
+   "start": 6.68,
+   "end": 6.86,
+   "emphasis": false
+  },
+  {
+   "text": "4%",
+   "start": 6.86,
+   "end": 7.28,
+   "emphasis": false
+  },
+  {
+   "text": "kar",
+   "start": 7.28,
+   "end": 7.58,
+   "emphasis": false
+  },
+  {
+   "text": "diya.",
+   "start": 7.58,
+   "end": 8.04,
+   "emphasis": false
+  },
+  {
+   "text": "2013",
+   "start": 8.04,
+   "end": 8.52,
+   "emphasis": false
+  },
+  {
+   "text": "ke",
+   "start": 8.52,
+   "end": 8.78,
+   "emphasis": false
+  },
+  {
+   "text": "baad",
+   "start": 8.78,
+   "end": 8.92,
+   "emphasis": false
+  },
+  {
+   "text": "se",
+   "start": 8.92,
+   "end": 9.1,
+   "emphasis": false
+  },
+  {
+   "text": "yeh",
+   "start": 9.1,
+   "end": 9.18,
+   "emphasis": false
+  },
+  {
+   "text": "pehla",
+   "start": 9.18,
+   "end": 9.52,
+   "emphasis": false
+  },
+  {
+   "text": "hike",
+   "start": 9.52,
+   "end": 9.72,
+   "emphasis": false
+  },
+  {
+   "text": "tha.",
+   "start": 9.72,
+   "end": 10.2,
+   "emphasis": false
+  },
+  {
+   "text": "sab",
+   "start": 10.2,
+   "end": 10.42,
+   "emphasis": false
+  },
+  {
+   "text": "iske",
+   "start": 10.42,
+   "end": 10.64,
+   "emphasis": false
+  },
+  {
+   "text": "favor",
+   "start": 10.64,
+   "end": 10.96,
+   "emphasis": false
+  },
+  {
+   "text": "mein",
+   "start": 10.96,
+   "end": 11.1,
+   "emphasis": false
+  },
+  {
+   "text": "the.",
+   "start": 11.1,
+   "end": 11.46,
+   "emphasis": false
+  },
+  {
+   "text": "12",
+   "start": 11.46,
+   "end": 11.76,
+   "emphasis": false
+  },
+  {
+   "text": "to",
+   "start": 11.76,
+   "end": 11.94,
+   "emphasis": false
+  },
+  {
+   "text": "0",
+   "start": 11.94,
+   "end": 12.2,
+   "emphasis": false
+  },
+  {
+   "text": "votes",
+   "start": 12.2,
+   "end": 12.42,
+   "emphasis": false
+  },
+  {
+   "text": "se",
+   "start": 12.42,
+   "end": 12.54,
+   "emphasis": false
+  },
+  {
+   "text": "yeh",
+   "start": 12.54,
+   "end": 12.62,
+   "emphasis": false
+  },
+  {
+   "text": "paas",
+   "start": 12.62,
+   "end": 12.9,
+   "emphasis": false
+  },
+  {
+   "text": "hua.",
+   "start": 12.9,
+   "end": 13.14,
+   "emphasis": false
+  },
+  {
+   "text": "yahi",
+   "start": 13.14,
+   "end": 13.32,
+   "emphasis": false
+  },
+  {
+   "text": "banda,",
+   "start": 13.32,
+   "end": 13.8,
+   "emphasis": false
+  },
+  {
+   "text": "Kevin",
+   "start": 13.8,
+   "end": 14.1,
+   "emphasis": false
+  },
+  {
+   "text": "Walsh,",
+   "start": 14.1,
+   "end": 14.46,
+   "emphasis": false
+  },
+  {
+   "text": "isko",
+   "start": 14.46,
+   "end": 14.64,
+   "emphasis": false
+  },
+  {
+   "text": "trump",
+   "start": 14.64,
+   "end": 14.94,
+   "emphasis": false
+  },
+  {
+   "text": "ne",
+   "start": 14.94,
+   "end": 15.02,
+   "emphasis": false
+  },
+  {
+   "text": "Fedship",
+   "start": 15.02,
+   "end": 15.38,
+   "emphasis": false
+  },
+  {
+   "text": "banaya",
+   "start": 15.38,
+   "end": 15.7,
+   "emphasis": false
+  },
+  {
+   "text": "tha",
+   "start": 15.7,
+   "end": 15.84,
+   "emphasis": false
+  },
+  {
+   "text": "taki",
+   "start": 15.84,
+   "end": 16.48,
+   "emphasis": false
+  },
+  {
+   "text": "vo",
+   "start": 16.48,
+   "end": 16.6,
+   "emphasis": false
+  },
+  {
+   "text": "interest",
+   "start": 16.6,
+   "end": 16.94,
+   "emphasis": false
+  },
+  {
+   "text": "rate",
+   "start": 16.94,
+   "end": 17.12,
+   "emphasis": false
+  },
+  {
+   "text": "k",
+   "start": 17.12,
+   "end": 29.98,
+   "emphasis": false
+  },
+  {
+   "text": "Oil",
+   "start": 30.0,
+   "end": 30.12,
+   "emphasis": false
+  },
+  {
+   "text": "bhi",
+   "start": 30.12,
+   "end": 30.3,
+   "emphasis": false
+  },
+  {
+   "text": "100",
+   "start": 30.3,
+   "end": 30.54,
+   "emphasis": false
+  },
+  {
+   "text": "dollar",
+   "start": 30.54,
+   "end": 30.64,
+   "emphasis": false
+  },
+  {
+   "text": "tak",
+   "start": 30.64,
+   "end": 30.9,
+   "emphasis": false
+  },
+  {
+   "text": "pahunch",
+   "start": 30.9,
+   "end": 31.22,
+   "emphasis": false
+  },
+  {
+   "text": "chuk",
+   "start": 31.22,
+   "end": 31.38,
+   "emphasis": false
+  },
+  {
+   "text": "hai,",
+   "start": 31.38,
+   "end": 31.94,
+   "emphasis": false
+  },
+  {
+   "text": "iska",
+   "start": 31.94,
+   "end": 32.2,
+   "emphasis": false
+  },
+  {
+   "text": "seedha",
+   "start": 32.2,
+   "end": 32.54,
+   "emphasis": false
+  },
+  {
+   "text": "asar",
+   "start": 32.54,
+   "end": 32.82,
+   "emphasis": false
+  },
+  {
+   "text": "dollar",
+   "start": 32.82,
+   "end": 33.18,
+   "emphasis": false
+  },
+  {
+   "text": "strong",
+   "start": 33.18,
+   "end": 33.56,
+   "emphasis": false
+  },
+  {
+   "text": "ho",
+   "start": 33.56,
+   "end": 33.66,
+   "emphasis": false
+  },
+  {
+   "text": "raha",
+   "start": 33.66,
+   "end": 33.74,
+   "emphasis": false
+  },
+  {
+   "text": "hai,",
+   "start": 33.74,
+   "end": 34.12,
+   "emphasis": false
+  },
+  {
+   "text": "gold",
+   "start": 34.12,
+   "end": 34.3,
+   "emphasis": false
+  },
+  {
+   "text": "abhi",
+   "start": 34.3,
+   "end": 34.48,
+   "emphasis": false
+  },
+  {
+   "text": "bhi",
+   "start": 34.48,
+   "end": 34.64,
+   "emphasis": false
+  },
+  {
+   "text": "pressure",
+   "start": 34.64,
+   "end": 35.06,
+   "emphasis": false
+  },
+  {
+   "text": "mein",
+   "start": 35.06,
+   "end": 35.22,
+   "emphasis": false
+  },
+  {
+   "text": "hai,",
+   "start": 35.22,
+   "end": 35.84,
+   "emphasis": false
+  },
+  {
+   "text": "aur",
+   "start": 35.84,
+   "end": 36.0,
+   "emphasis": false
+  },
+  {
+   "text": "crypto",
+   "start": 36.0,
+   "end": 36.34,
+   "emphasis": false
+  },
+  {
+   "text": "jaise",
+   "start": 36.34,
+   "end": 36.54,
+   "emphasis": false
+  },
+  {
+   "text": "risk",
+   "start": 36.54,
+   "end": 36.82,
+   "emphasis": false
+  },
+  {
+   "text": "assets",
+   "start": 36.82,
+   "end": 37.34,
+   "emphasis": false
+  },
+  {
+   "text": "dab",
+   "start": 37.34,
+   "end": 37.88,
+   "emphasis": false
+  },
+  {
+   "text": "sakte",
+   "start": 37.88,
+   "end": 38.26,
+   "emphasis": false
+  },
+  {
+   "text": "hain.",
+   "start": 38.26,
+   "end": 38.46,
+   "emphasis": false
+  },
+  {
+   "text": "tum",
+   "start": 38.46,
+   "end": 38.88,
+   "emphasis": false
+  },
+  {
+   "text": "log",
+   "start": 38.88,
+   "end": 39.0,
+   "emphasis": false
+  },
+  {
+   "text": "kya",
+   "start": 39.0,
+   "end": 39.18,
+   "emphasis": false
+  },
+  {
+   "text": "sochte",
+   "start": 39.18,
+   "end": 39.46,
+   "emphasis": false
+  },
+  {
+   "text": "hain",
+   "start": 39.46,
+   "end": 39.54,
+   "emphasis": false
+  },
+  {
+   "text": "bare",
+   "start": 39.54,
+   "end": 39.78,
+   "emphasis": false
+  },
+  {
+   "text": "mein,",
+   "start": 39.78,
+   "end": 40.02,
+   "emphasis": false
+  },
+  {
+   "text": "tell",
+   "start": 40.02,
+   "end": 40.18,
+   "emphasis": false
+  },
+  {
+   "text": "me",
+   "start": 40.18,
+   "end": 40.28,
+   "emphasis": false
+  },
+  {
+   "text": "in",
+   "start": 40.28,
+   "end": 40.38,
+   "emphasis": false
+  },
+  {
+   "text": "the",
+   "start": 40.38,
+   "end": 40.52,
+   "emphasis": false
+  },
+  {
+   "text": "comments.",
+   "start": 40.52,
+   "end": 41.38,
+   "emphasis": false
+  },
+  {
+   "text": "milte",
+   "start": 41.38,
+   "end": 41.62,
+   "emphasis": false
+  },
+  {
+   "text": "hain",
+   "start": 41.62,
+   "end": 41.76,
+   "emphasis": false
+  },
+  {
+   "text": "next",
+   "start": 41.76,
+   "end": 41.98,
+   "emphasis": false
+  },
+  {
+   "text": "time.",
+   "start": 41.98,
+   "end": 42.18,
+   "emphasis": false
+  }
+ ],
+ "punchIns": [
+  {
+   "at": 0.0,
+   "duration": 1.2,
+   "scale": 1.12
+  }
+ ],
+ "style": "gadzhi"
+}

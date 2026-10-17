@@ -1,10 +1,21 @@
 import React from "react";
-import { AbsoluteFill, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  Sequence,
+  interpolate,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { Video } from "@remotion/media";
 import type { Timeline } from "../schema/timeline";
 import { Captions } from "./Captions";
+import { BrollItem } from "./Broll";
 
-const PunchLayer: React.FC<{ punchIns: Timeline["punchIns"]; children: React.ReactNode }> = ({ punchIns, children }) => {
+const PunchLayer: React.FC<{
+  punchIns: Timeline["punchIns"];
+  children: React.ReactNode;
+}> = ({ punchIns, children }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const t = frame / fps;
@@ -16,7 +27,11 @@ const PunchLayer: React.FC<{ punchIns: Timeline["punchIns"]; children: React.Rea
       scale = interpolate(k, [0, 0.15, 0.85, 1], [1, p.scale, p.scale, 1]);
     }
   }
-  return <AbsoluteFill style={{ transform: `scale(${scale})` }}>{children}</AbsoluteFill>;
+  return (
+    <AbsoluteFill style={{ transform: `scale(${scale})` }}>
+      {children}
+    </AbsoluteFill>
+  );
 };
 
 export const Reel: React.FC<Timeline> = (tl) => {
@@ -42,6 +57,15 @@ export const Reel: React.FC<Timeline> = (tl) => {
           );
         })}
       </PunchLayer>
+      {tl.broll.map((b) => (
+        <Sequence
+          key={b.id}
+          from={Math.round(b.at * fps)}
+          durationInFrames={Math.round(b.duration * fps)}
+        >
+          <BrollItem item={b} />
+        </Sequence>
+      ))}
       <Captions words={tl.words} />
     </AbsoluteFill>
   );

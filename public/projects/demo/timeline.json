@@ -188,7 +188,7 @@
    "text": "3.75",
    "start": 5.94,
    "end": 6.7,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "se",
@@ -200,7 +200,7 @@
    "text": "4%",
    "start": 6.86,
    "end": 7.3,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "kar",
@@ -218,7 +218,7 @@
    "text": "2013",
    "start": 8.08,
    "end": 8.54,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "ke",
@@ -254,7 +254,7 @@
    "text": "hike",
    "start": 9.52,
    "end": 9.72,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "tha.",
@@ -275,7 +275,7 @@
    "emphasis": false
   },
   {
-   "text": "favor",
+   "text": "fevar",
    "start": 10.68,
    "end": 10.98,
    "emphasis": false
@@ -296,7 +296,7 @@
    "text": "12-0",
    "start": 11.5,
    "end": 12.12,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "vote",
@@ -480,8 +480,38 @@
   },
   {
    "text": "iske",
-   "start": 23.101,
-   "end": 23.431,
+   "start": 20.0,
+   "end": 21.771,
+   "emphasis": false
+  },
+  {
+   "text": "kal",
+   "start": 21.831,
+   "end": 22.051,
+   "emphasis": false
+  },
+  {
+   "text": "usne",
+   "start": 22.051,
+   "end": 22.351,
+   "emphasis": false
+  },
+  {
+   "text": "wahi",
+   "start": 22.351,
+   "end": 22.611,
+   "emphasis": false
+  },
+  {
+   "text": "kiya,",
+   "start": 22.611,
+   "end": 23.211,
+   "emphasis": false
+  },
+  {
+   "text": "iske",
+   "start": 23.211,
+   "end": 23.451,
    "emphasis": false
   },
   {
@@ -512,7 +542,7 @@
    "text": "3.7",
    "start": 24.711,
    "end": 25.251,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "par",
@@ -554,7 +584,7 @@
    "text": "2%",
    "start": 26.711,
    "end": 27.331,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "aur",
@@ -566,7 +596,7 @@
    "text": "Iran",
    "start": 27.891,
    "end": 28.371,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "tension",
@@ -581,7 +611,7 @@
    "emphasis": false
   },
   {
-   "text": "vaze",
+   "text": "waze",
    "start": 28.871,
    "end": 29.071,
    "emphasis": false
@@ -596,7 +626,7 @@
    "text": "Oil",
    "start": 29.771,
    "end": 29.891,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "bhi",
@@ -608,7 +638,7 @@
    "text": "100",
    "start": 30.071,
    "end": 30.311,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "dollar",
@@ -734,7 +764,7 @@
    "text": "crypto",
    "start": 35.24,
    "end": 35.58,
-   "emphasis": true
+   "emphasis": false
   },
   {
    "text": "jaise",
@@ -769,12 +799,12 @@
   {
    "text": "hai.",
    "start": 37.307,
-   "end": 37.507,
+   "end": 37.495,
    "emphasis": false
   },
   {
    "text": "tum",
-   "start": 0.0,
+   "start": 37.495,
    "end": 37.716,
    "emphasis": false
   },
@@ -809,7 +839,7 @@
    "emphasis": false
   },
   {
-   "text": "baare",
+   "text": "bare",
    "start": 38.456,
    "end": 38.656,
    "emphasis": false
@@ -871,7 +901,7 @@
   {
    "text": "time.",
    "start": 40.606,
-   "end": 40.806,
+   "end": 41.226,
    "emphasis": false
   }
  ],

@@ -43,21 +43,19 @@ for w, nxt in zip(words, words[1:]):
         w["end"] = nxt["start"] - 0.02
 
 def to_out(t):
-    """source time -> output time (None if inside a cut)"""
+    """source time -> output time; a time inside a cut snaps to the cut point"""
     o = 0.0
     for f, e in keep:
-        if f <= t <= e:
+        if t < f:
+            return o
+        if t <= e:
             return o + (t - f)
         o += e - f
-    return None
+    return o
 
 out_words = []
 for w in words:
     s, e = to_out(w["start"]), to_out(w["end"])
-    if s is None:
-        s = to_out(w["start"] + 0.01) or 0.0
-    if e is None:
-        e = s + 0.2
     out_words.append({"text": w["text"], "start": round(s, 3), "end": round(max(e, s + 0.05), 3),
                       "emphasis": False})
 

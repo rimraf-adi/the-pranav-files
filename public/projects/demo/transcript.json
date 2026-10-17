@@ -241,7 +241,7 @@
    "needs_romanize": false
   },
   {
-   "text": "favor",
+   "text": "fevar",
    "start": 10.68,
    "end": 10.98,
    "needs_romanize": false
@@ -451,6 +451,36 @@
    "needs_romanize": false
   },
   {
+   "text": "kal",
+   "start": 22.06,
+   "end": 22.28,
+   "needs_romanize": false
+  },
+  {
+   "text": "usne",
+   "start": 22.28,
+   "end": 22.58,
+   "needs_romanize": false
+  },
+  {
+   "text": "wahi",
+   "start": 22.58,
+   "end": 22.84,
+   "needs_romanize": false
+  },
+  {
+   "text": "kiya,",
+   "start": 22.84,
+   "end": 23.44,
+   "needs_romanize": false
+  },
+  {
+   "text": "iske",
+   "start": 23.44,
+   "end": 23.68,
+   "needs_romanize": false
+  },
+  {
    "text": "waza",
    "start": 23.68,
    "end": 23.88,
@@ -547,7 +577,7 @@
    "needs_romanize": false
   },
   {
-   "text": "vaze",
+   "text": "waze",
    "start": 29.1,
    "end": 29.3,
    "needs_romanize": false
@@ -775,7 +805,7 @@
    "needs_romanize": false
   },
   {
-   "text": "baare",
+   "text": "bare",
    "start": 39.62,
    "end": 39.82,
    "needs_romanize": false

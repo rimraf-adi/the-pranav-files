@@ -35,9 +35,9 @@ tmp = tempfile.mkdtemp()
 dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                             "-of", "default=nw=1:nk=1", a.video], capture_output=True, text=True).stdout)
 
-def transcribe_chunk(offset):
+def transcribe_chunk(offset, length=CHUNK):
     flac = os.path.join(tmp, f"a{int(offset)}.flac")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(offset), "-t", str(CHUNK),
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(offset), "-t", str(length),
                     "-i", a.video, "-vn", "-ac", "1", "-ar", "16000", flac], check=True)
     cmd = ["curl", "-sS", "-X", "POST", URL, "-H", f"Authorization: Bearer {load_key()}",
            "-F", f"file=@{flac}", "-F", f"model={a.model}", "-F", f"language={a.lang}",
@@ -48,15 +48,33 @@ def transcribe_chunk(offset):
         sys.exit(f"Groq error: {res['error']}")
     return res.get("words", [])
 
+def collect(off, length):
+    out = []
+    for w in transcribe_chunk(off, length):
+        start = off + w["start"]
+        end = min(off + w["end"], start + 2.0)  # clamp stretched timestamps
+        out.append({"text": w["word"].strip(), "start": round(start, 3), "end": round(end, 3),
+                    "needs_romanize": bool(DEVANAGARI.search(w["word"]))})
+    return out
+
 words = []
 off = 0.0
 while off < dur - 0.2:
-    for w in transcribe_chunk(off):
-        start = off + w["start"]
-        end = min(off + w["end"], start + 2.0)  # clamp stretched timestamps
-        words.append({"text": w["word"].strip(), "start": round(start, 3), "end": round(end, 3),
-                      "needs_romanize": bool(DEVANAGARI.search(w["word"]))})
+    words += collect(off, CHUNK)
     off += CHUNK
+
+# Whisper sometimes drops the first seconds of a window. Re-run any hole >1.5s on its own.
+words.sort(key=lambda w: w["start"])
+filled = []
+for p_, n_ in zip(words, words[1:]):
+    if n_["start"] - p_["end"] > 1.5:
+        lo = max(0.0, p_["end"] - 0.3)
+        length = min(10.0, n_["start"] - lo + 0.6)
+        for w in collect(lo, length):
+            if p_["end"] - 0.05 <= w["start"] < n_["start"] - 0.05:
+                filled.append(w)
+words = sorted(words + filled, key=lambda w: w["start"])
+print(f"hole-fill added {len(filled)} words")
 
 # sanity: report any hole in the speech so it's never silent
 for p, n in zip(words, words[1:]):

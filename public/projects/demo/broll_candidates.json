@@ -1,0 +1,8 @@
+{"broll": [
+ {"id":"rate","kind":"stat","at":5.7,"duration":2.2,"label":"Fed interest rate","from":3.75,"to":4.0,"suffix":"%","decimals":2},
+ {"id":"y2013","kind":"keyword","at":8.1,"duration":1.6,"text":"2013","sub":"First hike since"},
+ {"id":"vote","kind":"keyword","at":11.4,"duration":1.6,"text":"12 - 0","sub":"Unanimous vote"},
+ {"id":"infl","kind":"keyword","at":23.6,"duration":3.2,"text":"3.7%","sub":"Inflation vs 2% target"},
+ {"id":"oil","kind":"keyword","at":29.7,"duration":2.0,"text":"$100","sub":"Oil · Iran tension"},
+ {"id":"crypto","kind":"keyword","at":35.1,"duration":1.9,"text":"Crypto","sub":"Risk assets under pressure"}
+]}

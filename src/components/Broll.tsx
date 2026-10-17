@@ -40,7 +40,24 @@ const Frame: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         padding: 80,
       }}
     >
+      <AbsoluteFill
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "90px 90px",
+        }}
+      />
       {children}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "28%",
+          height: 14,
+          borderRadius: 7,
+          background: ACCENT,
+          width: `${interpolate(frame, [4, 22], [0, 520], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })}px`,
+        }}
+      />
     </AbsoluteFill>
   );
 };
@@ -69,12 +86,13 @@ const Stat: React.FC<Extract<Broll, { kind: "stat" }>> = (p) => {
       </div>
       <div
         style={{
-          fontSize: 260,
+          fontSize: 220,
           lineHeight: 1.1,
           color: ACCENT,
           transform: `scale(${0.8 + 0.2 * pop})`,
         }}
       >
+        {p.to > p.from ? "▲ " : p.to < p.from ? "▼ " : ""}
         {p.prefix}
         {v.toFixed(p.decimals)}
         {p.suffix}

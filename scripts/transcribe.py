@@ -30,7 +30,7 @@ ap.add_argument("video"); ap.add_argument("out")
 ap.add_argument("--model", default="whisper-large-v3"); ap.add_argument("--lang", default="hi")
 a = ap.parse_args()
 
-CHUNK = 20  # seconds; long single calls let Whisper silently drop stretches of speech
+CHUNK = 10  # seconds; longer calls let Whisper silently drop stretches of speech
 tmp = tempfile.mkdtemp()
 dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
                             "-of", "default=nw=1:nk=1", a.video], capture_output=True, text=True).stdout)

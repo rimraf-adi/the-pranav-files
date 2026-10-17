@@ -1,30 +1,33 @@
 import { Composition } from "remotion";
-import { Reel } from "./components/Reel";
 import { z } from "zod";
 import { BrollItem } from "./components/Broll";
+import { Reel } from "./components/Reel";
+import { TitleView } from "./components/TitleStack";
 import {
   broll,
   timeline,
+  title,
   totalSeconds,
   type Timeline,
 } from "./schema/timeline";
 
 // Placeholder props so Studio opens; real renders pass --props=public/projects/<name>/timeline.json
 const defaults: Timeline = timeline.parse({
-  source: "projects/demo/raw/clip.mp4",
+  source: "projects/demo/raw/demo.mp4",
   segments: [{ from: 0, to: 5 }],
 });
 
-const previewSchema = z.object({ item: broll });
+const brollPreview = z.object({ item: broll });
+const titlePreview = z.object({ title });
 
 export const RemotionRoot: React.FC = () => (
   <>
     <Composition
       id="BrollPreview"
-      component={({ item }: z.infer<typeof previewSchema>) => (
+      component={({ item }: z.infer<typeof brollPreview>) => (
         <BrollItem item={item} />
       )}
-      schema={previewSchema}
+      schema={brollPreview}
       defaultProps={{
         item: broll.parse({
           id: "demo",
@@ -40,6 +43,32 @@ export const RemotionRoot: React.FC = () => (
       durationInFrames={60}
       calculateMetadata={({ props }) => ({
         durationInFrames: Math.round(props.item.duration * 30),
+      })}
+    />
+    <Composition
+      id="TitlePreview"
+      component={({ title: t }: z.infer<typeof titlePreview>) => (
+        <TitleView title={t} />
+      )}
+      schema={titlePreview}
+      defaultProps={{
+        title: title.parse({
+          id: "demo",
+          at: 0,
+          tone: "attention",
+          lines: [
+            { text: "100", level: "primary" },
+            { text: "days", level: "secondary" },
+            { text: "breakdown", level: "modifier" },
+          ],
+        }),
+      }}
+      fps={30}
+      width={1080}
+      height={1920}
+      durationInFrames={54}
+      calculateMetadata={({ props }) => ({
+        durationInFrames: Math.round(props.title.duration * 30),
       })}
     />
     <Composition

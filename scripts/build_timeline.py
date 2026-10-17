@@ -4,7 +4,7 @@
 usage: build_timeline.py <project_dir> <source_rel_to_public> [--gap 0.35] [--pad 0.08]
 Cuts come from REAL audio silence (ffmpeg silencedetect), not word gaps, because
 ASR word timestamps can be wrong and would cut speech. Deterministic: no LLM here.
-Preserves any existing broll/emphasis in timeline.json only if --keep is passed.
+With --keep, existing titles/cuts/broll in timeline.json are preserved.
 """
 import argparse, json, os, re, subprocess
 
@@ -12,7 +12,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("project"); ap.add_argument("source")
 ap.add_argument("--gap", type=float, default=0.35, help="silences longer than this are cut")
 ap.add_argument("--pad", type=float, default=0.08, help="breathing room kept at each side of a cut")
-ap.add_argument("--keep", action="store_true", help="keep existing broll from timeline.json")
+ap.add_argument("--keep", action="store_true", help="keep existing titles/cuts/broll")
 a = ap.parse_args()
 
 words = json.load(open(os.path.join(a.project, "transcript.json")))["words"]
@@ -59,12 +59,7 @@ for w in words:
     out_words.append({"text": w["text"], "start": round(s, 3), "end": round(max(e, s + 0.05), 3),
                       "emphasis": False})
 
-# seed punch-ins ~every 5s at the start of each kept segment
-punch, last, o = [], -99, 0.0
-for f, e in keep:
-    if o - last >= 5:
-        punch.append({"at": round(o, 2), "duration": 1.2, "scale": 1.12}); last = o
-    o += e - f
+o = sum(e - f for f, e in keep)
 
 prev = {}
 tp = os.path.join(a.project, "timeline.json")
@@ -72,7 +67,8 @@ if a.keep and os.path.exists(tp):
     prev = json.load(open(tp))
 json.dump({"fps": 30, "width": 1080, "height": 1920, "source": a.source,
            "segments": [{"from": round(f, 3), "to": round(e, 3)} for f, e in keep],
-           "words": out_words, "punchIns": prev.get("punchIns", punch),
+           "words": out_words,
+           "titles": prev.get("titles", []), "cuts": prev.get("cuts", []),
            "broll": prev.get("broll", []), "style": "gadzhi"},
           open(tp, "w"), ensure_ascii=False, indent=1)
 print(f"{len(keep)} segments, {o:.1f}s output (source {dur:.1f}s), {len(cuts)} cuts")

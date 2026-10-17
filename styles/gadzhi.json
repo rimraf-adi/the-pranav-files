@@ -47,7 +47,13 @@
       },
       "wash": {
         "fadeInSec": 0.2,
-        "darken": 0.55
+        "darken": 0.55,
+        "colors": {
+          "attention": "#7a0000",
+          "positive": "#001f08",
+          "process": "#00343a",
+          "neutral": "#0b0b0f"
+        }
       },
       "anim": {
         "lineBlurInSec": 0.25,
@@ -61,7 +67,12 @@
         "exitSec": 0.12
       },
       "everySec": 2.5,
-      "maxOnScreenSec": 2.0
+      "maxOnScreenSec": 2.0,
+      "sizes": {
+        "primary": 250,
+        "secondary": 175,
+        "modifier": 54
+      }
     },
     "captions": {
       "font": "Montserrat",

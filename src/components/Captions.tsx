@@ -1,78 +1,75 @@
 import React from "react";
-import {
-  AbsoluteFill,
-  interpolate,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Word } from "../schema/timeline";
+import { fontFamily } from "./common";
 import style from "../../styles/gadzhi.json";
 
-const s = style.captions;
+const c = style.reference.captions;
+type Chunk = { text: string; start: number; end: number };
+
+// 1-3 short words per chunk; break on pauses and sentence punctuation.
+export const chunkWords = (words: Word[]): Chunk[] => {
+  const out: Chunk[] = [];
+  let cur: Word[] = [];
+  const flush = () => {
+    if (!cur.length) return;
+    out.push({
+      text: cur
+        .map((w) => w.text.replace(/[.,?!]+$/g, ""))
+        .join(" ")
+        .toLowerCase(),
+      start: cur[0].start,
+      end: cur[cur.length - 1].end,
+    });
+    cur = [];
+  };
+  for (const w of words) {
+    const prev = cur[cur.length - 1];
+    const chars = cur.reduce((s, x) => s + x.text.length, 0) + w.text.length;
+    if (
+      prev &&
+      (w.start - prev.end > 0.35 ||
+        cur.length >= 3 ||
+        chars > 14 ||
+        /[.?!]$/.test(prev.text))
+    )
+      flush();
+    cur.push(w);
+    if (/[.?!]$/.test(w.text)) flush();
+  }
+  flush();
+  return out;
+};
 
 export const Captions: React.FC<{ words: Word[] }> = ({ words }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, width } = useVideoConfig();
   const t = frame / fps;
-
-  // group into pages of N words
-  const pages: Word[][] = [];
-  for (let i = 0; i < words.length; i += s.wordsPerPage) {
-    pages.push(words.slice(i, i + s.wordsPerPage));
-  }
-  const page = pages.find(
-    (p) => t >= p[0].start && t < p[p.length - 1].end + 0.15,
+  const chunks = React.useMemo(() => chunkWords(words), [words]);
+  const i = chunks.findIndex(
+    (ch, k) =>
+      t >= ch.start && t < Math.max(ch.end + 0.12, chunks[k + 1]?.start ?? 0),
   );
-  if (!page) return null;
-
+  if (i < 0) return null;
   return (
-    <AbsoluteFill
-      style={{
-        justifyContent: "flex-end",
-        alignItems: "center",
-        paddingBottom: `${s.bottomPercent}%`,
-      }}
-    >
+    <AbsoluteFill>
       <div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "0 24px",
-          maxWidth: "88%",
-          fontFamily: `${style.font}, Arial Black, sans-serif`,
-          fontWeight: 900,
-          fontSize: s.fontSize,
-          lineHeight: 1.1,
+          position: "absolute",
+          top: `${c.topPercent}%`,
+          left: 0,
+          right: 0,
           textAlign: "center",
-          textTransform: s.uppercase ? "uppercase" : "none",
+          fontFamily,
+          fontStyle: "italic",
+          fontWeight: c.weight,
+          fontSize: (width * c.fontPercentOfWidth) / 100,
+          color: c.color,
+          textShadow: c.shadow,
+          letterSpacing: 0.5,
         }}
       >
-        {page.map((w, i) => {
-          const active = t >= w.start;
-          const pop = spring({
-            frame: frame - Math.round(w.start * fps),
-            fps,
-            config: { damping: 12, stiffness: 220 },
-          });
-          const scale = active ? interpolate(pop, [0, 1], [0.7, 1]) : 0;
-          return (
-            <span
-              key={`${w.start}-${i}`}
-              style={{
-                display: "inline-block",
-                transform: `scale(${scale})`,
-                opacity: active ? 1 : 0,
-                color: w.emphasis ? s.emphasisColor : s.color,
-                WebkitTextStroke: `${s.strokeWidth}px ${s.strokeColor}`,
-                paintOrder: "stroke fill",
-              }}
-            >
-              {w.text}
-            </span>
-          );
-        })}
+        {chunks[i].text}
       </div>
     </AbsoluteFill>
   );

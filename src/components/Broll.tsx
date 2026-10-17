@@ -2,228 +2,122 @@ import React from "react";
 import {
   AbsoluteFill,
   Easing,
+  Img,
   interpolate,
-  spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
 import type { Broll } from "../schema/timeline";
-import style from "../../styles/gadzhi.json";
+import { BlurText, Wash, clamp, fitSize, toneColor } from "./common";
+import { FilmDust } from "./Effects";
 
-const font = `${style.font}, Arial Black, sans-serif`;
-const ACCENT = style.captions.emphasisColor;
-const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+const MAXW = 864;
 
-const Corner: React.FC<{ pos: React.CSSProperties; rot: number }> = ({
-  pos,
-  rot,
-}) => {
-  const frame = useCurrentFrame();
-  const s = interpolate(frame, [0, 10], [0.4, 1], {
-    ...clamp,
-    easing: Easing.out(Easing.back(2)),
-  });
-  return (
-    <div
-      style={{
-        position: "absolute",
-        width: 90,
-        height: 90,
-        borderTop: `8px solid ${ACCENT}`,
-        borderLeft: `8px solid ${ACCENT}`,
-        transform: `rotate(${rot}deg) scale(${s})`,
-        opacity: 0.9,
-        ...pos,
-      }}
-    />
-  );
-};
-
-const Frame: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
-  const fade = interpolate(
-    frame,
-    [0, 5, durationInFrames - 5, durationInFrames],
-    [0, 1, 1, 0],
-    clamp,
-  );
-  const glowX = 50 + Math.sin(frame / 22) * 14;
-  const glowY = 42 + Math.cos(frame / 30) * 6;
-  const drift = frame * 0.8;
-  return (
-    <AbsoluteFill
-      style={{
-        opacity: fade,
-        backgroundColor: "#07070a",
-        justifyContent: "center",
-        alignItems: "center",
-        fontFamily: font,
-        fontWeight: 900,
-        color: "white",
-        textAlign: "center",
-      }}
-    >
-      <AbsoluteFill
-        style={{
-          background: `radial-gradient(circle at ${glowX}% ${glowY}%, ${ACCENT}40 0%, ${ACCENT}00 52%)`,
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)",
-          backgroundSize: "90px 90px",
-          backgroundPosition: `${drift}px ${drift}px`,
-          WebkitMaskImage:
-            "radial-gradient(circle at 50% 45%, black 0%, transparent 70%)",
-        }}
-      />
-      <Corner pos={{ top: 110, left: 70 }} rot={0} />
-      <Corner pos={{ top: 110, right: 70 }} rot={90} />
-      <Corner pos={{ bottom: 110, right: 70 }} rot={180} />
-      <Corner pos={{ bottom: 110, left: 70 }} rot={270} />
-      {children}
-    </AbsoluteFill>
-  );
-};
-
-const Sub: React.FC<{ text: string; delay?: number }> = ({
-  text,
-  delay = 10,
-}) => {
-  const frame = useCurrentFrame();
-  const o = interpolate(frame, [delay, delay + 8], [0, 1], clamp);
-  const y = interpolate(frame, [delay, delay + 8], [24, 0], {
-    ...clamp,
-    easing: Easing.out(Easing.cubic),
-  });
-  if (!text) return null;
-  return (
-    <div
-      style={{
-        marginTop: 56,
-        fontSize: 52,
-        letterSpacing: 5,
-        textTransform: "uppercase",
-        opacity: o * 0.9,
-        transform: `translateY(${y}px)`,
-      }}
-    >
-      {text}
-    </div>
-  );
-};
+const Card: React.FC<{ tone: Broll["tone"]; children: React.ReactNode }> = ({
+  tone,
+  children,
+}) => (
+  <AbsoluteFill
+    style={{
+      backgroundColor: "#050507",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "column",
+      gap: 28,
+    }}
+  >
+    <Wash tone={tone} height={100} strength={0.85} />
+    <FilmDust />
+    {children}
+  </AbsoluteFill>
+);
 
 const Stat: React.FC<Extract<Broll, { kind: "stat" }>> = (p) => {
   const frame = useCurrentFrame();
-  const { fps, durationInFrames } = useVideoConfig();
+  const { durationInFrames } = useVideoConfig();
   const k = interpolate(frame, [8, durationInFrames * 0.65], [0, 1], {
     ...clamp,
     easing: Easing.out(Easing.cubic),
   });
   const v = p.from + (p.to - p.from) * k;
-  const pop = spring({ frame, fps, config: { damping: 11, stiffness: 160 } });
-  const R = 290;
-  const C = 2 * Math.PI * R;
   const arrow = p.to > p.from ? "▲" : p.to < p.from ? "▼" : "";
+  const num = `${p.prefix}${v.toFixed(p.decimals)}${p.suffix}`;
+  const full = `${p.prefix}${p.to.toFixed(p.decimals)}${p.suffix}`;
   return (
-    <Frame>
-      <div
-        style={{
-          position: "relative",
-          width: 720,
-          height: 720,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          transform: `scale(${0.85 + 0.15 * pop})`,
-        }}
-      >
-        <svg
-          width={720}
-          height={720}
-          style={{ position: "absolute", transform: "rotate(-90deg)" }}
-        >
-          <circle
-            cx={360}
-            cy={360}
-            r={R}
-            fill="none"
-            stroke="rgba(255,255,255,0.1)"
-            strokeWidth={22}
-          />
-          <circle
-            cx={360}
-            cy={360}
-            r={R}
-            fill="none"
-            stroke={ACCENT}
-            strokeWidth={22}
-            strokeLinecap="round"
-            strokeDasharray={C}
-            strokeDashoffset={C * (1 - k * 0.85)}
-          />
-        </svg>
-        <div style={{ fontSize: 64, color: ACCENT, lineHeight: 1 }}>
-          {arrow}
-        </div>
-        <div style={{ fontSize: 150, lineHeight: 1.15, color: "white" }}>
-          {p.prefix}
-          {v.toFixed(p.decimals)}
-          {p.suffix}
-        </div>
-      </div>
-      <Sub text={p.label} />
-    </Frame>
+    <Card tone={p.tone}>
+      <BlurText
+        text={p.label}
+        size={fitSize(p.label, 60, MAXW)}
+        color="#ffffff"
+        seed={`${p.id}-l`}
+      />
+      <BlurText
+        text={`${arrow ? arrow + " " : ""}${num}`}
+        size={fitSize(`${arrow} ${full}`, 260, MAXW)}
+        color={toneColor(p.tone)}
+        delaySec={0.12}
+        seed={`${p.id}-n`}
+      />
+    </Card>
   );
 };
 
-const Keyword: React.FC<Extract<Broll, { kind: "keyword" }>> = (p) => {
+const Keyword: React.FC<Extract<Broll, { kind: "keyword" }>> = (p) => (
+  <Card tone={p.tone}>
+    <BlurText
+      text={p.text}
+      size={fitSize(p.text, 260, MAXW)}
+      color={toneColor(p.tone)}
+      seed={`${p.id}-t`}
+    />
+    {p.sub ? (
+      <BlurText
+        text={p.sub}
+        size={fitSize(p.sub, 64, MAXW)}
+        color="#ffffff"
+        delaySec={0.2}
+        seed={`${p.id}-s`}
+      />
+    ) : null}
+  </Card>
+);
+
+const Photo: React.FC<Extract<Broll, { kind: "image" }>> = (p) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const slam = spring({ frame, fps, config: { damping: 9, stiffness: 240 } });
-  const wipe = interpolate(frame, [0, 9], [0, 1], {
-    ...clamp,
-    easing: Easing.out(Easing.cubic),
-  });
+  const { durationInFrames } = useVideoConfig();
+  const zoom = interpolate(frame, [0, durationInFrames], [1, 1.1], clamp);
   return (
-    <Frame>
-      <div
-        style={{
-          position: "relative",
-          display: "inline-block",
-          padding: "10px 44px",
-          transform: `scale(${interpolate(slam, [0, 1], [1.8, 1])}) rotate(-2deg)`,
-        }}
-      >
-        <div
+    <AbsoluteFill style={{ backgroundColor: "#000" }}>
+      <AbsoluteFill style={{ transform: `scale(${zoom})` }}>
+        <Img
+          src={staticFile(p.src)}
           style={{
-            position: "absolute",
-            inset: 0,
-            background: ACCENT,
-            borderRadius: 14,
-            transform: `scaleX(${wipe})`,
-            transformOrigin: "left center",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "contrast(1.1) brightness(0.85) saturate(1.05)",
           }}
         />
-        <span
-          style={{
-            position: "relative",
-            fontSize: p.text.length > 8 ? 150 : 200,
-            lineHeight: 1.1,
-            textTransform: "uppercase",
-            color: "#0a0a0a",
-          }}
-        >
-          {p.text}
-        </span>
-      </div>
-      <Sub text={p.sub} />
-    </Frame>
+      </AbsoluteFill>
+      <Wash tone={p.tone} height={55} strength={0.9} />
+      <FilmDust />
+      {p.label ? (
+        <div style={{ position: "absolute", top: "4%", left: 0, right: 0 }}>
+          <BlurText
+            text={p.label}
+            size={fitSize(p.label, 170, MAXW)}
+            color={toneColor(p.tone)}
+            seed={`${p.id}-p`}
+          />
+        </div>
+      ) : null}
+    </AbsoluteFill>
   );
 };
 
-export const BrollItem: React.FC<{ item: Broll }> = ({ item }) =>
-  item.kind === "stat" ? <Stat {...item} /> : <Keyword {...item} />;
+export const BrollItem: React.FC<{ item: Broll }> = ({ item }) => {
+  if (item.kind === "stat") return <Stat {...item} />;
+  if (item.kind === "keyword") return <Keyword {...item} />;
+  return <Photo {...item} />;
+};

@@ -9,3 +9,7 @@ out
 out/
 public/projects/*/raw/
 .venv*/
+.claude/skills/
+.agents/skills/
+.agent/skills/
+public/renders/

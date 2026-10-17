@@ -12,9 +12,11 @@
     "bottomPercent": 30
   },
   "punchIn": {
-    "everySecondsMin": 4,
-    "everySecondsMax": 7,
-    "scale": 1.12
+    "enabled": false,
+    "everySecondsMin": 8,
+    "everySecondsMax": 14,
+    "scale": 1.03,
+    "note": "Zooms were too aggressive. Off by default; if enabled keep scale <= 1.04 and only on emphasis words."
   },
   "loudnessLUFS": -14,
   "reference": {
@@ -105,12 +107,73 @@
       }
     },
     "motion": {
-      "pushInPercentPerShot": 6,
-      "confidence": "inferred"
+      "pushInPercentPerShot": 2,
+      "punchyZooms": false,
+      "confidence": "inferred",
+      "note": "slow continuous push-in per shot only; no jump zooms"
     },
     "audio": {
       "meanDb": -20.8,
       "peakDb": -0.2
+    },
+    "layouts": {
+      "source": "second reference clip (snapgram), inferred from contact sheet",
+      "fullSpeaker": {
+        "bg": "natural or treated (see base_bg.mp4)"
+      },
+      "fullBroll": {},
+      "splitBrollTop": {
+        "brollHeightPercent": 50,
+        "speakerHeightPercent": 50,
+        "captionOnSeam": true
+      },
+      "productCard": {
+        "bg": "flat maroon gradient #5c1a2e",
+        "content": "logo or phone mockup centered",
+        "captionAbove": true
+      },
+      "introTitle": {
+        "smallWord": "white",
+        "bigWord": "cyan #6FB7FF, bold, over speaker upper area, blur-in"
+      },
+      "logoCard": {
+        "font": "serif",
+        "letterSpacing": "wide"
+      }
+    },
+    "captionVariants": {
+      "singleWordLowercase": {
+        "font": "sans",
+        "weight": 400,
+        "color": "#FFFFFF",
+        "stroke": 0,
+        "fontPercentOfWidth": 4.5,
+        "topPercent": 68,
+        "wordsPerChunk": 1
+      },
+      "emphasisWord": {
+        "font": "sans",
+        "weight": 800,
+        "color": "#FFFFFF",
+        "lowercase": true,
+        "fontPercentOfWidth": 20,
+        "topPercent": 62,
+        "modifierSmallAbove": true
+      }
+    },
+    "backgroundTreatment": {
+      "script": "scripts/treat_bg.py",
+      "outputs": [
+        "matte.mp4",
+        "base_bg.mp4"
+      ],
+      "defaults": {
+        "blur": 20,
+        "dim": 0.35,
+        "vignette": 0.35,
+        "shrink": 2
+      },
+      "optional": true
     }
   }
 }

@@ -12,6 +12,7 @@ This Remotion repo acts as a video editor. You edit **data**; Remotion renders i
 - Secrets live in `.env` (gitignored). Never print or commit them.
 
 ## Skills
+Start with `skills/motion-editor/SKILL.md` (root router). Make skills discoverable by Claude Code / Codex / Antigravity with `python scripts/link_skills.py`.
 Playbooks are in `skills/<name>/SKILL.md`. Read the relevant one before acting:
 - `skills/edit-workflow`: ordered pipeline, raw footage to rendered reel
 - `skills/style-gadzhi`: the visual style playbook

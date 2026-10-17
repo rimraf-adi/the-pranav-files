@@ -38,6 +38,15 @@ A "missing" kind is a SEPARATE task (AGENTS.md): new `src/components/` renderer,
 `npm run lint`, then a preview. Say so, list the kind you need, and plan the beat with the closest existing kind meanwhile.
 Port motion from upstream as pure functions of the frame (see `port-hyperframes-theme` contracts: no GSAP/timers/Math.random).
 
+
+## 3b. Takeaway cards (exist now: `timeline.json -> cards`, schema in `src/cards/schema.ts`)
+Use a card for a data moment the viewer must *read*: a big number, a before/after, a 2-4 item takeaway list. Fields:
+`style` (minimal, spotlight, audit, whiteboard, editorial, academic, geom, swiss, terminal, xhs), `layout` (stack, split, pip, overlay),
+`frame`, `accentIndex`, `content {kicker, title with *highlight*, detail, data{value,label}, list[]}`. Palette: `cardPalette.themeId`.
+- A card shrinks/moves the speaker into the layout, so it is a heavy visual: max one per ~8s, 2-5s long, never next to a b-roll card.
+- Vary `style` between cards; text verbatim from the transcript; no invented numbers.
+- ALWAYS preview: `python3 scripts/preview_cards.py` (styles x palettes) and a half-scale render + contact sheet before the full render.
+
 ## 4. Pacing and restraint (user feedback: previous edits zoomed too much)
 - NO punch-in/jump zooms. Per speaker shot at most one slow push-in (<= 2-3%). Variety comes from b-roll, not camera moves.
 - B-roll covers <= 35% of runtime; one idea per card; 1.5-3.5s; >= 0.6s of face between cards; never two cards in a row of the same kind.
@@ -56,6 +65,6 @@ half-scale preview, inspect `scripts/contact_sheet.sh`. Report: beats planned, k
 assets with licenses, anything unverified.
 
 ## 7. Style variants (same raw, different looks)
-To compare looks, copy `timeline.json` to `public/projects/<name>_styles/<variant>.json`, change only `style`,
+To compare looks, copy `timeline.json` to `public/projects/<name>/variants/<variant>.json`, change only `style`,
 `captionTheme`, `source` (e.g. `base_bg.mp4` from `scripts/treat_bg.py`), `pushInPercent`, `cuts[].scale`, then render
 each with `--props=` at `--scale=0.5` and compare contact sheets. Never edit the project's real timeline for an experiment.

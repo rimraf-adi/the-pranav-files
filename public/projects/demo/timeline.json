@@ -908,7 +908,8 @@
    "lines": [
     {
      "text": "Trump's pick",
-     "level": "primary"
+     "level": "primary",
+     "icon": "projects/demo/assets/icons/bank.svg"
     },
     {
      "text": "wanted lower rates",
@@ -1065,6 +1066,16 @@
    "text": "12 - 0",
    "sub": "Unanimous vote",
    "tone": "positive"
+  },
+  {
+   "id": "fedphoto",
+   "kind": "image",
+   "at": 14.5,
+   "duration": 1.9,
+   "tone": "neutral",
+   "leak": true,
+   "src": "projects/demo/assets/photos/federal-reserve-eccles.jpg",
+   "label": "The Fed"
   },
   {
    "id": "infl",

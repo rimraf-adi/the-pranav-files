@@ -78,6 +78,22 @@ Preview before any full render and show me the contact sheet.
 Keys: put `GROQ_API_KEY` (and any asset-source keys) in `.env`; agents must never print or commit it.
 `link_skills.py` output folders (`.claude/skills`, `.agents/skills`, `.agent/skills`) are generated and gitignored; edit only `skills/`.
 
+## Platform notes
+
+| | macOS | Windows | Linux |
+|---|---|---|---|
+| Install ffmpeg | `brew install ffmpeg` | `winget install Gyan.FFmpeg` (restart the terminal) | `sudo apt install ffmpeg` (or your distro's package) |
+| Python command | `python3` | `python` or `py -3` | `python3` |
+| Link skills | `python3 scripts/link_skills.py` | `python scripts\link_skills.py --copy` (symlinks need Developer Mode or admin; re-run after editing a skill) | `python3 scripts/link_skills.py` |
+| Matte venv | `.venv-matte/bin/python` | `.venv-matte\Scripts\python.exe` | `.venv-matte/bin/python` |
+| Matte install | `python3 scripts/treat_bg.py --setup` | `python scripts\treat_bg.py --setup` | `python3 scripts/treat_bg.py --setup` (CPU torch by default; add `--cuda` for the GPU build) |
+| Google Antigravity | [download](https://antigravity.google/download) | [download](https://antigravity.google/download) (Windows 10+ 64-bit, x64 or ARM64) | [download](https://antigravity.google/download) (x64 or ARM64, glibc 2.28+, e.g. Ubuntu 20, Debian 10, Fedora 36) |
+
+Antigravity reads project skills from `.agent/skills/` (created by `link_skills.py`). Pick your platform on the official
+[download page](https://antigravity.google/download); versions and system requirements change, so check it before installing.
+Skill authoring reference: [Authoring Google Antigravity Skills](https://codelabs.developers.google.com/getting-started-with-antigravity-skills).
+Windows tip: run the Python commands from PowerShell or Git Bash; shell scripts such as `scripts/contact_sheet.sh` need Git Bash or WSL.
+
 ## Commands
 
 ```console

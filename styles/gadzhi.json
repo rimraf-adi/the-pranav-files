@@ -1,0 +1,16 @@
+{
+  "name": "gadzhi",
+  "font": "Montserrat",
+  "captions": {
+    "wordsPerPage": 3,
+    "fontSize": 96,
+    "color": "#FFFFFF",
+    "emphasisColor": "#FFD60A",
+    "strokeColor": "#000000",
+    "strokeWidth": 10,
+    "uppercase": true,
+    "bottomPercent": 30
+  },
+  "punchIn": { "everySecondsMin": 4, "everySecondsMax": 7, "scale": 1.12 },
+  "loudnessLUFS": -14
+}

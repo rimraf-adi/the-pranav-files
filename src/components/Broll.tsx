@@ -9,8 +9,10 @@ import {
   useVideoConfig,
 } from "remotion";
 import type { Broll } from "../schema/timeline";
-import { BlurText, Wash, clamp, fitSize, toneColor } from "./common";
+import style from "../../styles/gadzhi.json";
+import { BlurText, Wash, clamp, fitSize, fontFamily, toneColor } from "./common";
 import { FilmDust } from "./Effects";
+import { Chart, LowerThird, MapScene } from "./BrollScenes";
 
 const MAXW = 864;
 
@@ -116,8 +118,60 @@ const Photo: React.FC<Extract<Broll, { kind: "image" }>> = (p) => {
   );
 };
 
+const slice = (frame: number, total: number, n: number) => Math.min(n - 1, Math.floor((frame / total) * n));
+
+const Montage: React.FC<Extract<Broll, { kind: "montage" }>> = (p) => {
+  const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
+  const i = slice(frame, durationInFrames, p.shots.length);
+  const sliceFrames = durationInFrames / p.shots.length;
+  const local = (frame - i * sliceFrames) / sliceFrames;
+  const s = p.shots[i];
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#000" }}>
+      <AbsoluteFill style={{ transform: `scale(${1 + 0.04 * local})` }}>
+        <Img src={staticFile(s.src)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "contrast(1.08) brightness(0.88)" }} />
+      </AbsoluteFill>
+      {s.word ? (
+        <div style={{ position: "absolute", left: 0, right: 0, top: `${style.reference.scenes.montage.captionTopPercent}%`, textAlign: "center", color: "#fff", fontFamily, fontWeight: 500, fontSize: style.reference.scenes.montage.captionSizePx, textTransform: "lowercase", textShadow: "0 2px 12px rgba(0,0,0,.7)" }}>{s.word}</div>
+      ) : null}
+    </AbsoluteFill>
+  );
+};
+
+const Product: React.FC<Extract<Broll, { kind: "product" }>> = (p) => {
+  const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
+  const enter = interpolate(frame, [0, 12], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) });
+  const scroll = interpolate(frame, [0, durationInFrames], [0, 1], clamp);
+  const words = p.words ?? [];
+  const word = words.length ? words[slice(frame, durationInFrames, words.length)] : "";
+  return (
+    <AbsoluteFill style={{ background: `linear-gradient(to bottom, ${p.from ?? style.reference.scenes.product.from}, ${p.to ?? style.reference.scenes.product.to})`, justifyContent: "center", alignItems: "center" }}>
+      {word ? (
+        <div style={{ position: "absolute", top: "9%", left: 0, right: 0, textAlign: "center", color: "#fff", fontFamily, fontWeight: 500, fontSize: 60, textTransform: "lowercase" }}>{word}</div>
+      ) : null}
+      {(p.variant ?? "phone") === "phone" ? (
+        <div style={{ width: 560, height: 1140, borderRadius: 84, background: "#0b0b0d", padding: 16, boxShadow: "0 40px 90px -20px rgba(0,0,0,.7), 0 0 0 3px #2a2a30", transform: `translateY(${(1 - enter) * 80}px)`, opacity: enter }}>
+          <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 70, overflow: "hidden", background: "#fff" }}>
+            <Img src={staticFile(p.src)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", transform: `scale(1.08) translateY(${-scroll * 3}%)`, transformOrigin: "50% 0%" }} />
+            <div style={{ position: "absolute", top: 16, left: "50%", marginLeft: -80, width: 160, height: 44, borderRadius: 22, background: "#0b0b0d" }} />
+          </div>
+        </div>
+      ) : (
+        <Img src={staticFile(p.src)} style={{ width: 420, height: 420, objectFit: "contain", borderRadius: 96, boxShadow: "0 30px 70px -18px rgba(0,0,0,.65)", transform: `scale(${0.9 + 0.1 * enter})`, opacity: enter }} />
+      )}
+    </AbsoluteFill>
+  );
+};
+
 export const BrollItem: React.FC<{ item: Broll }> = ({ item }) => {
   if (item.kind === "stat") return <Stat {...item} />;
   if (item.kind === "keyword") return <Keyword {...item} />;
+  if (item.kind === "montage") return <Montage {...item} />;
+  if (item.kind === "product") return <Product {...item} />;
+  if (item.kind === "lowerThird") return <LowerThird {...item} />;
+  if (item.kind === "chart") return <Chart {...item} />;
+  if (item.kind === "map") return <MapScene {...item} />;
   return <Photo {...item} />;
 };

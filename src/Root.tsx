@@ -2,6 +2,7 @@ import { Composition } from "remotion";
 import { z } from "zod";
 import { BrollItem } from "./components/Broll";
 import { Reel } from "./components/Reel";
+import { CardPreview, cardPreviewSchema } from "./cards/CardPreview";
 import { TitleView } from "./components/TitleStack";
 import {
   broll,
@@ -70,6 +71,28 @@ export const RemotionRoot: React.FC = () => (
       calculateMetadata={({ props }) => ({
         durationInFrames: Math.round(props.title.duration * 30),
       })}
+    />
+    <Composition
+      id="CardPreview"
+      component={CardPreview}
+      schema={cardPreviewSchema}
+      defaultProps={{
+        style: "minimal",
+        palette: "noir",
+        layout: "stack",
+        frame: "clean",
+        accentIndex: 0,
+        content: {
+          kicker: "TAKEAWAY",
+          title: "Rates *fall*, EMIs follow",
+          detail: "When the repo rate drops, loan costs drop with it.",
+          tag: "",
+        },
+      }}
+      fps={30}
+      width={1080}
+      height={1920}
+      durationInFrames={150}
     />
     <Composition
       id="Reel"

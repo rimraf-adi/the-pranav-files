@@ -1,1109 +1,1133 @@
 {
- "fps": 30,
- "width": 1080,
- "height": 1920,
- "source": "projects/demo/raw/demo.mp4",
- "segments": [
-  {
-   "from": 0.0,
-   "to": 21.676
-  },
-  {
-   "from": 21.905,
-   "to": 31.662
-  },
-  {
-   "from": 31.87,
-   "to": 35.477
-  },
-  {
-   "from": 35.8,
-   "to": 37.443
-  },
-  {
-   "from": 37.637,
-   "to": 38.448
-  },
-  {
-   "from": 38.659,
-   "to": 41.056
-  },
-  {
-   "from": 41.266,
-   "to": 42.6
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "source": "projects/demo/raw/demo.mp4",
+  "segments": [
+    {
+      "from": 0.0,
+      "to": 21.676
+    },
+    {
+      "from": 21.905,
+      "to": 31.662
+    },
+    {
+      "from": 31.87,
+      "to": 35.477
+    },
+    {
+      "from": 35.8,
+      "to": 37.443
+    },
+    {
+      "from": 37.637,
+      "to": 38.448
+    },
+    {
+      "from": 38.659,
+      "to": 41.056
+    },
+    {
+      "from": 41.266,
+      "to": 42.6
+    }
+  ],
+  "words": [
+    {
+      "text": "trump",
+      "start": 0.0,
+      "end": 0.38,
+      "emphasis": false
+    },
+    {
+      "text": "ne",
+      "start": 0.38,
+      "end": 0.5,
+      "emphasis": false
+    },
+    {
+      "text": "apna",
+      "start": 0.5,
+      "end": 0.7,
+      "emphasis": false
+    },
+    {
+      "text": "Fed",
+      "start": 0.7,
+      "end": 0.92,
+      "emphasis": false
+    },
+    {
+      "text": "shift",
+      "start": 0.92,
+      "end": 1.08,
+      "emphasis": false
+    },
+    {
+      "text": "isliye",
+      "start": 1.08,
+      "end": 1.34,
+      "emphasis": false
+    },
+    {
+      "text": "banaya",
+      "start": 1.34,
+      "end": 1.64,
+      "emphasis": false
+    },
+    {
+      "text": "tha",
+      "start": 1.64,
+      "end": 1.74,
+      "emphasis": false
+    },
+    {
+      "text": "taki",
+      "start": 1.74,
+      "end": 1.98,
+      "emphasis": false
+    },
+    {
+      "text": "rate",
+      "start": 1.98,
+      "end": 2.2,
+      "emphasis": false
+    },
+    {
+      "text": "ghate,",
+      "start": 2.2,
+      "end": 2.94,
+      "emphasis": false
+    },
+    {
+      "text": "phir",
+      "start": 2.94,
+      "end": 3.1,
+      "emphasis": false
+    },
+    {
+      "text": "bhi",
+      "start": 3.1,
+      "end": 3.22,
+      "emphasis": false
+    },
+    {
+      "text": "us",
+      "start": 3.22,
+      "end": 3.38,
+      "emphasis": false
+    },
+    {
+      "text": "bande",
+      "start": 3.38,
+      "end": 3.6,
+      "emphasis": false
+    },
+    {
+      "text": "ne",
+      "start": 3.6,
+      "end": 3.7,
+      "emphasis": false
+    },
+    {
+      "text": "rate",
+      "start": 3.7,
+      "end": 3.92,
+      "emphasis": false
+    },
+    {
+      "text": "badha",
+      "start": 3.92,
+      "end": 4.18,
+      "emphasis": false
+    },
+    {
+      "text": "diye.",
+      "start": 4.18,
+      "end": 4.62,
+      "emphasis": false
+    },
+    {
+      "text": "kal",
+      "start": 4.62,
+      "end": 4.76,
+      "emphasis": false
+    },
+    {
+      "text": "Fed",
+      "start": 4.76,
+      "end": 5.04,
+      "emphasis": false
+    },
+    {
+      "text": "ne",
+      "start": 5.04,
+      "end": 5.16,
+      "emphasis": false
+    },
+    {
+      "text": "apna",
+      "start": 5.16,
+      "end": 5.42,
+      "emphasis": false
+    },
+    {
+      "text": "interest",
+      "start": 5.42,
+      "end": 5.76,
+      "emphasis": false
+    },
+    {
+      "text": "rate",
+      "start": 5.76,
+      "end": 5.94,
+      "emphasis": false
+    },
+    {
+      "text": "3.75",
+      "start": 5.94,
+      "end": 6.7,
+      "emphasis": false
+    },
+    {
+      "text": "se",
+      "start": 6.7,
+      "end": 6.86,
+      "emphasis": false
+    },
+    {
+      "text": "4%",
+      "start": 6.86,
+      "end": 7.3,
+      "emphasis": false
+    },
+    {
+      "text": "kar",
+      "start": 7.3,
+      "end": 7.58,
+      "emphasis": false
+    },
+    {
+      "text": "diya.",
+      "start": 7.58,
+      "end": 8.08,
+      "emphasis": false
+    },
+    {
+      "text": "2013",
+      "start": 8.08,
+      "end": 8.54,
+      "emphasis": false
+    },
+    {
+      "text": "ke",
+      "start": 8.54,
+      "end": 8.78,
+      "emphasis": false
+    },
+    {
+      "text": "baad",
+      "start": 8.78,
+      "end": 8.92,
+      "emphasis": false
+    },
+    {
+      "text": "se",
+      "start": 8.92,
+      "end": 9.08,
+      "emphasis": false
+    },
+    {
+      "text": "yeh",
+      "start": 9.08,
+      "end": 9.18,
+      "emphasis": false
+    },
+    {
+      "text": "pehla",
+      "start": 9.18,
+      "end": 9.52,
+      "emphasis": false
+    },
+    {
+      "text": "hike",
+      "start": 9.52,
+      "end": 9.72,
+      "emphasis": false
+    },
+    {
+      "text": "tha.",
+      "start": 9.72,
+      "end": 9.94,
+      "emphasis": false
+    },
+    {
+      "text": "sab",
+      "start": 10.0,
+      "end": 10.4,
+      "emphasis": false
+    },
+    {
+      "text": "iske",
+      "start": 10.4,
+      "end": 10.68,
+      "emphasis": false
+    },
+    {
+      "text": "fevar",
+      "start": 10.68,
+      "end": 10.98,
+      "emphasis": false
+    },
+    {
+      "text": "mein",
+      "start": 10.98,
+      "end": 11.12,
+      "emphasis": false
+    },
+    {
+      "text": "the.",
+      "start": 11.12,
+      "end": 11.5,
+      "emphasis": false
+    },
+    {
+      "text": "12-0",
+      "start": 11.5,
+      "end": 12.12,
+      "emphasis": false
+    },
+    {
+      "text": "vote",
+      "start": 12.12,
+      "end": 12.36,
+      "emphasis": false
+    },
+    {
+      "text": "se",
+      "start": 12.36,
+      "end": 12.52,
+      "emphasis": false
+    },
+    {
+      "text": "yeh",
+      "start": 12.52,
+      "end": 12.62,
+      "emphasis": false
+    },
+    {
+      "text": "paas",
+      "start": 12.62,
+      "end": 12.88,
+      "emphasis": false
+    },
+    {
+      "text": "huva.",
+      "start": 12.88,
+      "end": 13.14,
+      "emphasis": false
+    },
+    {
+      "text": "yahi",
+      "start": 13.16,
+      "end": 13.38,
+      "emphasis": false
+    },
+    {
+      "text": "banda,",
+      "start": 13.38,
+      "end": 13.8,
+      "emphasis": false
+    },
+    {
+      "text": "kevin",
+      "start": 13.8,
+      "end": 14.08,
+      "emphasis": false
+    },
+    {
+      "text": "vaach,",
+      "start": 14.08,
+      "end": 14.42,
+      "emphasis": false
+    },
+    {
+      "text": "isko",
+      "start": 14.42,
+      "end": 14.62,
+      "emphasis": false
+    },
+    {
+      "text": "tram",
+      "start": 14.62,
+      "end": 14.84,
+      "emphasis": false
+    },
+    {
+      "text": "ne",
+      "start": 14.84,
+      "end": 15.02,
+      "emphasis": false
+    },
+    {
+      "text": "fedsi",
+      "start": 15.02,
+      "end": 15.34,
+      "emphasis": false
+    },
+    {
+      "text": "banay",
+      "start": 15.34,
+      "end": 15.68,
+      "emphasis": false
+    },
+    {
+      "text": "tha,",
+      "start": 15.68,
+      "end": 16.24,
+      "emphasis": false
+    },
+    {
+      "text": "taki",
+      "start": 16.16,
+      "end": 16.44,
+      "emphasis": false
+    },
+    {
+      "text": "vo",
+      "start": 16.44,
+      "end": 16.62,
+      "emphasis": false
+    },
+    {
+      "text": "interest",
+      "start": 16.62,
+      "end": 16.94,
+      "emphasis": false
+    },
+    {
+      "text": "rate",
+      "start": 16.94,
+      "end": 17.12,
+      "emphasis": false
+    },
+    {
+      "text": "kam",
+      "start": 17.12,
+      "end": 17.3,
+      "emphasis": false
+    },
+    {
+      "text": "kar",
+      "start": 17.3,
+      "end": 17.44,
+      "emphasis": false
+    },
+    {
+      "text": "sake.",
+      "start": 17.44,
+      "end": 17.9,
+      "emphasis": false
+    },
+    {
+      "text": "lekin",
+      "start": 17.9,
+      "end": 18.38,
+      "emphasis": false
+    },
+    {
+      "text": "usne",
+      "start": 18.38,
+      "end": 18.72,
+      "emphasis": false
+    },
+    {
+      "text": "senet",
+      "start": 18.72,
+      "end": 19.1,
+      "emphasis": false
+    },
+    {
+      "text": "ko",
+      "start": 19.1,
+      "end": 19.24,
+      "emphasis": false
+    },
+    {
+      "text": "yeh",
+      "start": 19.24,
+      "end": 19.36,
+      "emphasis": false
+    },
+    {
+      "text": "wala",
+      "start": 19.36,
+      "end": 19.6,
+      "emphasis": false
+    },
+    {
+      "text": "kiya",
+      "start": 19.6,
+      "end": 19.86,
+      "emphasis": false
+    },
+    {
+      "text": "tha,",
+      "start": 19.86,
+      "end": 20.02,
+      "emphasis": false
+    },
+    {
+      "text": "kal",
+      "start": 21.831,
+      "end": 22.051,
+      "emphasis": false
+    },
+    {
+      "text": "usne",
+      "start": 22.051,
+      "end": 22.351,
+      "emphasis": false
+    },
+    {
+      "text": "wahi",
+      "start": 22.351,
+      "end": 22.611,
+      "emphasis": false
+    },
+    {
+      "text": "kiya,",
+      "start": 22.611,
+      "end": 23.211,
+      "emphasis": false
+    },
+    {
+      "text": "iske",
+      "start": 23.211,
+      "end": 23.451,
+      "emphasis": false
+    },
+    {
+      "text": "waza",
+      "start": 23.451,
+      "end": 23.651,
+      "emphasis": false
+    },
+    {
+      "text": "inflation",
+      "start": 23.651,
+      "end": 24.131,
+      "emphasis": false
+    },
+    {
+      "text": "abhi",
+      "start": 24.131,
+      "end": 24.551,
+      "emphasis": false
+    },
+    {
+      "text": "bhi",
+      "start": 24.551,
+      "end": 24.711,
+      "emphasis": false
+    },
+    {
+      "text": "3.7",
+      "start": 24.711,
+      "end": 25.251,
+      "emphasis": false
+    },
+    {
+      "text": "par",
+      "start": 25.251,
+      "end": 25.391,
+      "emphasis": false
+    },
+    {
+      "text": "atka",
+      "start": 25.391,
+      "end": 25.711,
+      "emphasis": false
+    },
+    {
+      "text": "hua",
+      "start": 25.711,
+      "end": 25.831,
+      "emphasis": false
+    },
+    {
+      "text": "hai,",
+      "start": 25.831,
+      "end": 26.211,
+      "emphasis": false
+    },
+    {
+      "text": "target",
+      "start": 26.211,
+      "end": 26.531,
+      "emphasis": false
+    },
+    {
+      "text": "hai",
+      "start": 26.531,
+      "end": 26.711,
+      "emphasis": false
+    },
+    {
+      "text": "2%",
+      "start": 26.711,
+      "end": 27.331,
+      "emphasis": false
+    },
+    {
+      "text": "aur",
+      "start": 27.331,
+      "end": 27.891,
+      "emphasis": false
+    },
+    {
+      "text": "Iran",
+      "start": 27.891,
+      "end": 28.371,
+      "emphasis": false
+    },
+    {
+      "text": "tension",
+      "start": 28.371,
+      "end": 28.691,
+      "emphasis": false
+    },
+    {
+      "text": "ke",
+      "start": 28.691,
+      "end": 28.871,
+      "emphasis": false
+    },
+    {
+      "text": "waze",
+      "start": 28.871,
+      "end": 29.071,
+      "emphasis": false
+    },
+    {
+      "text": "se",
+      "start": 29.071,
+      "end": 29.271,
+      "emphasis": false
+    },
+    {
+      "text": "Oil",
+      "start": 29.771,
+      "end": 29.891,
+      "emphasis": false
+    },
+    {
+      "text": "bhi",
+      "start": 29.891,
+      "end": 30.071,
+      "emphasis": false
+    },
+    {
+      "text": "100",
+      "start": 30.071,
+      "end": 30.311,
+      "emphasis": false
+    },
+    {
+      "text": "dollar",
+      "start": 30.311,
+      "end": 30.411,
+      "emphasis": false
+    },
+    {
+      "text": "tak",
+      "start": 30.411,
+      "end": 30.691,
+      "emphasis": false
+    },
+    {
+      "text": "pahunch",
+      "start": 30.691,
+      "end": 30.991,
+      "emphasis": false
+    },
+    {
+      "text": "chuk",
+      "start": 30.991,
+      "end": 31.151,
+      "emphasis": false
+    },
+    {
+      "text": "hai.",
+      "start": 31.151,
+      "end": 31.504,
+      "emphasis": false
+    },
+    {
+      "text": "iska",
+      "start": 31.504,
+      "end": 31.764,
+      "emphasis": false
+    },
+    {
+      "text": "seedha",
+      "start": 31.764,
+      "end": 32.104,
+      "emphasis": false
+    },
+    {
+      "text": "asar",
+      "start": 32.104,
+      "end": 32.364,
+      "emphasis": false
+    },
+    {
+      "text": "dollar",
+      "start": 32.364,
+      "end": 32.744,
+      "emphasis": false
+    },
+    {
+      "text": "strong",
+      "start": 32.744,
+      "end": 33.084,
+      "emphasis": false
+    },
+    {
+      "text": "ho",
+      "start": 33.084,
+      "end": 33.224,
+      "emphasis": false
+    },
+    {
+      "text": "raha",
+      "start": 33.224,
+      "end": 33.304,
+      "emphasis": false
+    },
+    {
+      "text": "hai.",
+      "start": 33.304,
+      "end": 33.724,
+      "emphasis": false
+    },
+    {
+      "text": "Gold",
+      "start": 33.604,
+      "end": 33.864,
+      "emphasis": false
+    },
+    {
+      "text": "abhi",
+      "start": 33.864,
+      "end": 34.084,
+      "emphasis": false
+    },
+    {
+      "text": "bhi",
+      "start": 34.084,
+      "end": 34.244,
+      "emphasis": false
+    },
+    {
+      "text": "pressure",
+      "start": 34.244,
+      "end": 34.624,
+      "emphasis": false
+    },
+    {
+      "text": "mein",
+      "start": 34.624,
+      "end": 34.784,
+      "emphasis": false
+    },
+    {
+      "text": "hai",
+      "start": 34.784,
+      "end": 34.884,
+      "emphasis": false
+    },
+    {
+      "text": "aur",
+      "start": 34.884,
+      "end": 35.24,
+      "emphasis": false
+    },
+    {
+      "text": "crypto",
+      "start": 35.24,
+      "end": 35.58,
+      "emphasis": false
+    },
+    {
+      "text": "jaise",
+      "start": 35.58,
+      "end": 35.78,
+      "emphasis": false
+    },
+    {
+      "text": "risk",
+      "start": 35.78,
+      "end": 36.06,
+      "emphasis": false
+    },
+    {
+      "text": "assets",
+      "start": 36.06,
+      "end": 36.58,
+      "emphasis": false
+    },
+    {
+      "text": "dab",
+      "start": 36.58,
+      "end": 36.927,
+      "emphasis": false
+    },
+    {
+      "text": "sakte",
+      "start": 36.927,
+      "end": 37.307,
+      "emphasis": false
+    },
+    {
+      "text": "hai.",
+      "start": 37.307,
+      "end": 37.495,
+      "emphasis": false
+    },
+    {
+      "text": "tum",
+      "start": 37.495,
+      "end": 37.716,
+      "emphasis": false
+    },
+    {
+      "text": "log",
+      "start": 37.716,
+      "end": 37.836,
+      "emphasis": false
+    },
+    {
+      "text": "kya",
+      "start": 37.836,
+      "end": 38.036,
+      "emphasis": false
+    },
+    {
+      "text": "sochte",
+      "start": 38.036,
+      "end": 38.296,
+      "emphasis": false
+    },
+    {
+      "text": "hai",
+      "start": 38.296,
+      "end": 38.356,
+      "emphasis": false
+    },
+    {
+      "text": "is",
+      "start": 38.356,
+      "end": 38.456,
+      "emphasis": false
+    },
+    {
+      "text": "bare",
+      "start": 38.456,
+      "end": 38.656,
+      "emphasis": false
+    },
+    {
+      "text": "mein?",
+      "start": 38.656,
+      "end": 38.836,
+      "emphasis": false
+    },
+    {
+      "text": "Tell",
+      "start": 38.836,
+      "end": 38.996,
+      "emphasis": false
+    },
+    {
+      "text": "me",
+      "start": 38.996,
+      "end": 39.116,
+      "emphasis": false
+    },
+    {
+      "text": "in",
+      "start": 39.116,
+      "end": 39.216,
+      "emphasis": false
+    },
+    {
+      "text": "the",
+      "start": 39.216,
+      "end": 39.376,
+      "emphasis": false
+    },
+    {
+      "text": "comments.",
+      "start": 39.376,
+      "end": 40.006,
+      "emphasis": false
+    },
+    {
+      "text": "milte",
+      "start": 40.066,
+      "end": 40.286,
+      "emphasis": false
+    },
+    {
+      "text": "hain",
+      "start": 40.286,
+      "end": 40.366,
+      "emphasis": false
+    },
+    {
+      "text": "next",
+      "start": 40.366,
+      "end": 40.606,
+      "emphasis": false
+    },
+    {
+      "text": "time.",
+      "start": 40.606,
+      "end": 41.226,
+      "emphasis": false
+    }
+  ],
+  "titles": [
+    {
+      "id": "t1",
+      "at": 0.5,
+      "duration": 2.2,
+      "tone": "neutral",
+      "lines": [
+        {
+          "text": "Trump's pick",
+          "level": "primary",
+          "icon": "projects/demo/assets/icons/bank.svg"
+        },
+        {
+          "text": "wanted lower rates",
+          "level": "modifier"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "at": 3.3,
+      "duration": 2.0,
+      "tone": "attention",
+      "lines": [
+        {
+          "text": "Rates up",
+          "level": "primary"
+        },
+        {
+          "text": "not down",
+          "level": "modifier"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "at": 26.8,
+      "duration": 1.1,
+      "tone": "positive",
+      "lines": [
+        {
+          "text": "2%",
+          "level": "primary"
+        },
+        {
+          "text": "target",
+          "level": "secondary"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "at": 37.9,
+      "duration": 2.2,
+      "tone": "process",
+      "lines": [
+        {
+          "text": "Your take?",
+          "level": "primary"
+        },
+        {
+          "text": "tell me in the comments",
+          "level": "modifier"
+        }
+      ]
+    }
+  ],
+  "cuts": [
+    {
+      "at": 9.9,
+      "scale": 1,
+      "originY": 0.3,
+      "leak": true
+    },
+    {
+      "at": 14.0,
+      "scale": 1,
+      "originY": 0.4,
+      "leak": true
+    },
+    {
+      "at": 18.5,
+      "scale": 1,
+      "originY": 0.3,
+      "leak": true
+    },
+    {
+      "at": 27.0,
+      "scale": 1,
+      "originY": 0.4,
+      "leak": true
+    },
+    {
+      "at": 32.0,
+      "scale": 1,
+      "originY": 0.3,
+      "leak": true
+    },
+    {
+      "at": 37.3,
+      "scale": 1,
+      "originY": 0.4,
+      "leak": true
+    }
+  ],
+  "broll": [
+    {
+      "id": "rate",
+      "kind": "stat",
+      "at": 5.7,
+      "duration": 2.2,
+      "label": "Fed interest rate",
+      "from": 3.75,
+      "to": 4,
+      "suffix": "%",
+      "decimals": 2
+    },
+    {
+      "id": "fedphoto",
+      "kind": "image",
+      "at": 14.5,
+      "duration": 1.9,
+      "src": "projects/demo/assets/photos/federal-reserve-eccles.jpg",
+      "label": "The Fed"
+    },
+    {
+      "id": "infl",
+      "kind": "chart",
+      "at": 23.7,
+      "duration": 3.0,
+      "items": [
+        {
+          "label": "Inflation",
+          "value": 3.7
+        },
+        {
+          "label": "Target",
+          "value": 2
+        }
+      ],
+      "highlight": 0,
+      "title": "Inflation vs target",
+      "chartType": "bar",
+      "unit": "%"
+    },
+    {
+      "id": "iran",
+      "kind": "map",
+      "at": 27.9,
+      "duration": 1.2,
+      "regions": [
+        "Iran"
+      ],
+      "pins": [
+        {
+          "label": "Iran",
+          "lon": 53.0,
+          "lat": 32.0
+        }
+      ],
+      "focus": [
+        20.0,
+        5.0,
+        80.0,
+        45.0
+      ],
+      "title": "Iran tension"
+    },
+    {
+      "id": "oil",
+      "kind": "image",
+      "at": 29.7,
+      "duration": 2.0,
+      "src": "projects/demo/assets/photos/oil-refinery.jpg",
+      "label": "Oil · $100"
+    }
+  ],
+  "style": "gadzhi",
+  "pushInPercent": 0,
+  "cards": [
+    {
+      "id": "hike2013",
+      "at": 8.3,
+      "duration": 2.2,
+      "style": "swiss",
+      "layout": "split",
+      "frame": "clean",
+      "content": {
+        "kicker": "RATE DECISION",
+        "title": "*First* hike since 2013"
+      }
+    },
+    {
+      "id": "vote",
+      "at": 11.2,
+      "duration": 2.0,
+      "style": "minimal",
+      "layout": "split",
+      "frame": "clean",
+      "content": {
+        "kicker": "FOMC VOTE",
+        "title": "*Unanimous*",
+        "data": {
+          "value": "12-0",
+          "label": "vote"
+        }
+      },
+      "accentIndex": 1
+    },
+    {
+      "id": "takeaway",
+      "at": 31.8,
+      "duration": 4.8,
+      "style": "editorial",
+      "layout": "split",
+      "frame": "clean",
+      "content": {
+        "kicker": "WHAT IT MEANS",
+        "title": "Market *impact*",
+        "list": [
+          "Dollar: strong",
+          "Gold: under pressure",
+          "Crypto: risk assets may dip"
+        ]
+      },
+      "accentIndex": 3
+    }
+  ],
+  "cardPalette": {
+    "themeId": "noir"
   }
- ],
- "words": [
-  {
-   "text": "trump",
-   "start": 0.0,
-   "end": 0.38,
-   "emphasis": false
-  },
-  {
-   "text": "ne",
-   "start": 0.38,
-   "end": 0.5,
-   "emphasis": false
-  },
-  {
-   "text": "apna",
-   "start": 0.5,
-   "end": 0.7,
-   "emphasis": false
-  },
-  {
-   "text": "Fed",
-   "start": 0.7,
-   "end": 0.92,
-   "emphasis": false
-  },
-  {
-   "text": "shift",
-   "start": 0.92,
-   "end": 1.08,
-   "emphasis": false
-  },
-  {
-   "text": "isliye",
-   "start": 1.08,
-   "end": 1.34,
-   "emphasis": false
-  },
-  {
-   "text": "banaya",
-   "start": 1.34,
-   "end": 1.64,
-   "emphasis": false
-  },
-  {
-   "text": "tha",
-   "start": 1.64,
-   "end": 1.74,
-   "emphasis": false
-  },
-  {
-   "text": "taki",
-   "start": 1.74,
-   "end": 1.98,
-   "emphasis": false
-  },
-  {
-   "text": "rate",
-   "start": 1.98,
-   "end": 2.2,
-   "emphasis": false
-  },
-  {
-   "text": "ghate,",
-   "start": 2.2,
-   "end": 2.94,
-   "emphasis": false
-  },
-  {
-   "text": "phir",
-   "start": 2.94,
-   "end": 3.1,
-   "emphasis": false
-  },
-  {
-   "text": "bhi",
-   "start": 3.1,
-   "end": 3.22,
-   "emphasis": false
-  },
-  {
-   "text": "us",
-   "start": 3.22,
-   "end": 3.38,
-   "emphasis": false
-  },
-  {
-   "text": "bande",
-   "start": 3.38,
-   "end": 3.6,
-   "emphasis": false
-  },
-  {
-   "text": "ne",
-   "start": 3.6,
-   "end": 3.7,
-   "emphasis": false
-  },
-  {
-   "text": "rate",
-   "start": 3.7,
-   "end": 3.92,
-   "emphasis": false
-  },
-  {
-   "text": "badha",
-   "start": 3.92,
-   "end": 4.18,
-   "emphasis": false
-  },
-  {
-   "text": "diye.",
-   "start": 4.18,
-   "end": 4.62,
-   "emphasis": false
-  },
-  {
-   "text": "kal",
-   "start": 4.62,
-   "end": 4.76,
-   "emphasis": false
-  },
-  {
-   "text": "Fed",
-   "start": 4.76,
-   "end": 5.04,
-   "emphasis": false
-  },
-  {
-   "text": "ne",
-   "start": 5.04,
-   "end": 5.16,
-   "emphasis": false
-  },
-  {
-   "text": "apna",
-   "start": 5.16,
-   "end": 5.42,
-   "emphasis": false
-  },
-  {
-   "text": "interest",
-   "start": 5.42,
-   "end": 5.76,
-   "emphasis": false
-  },
-  {
-   "text": "rate",
-   "start": 5.76,
-   "end": 5.94,
-   "emphasis": false
-  },
-  {
-   "text": "3.75",
-   "start": 5.94,
-   "end": 6.7,
-   "emphasis": false
-  },
-  {
-   "text": "se",
-   "start": 6.7,
-   "end": 6.86,
-   "emphasis": false
-  },
-  {
-   "text": "4%",
-   "start": 6.86,
-   "end": 7.3,
-   "emphasis": false
-  },
-  {
-   "text": "kar",
-   "start": 7.3,
-   "end": 7.58,
-   "emphasis": false
-  },
-  {
-   "text": "diya.",
-   "start": 7.58,
-   "end": 8.08,
-   "emphasis": false
-  },
-  {
-   "text": "2013",
-   "start": 8.08,
-   "end": 8.54,
-   "emphasis": false
-  },
-  {
-   "text": "ke",
-   "start": 8.54,
-   "end": 8.78,
-   "emphasis": false
-  },
-  {
-   "text": "baad",
-   "start": 8.78,
-   "end": 8.92,
-   "emphasis": false
-  },
-  {
-   "text": "se",
-   "start": 8.92,
-   "end": 9.08,
-   "emphasis": false
-  },
-  {
-   "text": "yeh",
-   "start": 9.08,
-   "end": 9.18,
-   "emphasis": false
-  },
-  {
-   "text": "pehla",
-   "start": 9.18,
-   "end": 9.52,
-   "emphasis": false
-  },
-  {
-   "text": "hike",
-   "start": 9.52,
-   "end": 9.72,
-   "emphasis": false
-  },
-  {
-   "text": "tha.",
-   "start": 9.72,
-   "end": 9.94,
-   "emphasis": false
-  },
-  {
-   "text": "sab",
-   "start": 10.0,
-   "end": 10.4,
-   "emphasis": false
-  },
-  {
-   "text": "iske",
-   "start": 10.4,
-   "end": 10.68,
-   "emphasis": false
-  },
-  {
-   "text": "fevar",
-   "start": 10.68,
-   "end": 10.98,
-   "emphasis": false
-  },
-  {
-   "text": "mein",
-   "start": 10.98,
-   "end": 11.12,
-   "emphasis": false
-  },
-  {
-   "text": "the.",
-   "start": 11.12,
-   "end": 11.5,
-   "emphasis": false
-  },
-  {
-   "text": "12-0",
-   "start": 11.5,
-   "end": 12.12,
-   "emphasis": false
-  },
-  {
-   "text": "vote",
-   "start": 12.12,
-   "end": 12.36,
-   "emphasis": false
-  },
-  {
-   "text": "se",
-   "start": 12.36,
-   "end": 12.52,
-   "emphasis": false
-  },
-  {
-   "text": "yeh",
-   "start": 12.52,
-   "end": 12.62,
-   "emphasis": false
-  },
-  {
-   "text": "paas",
-   "start": 12.62,
-   "end": 12.88,
-   "emphasis": false
-  },
-  {
-   "text": "huva.",
-   "start": 12.88,
-   "end": 13.14,
-   "emphasis": false
-  },
-  {
-   "text": "yahi",
-   "start": 13.16,
-   "end": 13.38,
-   "emphasis": false
-  },
-  {
-   "text": "banda,",
-   "start": 13.38,
-   "end": 13.8,
-   "emphasis": false
-  },
-  {
-   "text": "kevin",
-   "start": 13.8,
-   "end": 14.08,
-   "emphasis": false
-  },
-  {
-   "text": "vaach,",
-   "start": 14.08,
-   "end": 14.42,
-   "emphasis": false
-  },
-  {
-   "text": "isko",
-   "start": 14.42,
-   "end": 14.62,
-   "emphasis": false
-  },
-  {
-   "text": "tram",
-   "start": 14.62,
-   "end": 14.84,
-   "emphasis": false
-  },
-  {
-   "text": "ne",
-   "start": 14.84,
-   "end": 15.02,
-   "emphasis": false
-  },
-  {
-   "text": "fedsi",
-   "start": 15.02,
-   "end": 15.34,
-   "emphasis": false
-  },
-  {
-   "text": "banay",
-   "start": 15.34,
-   "end": 15.68,
-   "emphasis": false
-  },
-  {
-   "text": "tha,",
-   "start": 15.68,
-   "end": 16.24,
-   "emphasis": false
-  },
-  {
-   "text": "taki",
-   "start": 16.16,
-   "end": 16.44,
-   "emphasis": false
-  },
-  {
-   "text": "vo",
-   "start": 16.44,
-   "end": 16.62,
-   "emphasis": false
-  },
-  {
-   "text": "interest",
-   "start": 16.62,
-   "end": 16.94,
-   "emphasis": false
-  },
-  {
-   "text": "rate",
-   "start": 16.94,
-   "end": 17.12,
-   "emphasis": false
-  },
-  {
-   "text": "kam",
-   "start": 17.12,
-   "end": 17.3,
-   "emphasis": false
-  },
-  {
-   "text": "kar",
-   "start": 17.3,
-   "end": 17.44,
-   "emphasis": false
-  },
-  {
-   "text": "sake.",
-   "start": 17.44,
-   "end": 17.9,
-   "emphasis": false
-  },
-  {
-   "text": "lekin",
-   "start": 17.9,
-   "end": 18.38,
-   "emphasis": false
-  },
-  {
-   "text": "usne",
-   "start": 18.38,
-   "end": 18.72,
-   "emphasis": false
-  },
-  {
-   "text": "senet",
-   "start": 18.72,
-   "end": 19.1,
-   "emphasis": false
-  },
-  {
-   "text": "ko",
-   "start": 19.1,
-   "end": 19.24,
-   "emphasis": false
-  },
-  {
-   "text": "yeh",
-   "start": 19.24,
-   "end": 19.36,
-   "emphasis": false
-  },
-  {
-   "text": "wala",
-   "start": 19.36,
-   "end": 19.6,
-   "emphasis": false
-  },
-  {
-   "text": "kiya",
-   "start": 19.6,
-   "end": 19.86,
-   "emphasis": false
-  },
-  {
-   "text": "tha,",
-   "start": 19.86,
-   "end": 20.02,
-   "emphasis": false
-  },
-  {
-   "text": "kal",
-   "start": 21.831,
-   "end": 22.051,
-   "emphasis": false
-  },
-  {
-   "text": "usne",
-   "start": 22.051,
-   "end": 22.351,
-   "emphasis": false
-  },
-  {
-   "text": "wahi",
-   "start": 22.351,
-   "end": 22.611,
-   "emphasis": false
-  },
-  {
-   "text": "kiya,",
-   "start": 22.611,
-   "end": 23.211,
-   "emphasis": false
-  },
-  {
-   "text": "iske",
-   "start": 23.211,
-   "end": 23.451,
-   "emphasis": false
-  },
-  {
-   "text": "waza",
-   "start": 23.451,
-   "end": 23.651,
-   "emphasis": false
-  },
-  {
-   "text": "inflation",
-   "start": 23.651,
-   "end": 24.131,
-   "emphasis": false
-  },
-  {
-   "text": "abhi",
-   "start": 24.131,
-   "end": 24.551,
-   "emphasis": false
-  },
-  {
-   "text": "bhi",
-   "start": 24.551,
-   "end": 24.711,
-   "emphasis": false
-  },
-  {
-   "text": "3.7",
-   "start": 24.711,
-   "end": 25.251,
-   "emphasis": false
-  },
-  {
-   "text": "par",
-   "start": 25.251,
-   "end": 25.391,
-   "emphasis": false
-  },
-  {
-   "text": "atka",
-   "start": 25.391,
-   "end": 25.711,
-   "emphasis": false
-  },
-  {
-   "text": "hua",
-   "start": 25.711,
-   "end": 25.831,
-   "emphasis": false
-  },
-  {
-   "text": "hai,",
-   "start": 25.831,
-   "end": 26.211,
-   "emphasis": false
-  },
-  {
-   "text": "target",
-   "start": 26.211,
-   "end": 26.531,
-   "emphasis": false
-  },
-  {
-   "text": "hai",
-   "start": 26.531,
-   "end": 26.711,
-   "emphasis": false
-  },
-  {
-   "text": "2%",
-   "start": 26.711,
-   "end": 27.331,
-   "emphasis": false
-  },
-  {
-   "text": "aur",
-   "start": 27.331,
-   "end": 27.891,
-   "emphasis": false
-  },
-  {
-   "text": "Iran",
-   "start": 27.891,
-   "end": 28.371,
-   "emphasis": false
-  },
-  {
-   "text": "tension",
-   "start": 28.371,
-   "end": 28.691,
-   "emphasis": false
-  },
-  {
-   "text": "ke",
-   "start": 28.691,
-   "end": 28.871,
-   "emphasis": false
-  },
-  {
-   "text": "waze",
-   "start": 28.871,
-   "end": 29.071,
-   "emphasis": false
-  },
-  {
-   "text": "se",
-   "start": 29.071,
-   "end": 29.271,
-   "emphasis": false
-  },
-  {
-   "text": "Oil",
-   "start": 29.771,
-   "end": 29.891,
-   "emphasis": false
-  },
-  {
-   "text": "bhi",
-   "start": 29.891,
-   "end": 30.071,
-   "emphasis": false
-  },
-  {
-   "text": "100",
-   "start": 30.071,
-   "end": 30.311,
-   "emphasis": false
-  },
-  {
-   "text": "dollar",
-   "start": 30.311,
-   "end": 30.411,
-   "emphasis": false
-  },
-  {
-   "text": "tak",
-   "start": 30.411,
-   "end": 30.691,
-   "emphasis": false
-  },
-  {
-   "text": "pahunch",
-   "start": 30.691,
-   "end": 30.991,
-   "emphasis": false
-  },
-  {
-   "text": "chuk",
-   "start": 30.991,
-   "end": 31.151,
-   "emphasis": false
-  },
-  {
-   "text": "hai.",
-   "start": 31.151,
-   "end": 31.504,
-   "emphasis": false
-  },
-  {
-   "text": "iska",
-   "start": 31.504,
-   "end": 31.764,
-   "emphasis": false
-  },
-  {
-   "text": "seedha",
-   "start": 31.764,
-   "end": 32.104,
-   "emphasis": false
-  },
-  {
-   "text": "asar",
-   "start": 32.104,
-   "end": 32.364,
-   "emphasis": false
-  },
-  {
-   "text": "dollar",
-   "start": 32.364,
-   "end": 32.744,
-   "emphasis": false
-  },
-  {
-   "text": "strong",
-   "start": 32.744,
-   "end": 33.084,
-   "emphasis": false
-  },
-  {
-   "text": "ho",
-   "start": 33.084,
-   "end": 33.224,
-   "emphasis": false
-  },
-  {
-   "text": "raha",
-   "start": 33.224,
-   "end": 33.304,
-   "emphasis": false
-  },
-  {
-   "text": "hai.",
-   "start": 33.304,
-   "end": 33.724,
-   "emphasis": false
-  },
-  {
-   "text": "Gold",
-   "start": 33.604,
-   "end": 33.864,
-   "emphasis": false
-  },
-  {
-   "text": "abhi",
-   "start": 33.864,
-   "end": 34.084,
-   "emphasis": false
-  },
-  {
-   "text": "bhi",
-   "start": 34.084,
-   "end": 34.244,
-   "emphasis": false
-  },
-  {
-   "text": "pressure",
-   "start": 34.244,
-   "end": 34.624,
-   "emphasis": false
-  },
-  {
-   "text": "mein",
-   "start": 34.624,
-   "end": 34.784,
-   "emphasis": false
-  },
-  {
-   "text": "hai",
-   "start": 34.784,
-   "end": 34.884,
-   "emphasis": false
-  },
-  {
-   "text": "aur",
-   "start": 34.884,
-   "end": 35.24,
-   "emphasis": false
-  },
-  {
-   "text": "crypto",
-   "start": 35.24,
-   "end": 35.58,
-   "emphasis": false
-  },
-  {
-   "text": "jaise",
-   "start": 35.58,
-   "end": 35.78,
-   "emphasis": false
-  },
-  {
-   "text": "risk",
-   "start": 35.78,
-   "end": 36.06,
-   "emphasis": false
-  },
-  {
-   "text": "assets",
-   "start": 36.06,
-   "end": 36.58,
-   "emphasis": false
-  },
-  {
-   "text": "dab",
-   "start": 36.58,
-   "end": 36.927,
-   "emphasis": false
-  },
-  {
-   "text": "sakte",
-   "start": 36.927,
-   "end": 37.307,
-   "emphasis": false
-  },
-  {
-   "text": "hai.",
-   "start": 37.307,
-   "end": 37.495,
-   "emphasis": false
-  },
-  {
-   "text": "tum",
-   "start": 37.495,
-   "end": 37.716,
-   "emphasis": false
-  },
-  {
-   "text": "log",
-   "start": 37.716,
-   "end": 37.836,
-   "emphasis": false
-  },
-  {
-   "text": "kya",
-   "start": 37.836,
-   "end": 38.036,
-   "emphasis": false
-  },
-  {
-   "text": "sochte",
-   "start": 38.036,
-   "end": 38.296,
-   "emphasis": false
-  },
-  {
-   "text": "hai",
-   "start": 38.296,
-   "end": 38.356,
-   "emphasis": false
-  },
-  {
-   "text": "is",
-   "start": 38.356,
-   "end": 38.456,
-   "emphasis": false
-  },
-  {
-   "text": "bare",
-   "start": 38.456,
-   "end": 38.656,
-   "emphasis": false
-  },
-  {
-   "text": "mein?",
-   "start": 38.656,
-   "end": 38.836,
-   "emphasis": false
-  },
-  {
-   "text": "Tell",
-   "start": 38.836,
-   "end": 38.996,
-   "emphasis": false
-  },
-  {
-   "text": "me",
-   "start": 38.996,
-   "end": 39.116,
-   "emphasis": false
-  },
-  {
-   "text": "in",
-   "start": 39.116,
-   "end": 39.216,
-   "emphasis": false
-  },
-  {
-   "text": "the",
-   "start": 39.216,
-   "end": 39.376,
-   "emphasis": false
-  },
-  {
-   "text": "comments.",
-   "start": 39.376,
-   "end": 40.006,
-   "emphasis": false
-  },
-  {
-   "text": "milte",
-   "start": 40.066,
-   "end": 40.286,
-   "emphasis": false
-  },
-  {
-   "text": "hain",
-   "start": 40.286,
-   "end": 40.366,
-   "emphasis": false
-  },
-  {
-   "text": "next",
-   "start": 40.366,
-   "end": 40.606,
-   "emphasis": false
-  },
-  {
-   "text": "time.",
-   "start": 40.606,
-   "end": 41.226,
-   "emphasis": false
-  }
- ],
- "titles": [
-  {
-   "id": "t1",
-   "at": 0.5,
-   "duration": 2.2,
-   "tone": "neutral",
-   "lines": [
-    {
-     "text": "Trump's pick",
-     "level": "primary",
-     "icon": "projects/demo/assets/icons/bank.svg"
-    },
-    {
-     "text": "wanted lower rates",
-     "level": "modifier"
-    }
-   ]
-  },
-  {
-   "id": "t2",
-   "at": 3.3,
-   "duration": 2.0,
-   "tone": "attention",
-   "lines": [
-    {
-     "text": "Rates up",
-     "level": "primary"
-    },
-    {
-     "text": "not down",
-     "level": "modifier"
-    }
-   ]
-  },
-  {
-   "id": "t4",
-   "at": 26.8,
-   "duration": 1.1,
-   "tone": "positive",
-   "lines": [
-    {
-     "text": "2%",
-     "level": "primary"
-    },
-    {
-     "text": "target",
-     "level": "secondary"
-    }
-   ]
-  },
-  {
-   "id": "t5",
-   "at": 27.9,
-   "duration": 1.7,
-   "tone": "attention",
-   "lines": [
-    {
-     "text": "Iran",
-     "level": "primary"
-    },
-    {
-     "text": "tension",
-     "level": "secondary"
-    }
-   ]
-  },
-  {
-   "id": "t6",
-   "at": 33.3,
-   "duration": 1.7,
-   "tone": "attention",
-   "lines": [
-    {
-     "text": "Gold",
-     "level": "primary"
-    },
-    {
-     "text": "under pressure",
-     "level": "modifier"
-    }
-   ]
-  },
-  {
-   "id": "t7",
-   "at": 37.9,
-   "duration": 2.2,
-   "tone": "process",
-   "lines": [
-    {
-     "text": "Your take?",
-     "level": "primary"
-    },
-    {
-     "text": "tell me in the comments",
-     "level": "modifier"
-    }
-   ]
-  }
- ],
- "cuts": [
-  {
-   "at": 9.9,
-   "scale": 1.28,
-   "originY": 0.3,
-   "leak": true
-  },
-  {
-   "at": 14.0,
-   "scale": 1.0,
-   "originY": 0.4,
-   "leak": true
-  },
-  {
-   "at": 18.5,
-   "scale": 1.28,
-   "originY": 0.3,
-   "leak": true
-  },
-  {
-   "at": 27.0,
-   "scale": 1.0,
-   "originY": 0.4,
-   "leak": true
-  },
-  {
-   "at": 32.0,
-   "scale": 1.28,
-   "originY": 0.3,
-   "leak": true
-  },
-  {
-   "at": 37.3,
-   "scale": 1.0,
-   "originY": 0.4,
-   "leak": true
-  }
- ],
- "broll": [
-  {
-   "id": "rate",
-   "kind": "stat",
-   "at": 5.7,
-   "duration": 2.2,
-   "label": "Fed interest rate",
-   "from": 3.75,
-   "to": 4.0,
-   "suffix": "%",
-   "decimals": 2,
-   "tone": "attention"
-  },
-  {
-   "id": "y2013",
-   "kind": "keyword",
-   "at": 8.1,
-   "duration": 1.6,
-   "text": "2013",
-   "sub": "First hike since",
-   "tone": "process"
-  },
-  {
-   "id": "vote",
-   "kind": "keyword",
-   "at": 11.4,
-   "duration": 1.6,
-   "text": "12 - 0",
-   "sub": "Unanimous vote",
-   "tone": "positive"
-  },
-  {
-   "id": "fedphoto",
-   "kind": "image",
-   "at": 14.5,
-   "duration": 1.9,
-   "tone": "neutral",
-   "leak": true,
-   "src": "projects/demo/assets/photos/federal-reserve-eccles.jpg",
-   "label": "The Fed"
-  },
-  {
-   "id": "infl",
-   "kind": "keyword",
-   "at": 23.6,
-   "duration": 3.2,
-   "text": "3.7%",
-   "sub": "Inflation vs 2% target",
-   "tone": "attention"
-  },
-  {
-   "id": "oil",
-   "kind": "keyword",
-   "at": 29.7,
-   "duration": 2.0,
-   "text": "$100",
-   "sub": "Oil · Iran tension",
-   "tone": "attention"
-  },
-  {
-   "id": "crypto",
-   "kind": "keyword",
-   "at": 35.1,
-   "duration": 1.9,
-   "text": "Crypto",
-   "sub": "Risk assets under pressure",
-   "tone": "attention"
-  }
- ],
- "style": "gadzhi"
 }

@@ -13,3 +13,4 @@ public/projects/*/raw/
 .agents/skills/
 .agent/skills/
 public/renders/
+.reference/

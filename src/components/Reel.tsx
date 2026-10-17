@@ -16,6 +16,7 @@ import { TitleStack } from "./TitleStack";
 import { FilmDust, GradeOverlay, LightLeak, gradeFilter } from "./Effects";
 import { PlateFx } from "../themes/PlateFx";
 import { ThemeLayers, useThemeCtx } from "../themes/ThemeLayers";
+import { CaptionGate, CardStage } from "../cards/CardStage";
 
 /** Shot-based camera: each cut resets scale; a slow push-in runs inside each shot. */
 const Camera: React.FC<{
@@ -110,19 +111,33 @@ export const Reel: React.FC<Timeline> = (raw) => {
     ...tl.cuts.filter((c) => c.leak).map((c) => c.at),
     ...tl.broll.filter((b) => b.leak).flatMap((b) => [b.at, b.at + b.duration]),
   ];
+  const plate = (
+    <PlateFx dna={theme?.dna} hero={theme?.hero}>
+      <Camera tl={tl} total={total}>
+        <Segments tl={tl} src={tl.source} />
+      </Camera>
+      {theme ? <ThemeLayers ctx={theme} layer="behind" /> : null}
+      {theme && tl.subject ? (
+        <Camera tl={tl} total={total}>
+          <Segments tl={tl} src={tl.subject} transparent />
+        </Camera>
+      ) : null}
+    </PlateFx>
+  );
+  const captions = theme ? (
+    <ThemeLayers ctx={theme} layer="front" />
+  ) : (
+    <Captions words={tl.words} />
+  );
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
-      <PlateFx dna={theme?.dna} hero={theme?.hero}>
-        <Camera tl={tl} total={total}>
-          <Segments tl={tl} src={tl.source} />
-        </Camera>
-        {theme ? <ThemeLayers ctx={theme} layer="behind" /> : null}
-        {theme && tl.subject ? (
-          <Camera tl={tl} total={total}>
-            <Segments tl={tl} src={tl.subject} transparent />
-          </Camera>
-        ) : null}
-      </PlateFx>
+      {tl.cards.length ? (
+        <CardStage cards={tl.cards} themeId={tl.cardPalette.themeId}>
+          {plate}
+        </CardStage>
+      ) : (
+        plate
+      )}
       {tl.grade ? <GradeOverlay /> : null}
       {tl.dust ? <FilmDust /> : null}
       <TitleStack titles={tl.titles} />
@@ -136,10 +151,10 @@ export const Reel: React.FC<Timeline> = (raw) => {
         </Sequence>
       ))}
       <LightLeak times={leaks} />
-      {theme ? (
-        <ThemeLayers ctx={theme} layer="front" />
+      {tl.cards.length ? (
+        <CaptionGate cards={tl.cards}>{captions}</CaptionGate>
       ) : (
-        <Captions words={tl.words} />
+        captions
       )}
     </AbsoluteFill>
   );

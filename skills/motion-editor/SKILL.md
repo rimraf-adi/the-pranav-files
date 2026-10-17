@@ -14,6 +14,7 @@ This skill only routes. Open the sub-skill's `SKILL.md` BEFORE acting; do not wo
 | Whole pipeline, raw footage to reel | `skills/edit-workflow/SKILL.md` | ordered steps, commands |
 | Visual style (titles, captions, grade, motion) | `skills/style-gadzhi/SKILL.md`, `styles/*.json` | no zoom spam: punchIn is off by default |
 | Which b-roll for which spoken beat | `skills/broll-director/SKILL.md` | planning layer |
+| Beat table -> timeline JSON | `python scripts/beats_to_timeline.py public/projects/<name> --validate` | spec syntax in the script docstring |
 | Previewing/pasting/verifying b-roll | `skills/think-loop/SKILL.md` | perceive -> preview -> paste -> verify |
 | Icons, photos, SFX, music (licensed) | `skills/find-assets/SKILL.md` | goes through `scripts/assets/` |
 | Porting a HyperFrames caption theme | `skills/port-hyperframes-theme/SKILL.md` | touches `src/themes/` only |

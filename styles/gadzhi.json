@@ -174,6 +174,40 @@
         "shrink": 2
       },
       "optional": true
+    },
+    "scenes": {
+      "note": "defaults read by src/components/BrollScenes.tsx and Broll.tsx product/montage; override per item in timeline.json",
+      "product": {
+        "from": "#5c1a2e",
+        "to": "#1c0610",
+        "captionSizePx": 60
+      },
+      "montage": {
+        "captionSizePx": 64,
+        "captionTopPercent": 62
+      },
+      "lowerThird": {
+        "bar": "#FFFFFF",
+        "title": "#FFFFFF",
+        "sub": "#D8D8E0",
+        "bg": "rgba(8,8,12,.78)",
+        "topPercent": 60
+      },
+      "chart": {
+        "bg": "#050507",
+        "bar": "#FF1111",
+        "barMuted": "#3a3a44",
+        "text": "#FFFFFF",
+        "line": "#00E5D4"
+      },
+      "map": {
+        "bg": "#07090f",
+        "land": "#1b2230",
+        "stroke": "#2c3548",
+        "highlight": "#FF1111",
+        "pin": "#FFD60A",
+        "text": "#FFFFFF"
+      }
     }
   }
 }

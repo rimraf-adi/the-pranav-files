@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { card, cardPalette } from "../cards/schema";
 
 // All times are seconds on the OUTPUT timeline (after cuts), except
 // segments[].from/to which are seconds in the SOURCE video.
@@ -56,6 +57,11 @@ const brollBase = {
   leak: z.boolean().default(false).describe("light leak on entry and exit"),
 };
 
+export const shot = z.object({
+  src: z.string().describe("image path relative to /public"),
+  word: z.string().default("").describe("one-word caption shown while this shot is up"),
+});
+
 // Add a new kind here + a renderer in src/components/Broll.tsx
 export const broll = z.discriminatedUnion("kind", [
   z.object({
@@ -80,6 +86,43 @@ export const broll = z.discriminatedUnion("kind", [
     src: z.string().describe("photo path relative to /public"),
     label: z.string().default(""),
   }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("montage"),
+    shots: z.array(shot).min(2).max(8).describe("one full-bleed shot per spoken noun; duration is split evenly"),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("product"),
+    variant: z.enum(["phone", "logo"]).default("phone"),
+    src: z.string().describe("screenshot (phone) or logo (logo), relative to /public"),
+    words: z.array(z.string()).max(12).default([]).describe("held one-word captions above the product, split evenly"),
+    from: z.string().default("#5c1a2e").describe("gradient top color"),
+    to: z.string().default("#1c0610").describe("gradient bottom color"),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("lowerThird"),
+    title: z.string(),
+    sub: z.string().default(""),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("chart"),
+    title: z.string().default(""),
+    chartType: z.enum(["bar", "line"]).default("bar"),
+    items: z.array(z.object({ label: z.string(), value: z.number() })).min(2).max(6),
+    unit: z.string().default("").describe("suffix shown after values, e.g. %"),
+    highlight: z.number().int().min(0).optional().describe("index of the item drawn in the accent color"),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("map"),
+    title: z.string().default(""),
+    regions: z.array(z.string()).default([]).describe("country names from public/shared/world-110m.geojson to highlight"),
+    pins: z.array(z.object({ label: z.string(), lon: z.number(), lat: z.number() })).default([]),
+    focus: z.array(z.number()).length(4).optional().describe("[lonMin, latMin, lonMax, latMax]; default whole world"),
+  }),
 ]);
 
 export const timeline = z.object({
@@ -94,6 +137,11 @@ export const timeline = z.object({
   titles: z.array(title).default([]),
   cuts: z.array(cut).default([]),
   broll: z.array(broll).default([]),
+  cards: z
+    .array(card)
+    .default([])
+    .describe("talking-head-recut takeaway cards: video animates into the layout bounds while a card shows"),
+  cardPalette: cardPalette.default({ themeId: "noir" }),
   captionTheme: z
     .object({
       name: z

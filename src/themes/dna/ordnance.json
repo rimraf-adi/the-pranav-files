@@ -1,12 +1,20 @@
 {
   "name": "ordnance",
-  "voice": "military marking system — everything has mass. Body words STAMP in and cool from hot amber to bone; the apex is a sliced stencil stamp that detonates: sheared slices snap into register, paint cools, positioning bars + designation tag deploy, the room reacts.",
+  "voice": "military marking system \u2014 everything has mass. Body words STAMP in and cool from hot amber to bone; the apex is a sliced stencil stamp that detonates: sheared slices snap into register, paint cools, positioning bars + designation tag deploy, the room reacts.",
   "when": "punchy announcements, hype, product drops, sports, anything that should hit. Loud register. Needs a scene that tolerates a charge-dim (any luma).",
   "register": "loud",
-  "fonts": { "body": "Anton", "hero": "Anton", "tag": "Space Grotesk" },
-  "palette": { "body": "#EDE6D8", "hot": "#FFB347", "accent": "#FFB347" },
+  "fonts": {
+    "body": "Anton",
+    "hero": "Anton",
+    "tag": "Space Grotesk"
+  },
+  "palette": {
+    "body": "#EDE6D8",
+    "hot": "#FFB347",
+    "accent": "#FFB347"
+  },
   "body": {
-    "paradigm": "rail",
+    "paradigm": "ordnancerail",
     "layer": "fg",
     "fontPx": 56,
     "bottomPx": 102,
@@ -15,7 +23,11 @@
     "entrance": "stamp",
     "exit": "drop",
     "minorScale": 1.4,
-    "yield": { "dim": 0.45, "pre": 0.2, "post": 0.9 }
+    "yield": {
+      "dim": 0.45,
+      "pre": 0.2,
+      "post": 0.9
+    }
   },
   "hero": {
     "setpiece": "detonation",
@@ -25,11 +37,24 @@
     "fontPx": 178,
     "params": {
       "slices": [
-        [0, 61.5],
-        [40.5, 27.5],
-        [74.5, 0]
+        [
+          0,
+          61.5
+        ],
+        [
+          40.5,
+          27.5
+        ],
+        [
+          74.5,
+          0
+        ]
       ],
-      "sliceShear": [-46, 52, -58],
+      "sliceShear": [
+        -46,
+        52,
+        -58
+      ],
       "bars": true,
       "barWidth": 760,
       "barDy": 124,
@@ -56,5 +81,8 @@
     "shakeWindow": 0.6,
     "grain": 6
   },
-  "linkages": []
+  "linkages": [],
+  "_port": {
+    "note": "paradigm points at ordnancerail (wraps shared rail to apply uppercase); hero x/y use portrait fractions in setpiece"
+  }
 }

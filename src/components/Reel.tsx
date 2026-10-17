@@ -35,7 +35,8 @@ export const Reel: React.FC<Timeline> = (tl) => {
                 src={staticFile(tl.source)}
                 trimBefore={Math.round(seg.from * fps)}
                 trimAfter={Math.round(seg.to * fps)}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                objectFit="cover"
+                style={{ width: "100%", height: "100%" }}
               />
             </Sequence>
           );

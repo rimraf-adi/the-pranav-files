@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Per-frame person matte (white = speaker) using Robust Video Matting.
 
-Usage: .venv-matte/bin/python scripts/matte.py <video> <out_matte.mp4>
-         [--ratio 0.75] [--ema 0.5] [--feather 1.5] [--device auto|cpu|mps]
+Usage: <venv python> scripts/matte.py <video> <out_matte.mp4>
+         [--ratio 0.75] [--ema 0.5] [--feather 1.5] [--device auto|cpu|cuda|mps]
 
 Frames stream through ffmpeg pipes (no whole-video RAM). Output matches the
 source resolution, fps and frame count (video-only; audio is handled by bgblur.py).
-Setup: scripts/treat_bg.sh --setup  (creates .venv-matte, fetches RVM code + weights).
+Setup: python scripts/treat_bg.py --setup  (creates .venv-matte, fetches RVM code + weights).
+Works on macOS, Linux and Windows (device auto: cuda > mps > cpu).
 """
 import argparse
 import json
@@ -38,14 +39,14 @@ def load_model(device):
     return m.to(device)
 
 
-def clean(a, thr=0.5):
-    """Fill interior holes and drop small detached specks (keeps main body + big parts like a hand)."""
+def clean(a, thr=0.3):
+    """Fill interior holes and drop small detached specks (keeps main body + parts >0.3% of it, e.g. a detached hand)."""
     b = (a > thr).astype(np.uint8)
     n, lab, stats, _ = cv2.connectedComponentsWithStats(b, connectivity=8)
     if n > 1:
         big = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))
         keep_ids = [i for i in range(1, n)
-                    if i == big or stats[i, cv2.CC_STAT_AREA] >= 0.02 * stats[big, cv2.CC_STAT_AREA]]
+                    if i == big or stats[i, cv2.CC_STAT_AREA]        >= 0.003 * stats[big, cv2.CC_STAT_AREA]]
         keep = np.isin(lab, keep_ids)
     else:
         keep = b.astype(bool)
@@ -76,7 +77,8 @@ def main():
 
     dev = a.device
     if dev == "auto":
-        dev = "mps" if torch.backends.mps.is_available() else "cpu"
+        dev = ("cuda" if torch.cuda.is_available()
+               else "mps" if torch.backends.mps.is_available() else "cpu")
     w, h, fps = probe(a.video)
     model = load_model(dev)
 

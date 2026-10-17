@@ -94,6 +94,26 @@ export const timeline = z.object({
   titles: z.array(title).default([]),
   cuts: z.array(cut).default([]),
   broll: z.array(broll).default([]),
+  captionTheme: z
+    .object({
+      name: z
+        .string()
+        .describe("theme DNA id from src/themes/dna, e.g. anchor, stomp, vhs"),
+      hero: z
+        .number()
+        .int()
+        .min(0)
+        .optional()
+        .describe("index into words[] of the climax word; default auto"),
+    })
+    .optional()
+    .describe("when set, this theme replaces the default captions"),
+  subject: z
+    .string()
+    .optional()
+    .describe(
+      "speaker-cutout alpha video (webm) path relative to /public; enables text-behind-subject",
+    ),
   headroomPercent: z
     .number()
     .min(0)

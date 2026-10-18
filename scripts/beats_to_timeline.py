@@ -12,13 +12,20 @@ beats.md holds a markdown table. Columns (header names are matched case-insensit
     stat:     label="Fed interest rate" from=3.75 to=4 suffix=% decimals=2 tone=attention
     keyword:  text="2013" sub="first hike since"
     image:    src=projects/x/assets/photos/a.jpg label="Oil"
-    montage:  shots="a.jpg:book;b.jpg:pet;c.jpg:visits"
+    montage:  shots="a.jpg:book;b.jpg:pet;c.jpg:visits"   (word optional; `a.jpg@58% 50%` sets the 9:16 crop focus; 1 shot = full-bleed cutaway)
     chart:    title="Inflation vs target" chartType=bar items="Inflation:3.7;Target:2" unit=% highlight=0
     map:      title="Iran tension" regions="Iran" pins="Iran:53:32" focus="20,5,80,45"   (country names from public/shared/world-110m.geojson)
     lowerThird: title="Name" sub="Role"
+    trend:    plan="THE PLAN" planSub="rates down" real="WHAT HAPPENED" realSub="rates up" flipAt=1.75   (times relative to the row start)
+    ticker:   label="FED RATE" from=3.75 to=4 decimals=2 suffix=% stepAt=1.0 chip="+0.25" line=step|none bg=<photo>
+    votes:    yes=12 no=0 label="BOARD VOTE" verdict="UNANIMOUS" resultAt=1.5
+    gauge:    label="INFLATION" value=3.7 target=2 max=5 unit=% valueAt=1.0 targetAt=3.0
+    flow:     json='{"nodes":[{"id":"a","label":"IRAN","at":0.1,"row":0},{"id":"b","label":"OIL","value":"$100","from":"a","at":2.0}]}'
+    any kind: json='{...}' merges raw fields (use for nested data; no | characters inside)
     product:  variant=phone src=... words="website;experts;area" from=#5c1a2e to=#1c0610
     card:     kicker="RATE DECISION" title="*First* hike" detail=... list="a;b;c" value=3.7% label="vs 2%" accent=2 frame=clean
-              media="a.jpg:fed;b.jpg:oil"   (style `media`: b-roll on top, speaker below)
+              media="a.jpg:fed;b.jpg:oil"   (style `media`: b-roll on top, speaker below; word after : is optional)
+              hideCaptions=false   (keep captions running over the card)
 Rewrites ONLY timeline.json `broll` and `cards`. --validate renders frame 0 through Remotion so the zod schema checks the result.
 """
 import json
@@ -70,15 +77,24 @@ def shots(v):
     res = []
     for part in v.split(";"):
         src, _, word = part.partition(":")
+        src, _, focus = src.partition("@")
         if src.strip():
-            res.append({"src": src.strip(), "word": word.strip()})
+            shot = {"src": src.strip(), "word": word.strip()}
+            if focus.strip():
+                shot["focus"] = focus.strip()
+            res.append(shot)
     return res
+
+
+NUMERIC = {"from", "to", "decimals", "stepAt", "flipAt", "yes", "no", "resultAt", "value", "target", "max", "valueAt", "targetAt"}
 
 
 def build(rows):
     broll, cards = [], []
     for r in rows:
-        kind = r.get("kind", "").lower().split()
+        kind = r.get("kind", "").split()
+        if kind:
+            kind[0] = kind[0].lower()
         t = r.get("t (s)") or r.get("t") or ""
         m = re.match(r"\s*([\d.]+)\s*-\s*([\d.]+)", t)
         if not kind or not m:
@@ -105,8 +121,10 @@ def build(rows):
                 item["pins"] = [{"label": a[0], "lon": float(a[1]), "lat": float(a[2])} for a in (x.split(":") for x in s.pop("pins", "").split(";") if x)]
                 if "focus" in s:
                     item["focus"] = [float(x) for x in s.pop("focus").split(",")]
+            if "json" in s:
+                item.update(json.loads(s.pop("json")))
             for key, v in s.items():
-                item[key] = num(v) if key in ("from", "to", "decimals") and k == "stat" else v
+                item[key] = num(v) if key in NUMERIC else v
             broll.append(item)
         elif kind[0] == "card":
             style, _, layout = (kind[1] if len(kind) > 1 else "minimal").partition("/")
@@ -124,6 +142,8 @@ def build(rows):
                     "layout": layout or "split", "frame": s.get("frame", "clean"), "content": content}
             if "accent" in s:
                 card["accentIndex"] = int(s["accent"])
+            if "hideCaptions" in s:
+                card["hideCaptions"] = s["hideCaptions"] == "true"
             cards.append(card)
     return broll, cards
 

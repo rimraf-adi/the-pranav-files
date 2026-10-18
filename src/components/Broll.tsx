@@ -13,6 +13,7 @@ import style from "../../styles/gadzhi.json";
 import { BlurText, Wash, clamp, fitSize, fontFamily, toneColor } from "./common";
 import { FilmDust } from "./Effects";
 import { Chart, LowerThird, MapScene } from "./BrollScenes";
+import { Flow, Gauge, NameTag, Ticker, Trend, Votes } from "./Motion";
 
 const MAXW = 864;
 
@@ -44,8 +45,10 @@ const Stat: React.FC<Extract<Broll, { kind: "stat" }>> = (p) => {
   });
   const v = p.from + (p.to - p.from) * k;
   const arrow = p.to > p.from ? "▲" : p.to < p.from ? "▼" : "";
-  const num = `${p.prefix}${v.toFixed(p.decimals)}${p.suffix}`;
-  const full = `${p.prefix}${p.to.toFixed(p.decimals)}${p.suffix}`;
+  const prefix = p.prefix ?? "";
+  const suffix = p.suffix ?? "";
+  const num = `${prefix}${v.toFixed(p.decimals)}${suffix}`;
+  const full = `${prefix}${p.to.toFixed(p.decimals)}${suffix}`;
   return (
     <Card tone={p.tone}>
       <BlurText
@@ -130,8 +133,10 @@ const Montage: React.FC<Extract<Broll, { kind: "montage" }>> = (p) => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
       <AbsoluteFill style={{ transform: `scale(${1 + 0.04 * local})` }}>
-        <Img src={staticFile(s.src)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "contrast(1.08) brightness(0.88)" }} />
+        <Img src={staticFile(s.src)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: s.focus ?? "50% 50%", filter: "contrast(1.08) brightness(0.88)" }} />
       </AbsoluteFill>
+      {/* caption bed: keeps the running captions readable over bright photos */}
+      <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 22%, rgba(0,0,0,0) 42%)" }} />
       {s.word ? (
         <div style={{ position: "absolute", left: 0, right: 0, top: `${style.reference.scenes.montage.captionTopPercent}%`, textAlign: "center", color: "#fff", fontFamily, fontWeight: 500, fontSize: style.reference.scenes.montage.captionSizePx, textTransform: "lowercase", textShadow: "0 2px 12px rgba(0,0,0,.7)" }}>{s.word}</div>
       ) : null}
@@ -170,8 +175,13 @@ export const BrollItem: React.FC<{ item: Broll }> = ({ item }) => {
   if (item.kind === "keyword") return <Keyword {...item} />;
   if (item.kind === "montage") return <Montage {...item} />;
   if (item.kind === "product") return <Product {...item} />;
-  if (item.kind === "lowerThird") return <LowerThird {...item} />;
+  if (item.kind === "lowerThird") return item.placement === "top" ? <NameTag {...item} /> : <LowerThird {...item} />;
   if (item.kind === "chart") return <Chart {...item} />;
   if (item.kind === "map") return <MapScene {...item} />;
+  if (item.kind === "trend") return <Trend {...item} />;
+  if (item.kind === "ticker") return <Ticker {...item} />;
+  if (item.kind === "votes") return <Votes {...item} />;
+  if (item.kind === "gauge") return <Gauge {...item} />;
+  if (item.kind === "flow") return <Flow {...item} />;
   return <Photo {...item} />;
 };

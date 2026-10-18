@@ -1,0 +1,48 @@
+{
+  "name": "rise",
+  "voice": "anchor's quiet verbatim rail, but the climax word SURGES: red letters spring up behind the subject with an up-arrow, and leave as soon as the sentence ends.",
+  "when": "news/finance explainers where the climax word is a direction (up, badha, jump, crash)",
+  "register": "calm",
+  "fonts": {
+    "body": "Sora",
+    "hero": "Montserrat",
+    "tag": "Sora"
+  },
+  "palette": {
+    "body": "#F2EFE9",
+    "accent": "#D9B98C",
+    "em": "#EFCB9A",
+    "hero": "#FF2D2D"
+  },
+  "body": {
+    "paradigm": "rail",
+    "layer": "fg",
+    "fontPx": 46,
+    "bottomPx": 96,
+    "letterSpacing": "0.012em",
+    "entrance": "fade",
+    "exit": "fade",
+    "minorScale": 1.0,
+    "yield": {
+      "dim": 0.55,
+      "pre": 0.2,
+      "post": 0.9
+    }
+  },
+  "hero": {
+    "setpiece": "surge",
+    "layer": "bg",
+    "fontPx": 165,
+    "params": {
+      "exitPad": 0.45,
+      "y": 0.315,
+      "arrow": false
+    }
+  },
+  "plate": {
+    "dim": 0.16,
+    "pushIn": 0.012,
+    "grain": 5
+  },
+  "linkages": []
+}

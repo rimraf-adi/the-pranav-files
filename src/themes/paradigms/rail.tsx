@@ -28,9 +28,14 @@ const Rail: React.FC<ThemeCtx> = ({ dna, lines, hero }) => {
         const xo = outT - 0.17;
         let op = 1;
         let ly = 0;
+        // back-to-back lines (no pause): hard switch instead of a crossfade, so two lines never stack
+        const next = lines[i + 1]?.start ?? Infinity;
+        const butt = next - L.end < 0.25;
         // exit variants (upstream: fade | drop | powercut)
         const F = 1 / 30;
-        if (b.exit === "fade") {
+        if (butt) {
+          op = t < next ? 1 : 0;
+        } else if (b.exit === "fade") {
           op = tw(t, xo, 0.15, 1, 0, ease.power1.in);
           ly = tw(t, xo, 0.15, 0, px(6), ease.power1.in);
         } else if (b.exit === "drop") {

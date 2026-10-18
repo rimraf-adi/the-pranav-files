@@ -1,0 +1,32 @@
+{
+  "name": "plain",
+  "voice": "anchor's verbatim rail with no climax set piece: captions only, accent color on emphasis words.",
+  "when": "natural talking-head edits where nothing should pop behind the subject",
+  "register": "calm",
+  "fonts": {
+    "body": "Sora",
+    "hero": "Sora",
+    "tag": "Sora"
+  },
+  "palette": {
+    "body": "#F2EFE9",
+    "accent": "#D9B98C",
+    "em": "#EFCB9A"
+  },
+  "body": {
+    "paradigm": "rail",
+    "layer": "fg",
+    "fontPx": 46,
+    "bottomPx": 96,
+    "letterSpacing": "0.012em",
+    "entrance": "fade",
+    "exit": "fade",
+    "minorScale": 1.0
+  },
+  "plate": {
+    "dim": 0.16,
+    "pushIn": 0.012,
+    "grain": 5
+  },
+  "linkages": []
+}

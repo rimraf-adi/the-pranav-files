@@ -27,6 +27,7 @@ import s_inkbloom from "./setpieces/inkbloom";
 import s_papermat from "./setpieces/papermat";
 import s_settle from "./setpieces/settle";
 import s_silkribbon from "./setpieces/silkribbon";
+import s_surge from "./setpieces/surge";
 import d_anchor from "./dna/anchor.json";
 import d_arcade from "./dna/arcade.json";
 import d_aurora from "./dna/aurora.json";
@@ -42,8 +43,10 @@ import d_lastpage from "./dna/lastpage.json";
 import d_neonsign from "./dna/neonsign.json";
 import d_ordnance from "./dna/ordnance.json";
 import d_papercut from "./dna/papercut.json";
+import d_plain from "./dna/plain.json";
 import d_popup from "./dna/popup.json";
 import d_ransom from "./dna/ransom.json";
+import d_rise from "./dna/rise.json";
 import d_scoreboard from "./dna/scoreboard.json";
 import d_spectrum from "./dna/spectrum.json";
 import d_stardust from "./dna/stardust.json";
@@ -83,6 +86,7 @@ export const setpieces: Record<string, Setpiece> = {
   "papermat": s_papermat,
   "settle": s_settle,
   "silkribbon": s_silkribbon,
+  "surge": s_surge,
 };
 
 export const dnas: Record<string, ThemeDNA> = {
@@ -101,8 +105,10 @@ export const dnas: Record<string, ThemeDNA> = {
   "neonsign": themeDNA.parse(d_neonsign),
   "ordnance": themeDNA.parse(d_ordnance),
   "papercut": themeDNA.parse(d_papercut),
+  "plain": themeDNA.parse(d_plain),
   "popup": themeDNA.parse(d_popup),
   "ransom": themeDNA.parse(d_ransom),
+  "rise": themeDNA.parse(d_rise),
   "scoreboard": themeDNA.parse(d_scoreboard),
   "spectrum": themeDNA.parse(d_spectrum),
   "stardust": themeDNA.parse(d_stardust),

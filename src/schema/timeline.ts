@@ -52,7 +52,7 @@ export const cut = z.object({
 const brollBase = {
   id: z.string(),
   at: z.number().min(0).describe("start on OUTPUT timeline, seconds"),
-  duration: z.number().min(0.8).max(6),
+  duration: z.number().min(0.8).max(12),
   tone: tone.default("attention"),
   leak: z.boolean().default(false).describe("light leak on entry and exit"),
 };
@@ -60,7 +60,11 @@ const brollBase = {
 export const shot = z.object({
   src: z.string().describe("image path relative to /public"),
   word: z.string().default("").describe("one-word caption shown while this shot is up"),
+  focus: z.string().default("50% 50%").describe("CSS object-position for the 9:16 crop, e.g. '58% 50%' to keep a subject right of center"),
 });
+
+/** optional photo behind a top-zone motion graphic (darkened, slow push) */
+const zoneBg = z.string().optional().describe("photo path relative to /public");
 
 // Add a new kind here + a renderer in src/components/Broll.tsx
 export const broll = z.discriminatedUnion("kind", [
@@ -89,7 +93,7 @@ export const broll = z.discriminatedUnion("kind", [
   z.object({
     ...brollBase,
     kind: z.literal("montage"),
-    shots: z.array(shot).min(2).max(8).describe("one full-bleed shot per spoken noun; duration is split evenly"),
+    shots: z.array(shot).min(1).max(8).describe("full-bleed shots, one per spoken noun; duration is split evenly; one shot = a single full-bleed cutaway"),
   }),
   z.object({
     ...brollBase,
@@ -105,6 +109,7 @@ export const broll = z.discriminatedUnion("kind", [
     kind: z.literal("lowerThird"),
     title: z.string(),
     sub: z.string().default(""),
+    placement: z.enum(["lower", "top"]).default("lower").describe("top = name card in the top zone, clear of the face"),
   }),
   z.object({
     ...brollBase,
@@ -123,6 +128,74 @@ export const broll = z.discriminatedUnion("kind", [
     pins: z.array(z.object({ label: z.string(), lon: z.number(), lat: z.number() })).default([]),
     focus: z.array(z.number()).length(4).optional().describe("[lonMin, latMin, lonMax, latMax]; default whole world"),
   }),
+  // Top-zone motion graphics (src/components/Motion.tsx). Times inside are seconds RELATIVE to `at`.
+  z.object({
+    ...brollBase,
+    kind: z.literal("trend"),
+    bg: zoneBg,
+    plan: z.string().describe("label of the expected direction (dashed line going down)"),
+    planSub: z.string().default(""),
+    real: z.string().describe("label of what actually happened (red line snapping up)"),
+    realSub: z.string().default(""),
+    flipAt: z.number().min(0).describe("when the red line breaks upward"),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("ticker"),
+    bg: zoneBg,
+    label: z.string(),
+    from: z.number().optional().describe("omit to roll in from zeros"),
+    to: z.number(),
+    stepAt: z.number().min(0).default(0.3).describe("when the digits roll to `to`"),
+    prefix: z.string().default(""),
+    suffix: z.string().default(""),
+    decimals: z.number().int().min(0).max(2).default(0),
+    chip: z.string().default("").describe("change chip shown after the step, e.g. +0.25"),
+    line: z.enum(["step", "none"]).default("step"),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("votes"),
+    bg: zoneBg,
+    yes: z.number().int().min(1).max(24),
+    no: z.number().int().min(0).max(24).default(0),
+    label: z.string().default(""),
+    verdict: z.string().default(""),
+    resultAt: z.number().min(0).describe("when the score appears; seats fill before it"),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("gauge"),
+    bg: zoneBg,
+    label: z.string(),
+    value: z.number(),
+    target: z.number().optional(),
+    max: z.number().positive(),
+    unit: z.string().default(""),
+    valueAt: z.number().min(0).describe("bar lands on value here, then strains (stuck)"),
+    targetAt: z.number().min(0).default(0),
+  }),
+  z.object({
+    ...brollBase,
+    kind: z.literal("flow"),
+    bg: zoneBg,
+    nodes: z
+      .array(
+        z.object({
+          id: z.string(),
+          label: z.string(),
+          value: z.string().default("").describe("digits roll in, e.g. $100"),
+          sub: z.string().default(""),
+          at: z.number().min(0),
+          tone: tone.default("neutral"),
+          arrow: z.enum(["up", "down", "none"]).default("none"),
+          row: z.number().int().min(0).max(1).default(0),
+          from: z.string().optional().describe("id of the node this one is caused by (draws an edge)"),
+        }),
+      )
+      .min(2)
+      .max(6),
+  }),
 ]);
 
 export const timeline = z.object({
@@ -136,6 +209,16 @@ export const timeline = z.object({
   words: z.array(word).default([]),
   titles: z.array(title).default([]),
   cuts: z.array(cut).default([]),
+  sfx: z
+    .array(
+      z.object({
+        at: z.number().min(0).describe("OUTPUT-timeline seconds"),
+        src: z.string().describe("audio path relative to /public"),
+        volume: z.number().min(0).max(1).default(0.3),
+      }),
+    )
+    .default([])
+    .describe("sound design under the voice: whooshes on photo cuts, ticks/pops on graphic beats"),
   broll: z.array(broll).default([]),
   cards: z
     .array(card)

@@ -207,6 +207,19 @@
         "highlight": "#FF1111",
         "pin": "#FFD60A",
         "text": "#FFFFFF"
+      },
+      "motion": {
+        "note": "top-zone data graphics (trend, ticker, votes, gauge, flow) in src/components/Motion.tsx",
+        "red": "#FF2D2D",
+        "green": "#2EE59D",
+        "text": "#FFFFFF",
+        "muted": "rgba(255,255,255,0.58)",
+        "faint": "rgba(255,255,255,0.16)",
+        "glass": "rgba(14,14,20,0.74)",
+        "stroke": "rgba(255,255,255,0.14)",
+        "scrim": "4,4,8",
+        "zoneBottomPx": 520,
+        "safeTopPx": 72
       }
     }
   }

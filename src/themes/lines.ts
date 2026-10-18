@@ -30,7 +30,8 @@ export const buildLines = (
     )
       flush();
     cur.push(w);
-    if (/[.?!]$/.test(w.text)) flush();
+    // break on meaning like a human captioner: sentence ends always, commas once the line has 2+ words
+    if (/[.?!]$/.test(w.text) || (/,$/.test(w.text) && cur.length >= 2)) flush();
   }
   flush();
   return lines;

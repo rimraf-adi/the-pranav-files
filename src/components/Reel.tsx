@@ -7,7 +7,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Video } from "@remotion/media";
+import { Audio, Video } from "@remotion/media";
 import { OffthreadVideo } from "remotion";
 import { timeline, type Timeline } from "../schema/timeline";
 import { Captions } from "./Captions";
@@ -148,6 +148,11 @@ export const Reel: React.FC<Timeline> = (raw) => {
           durationInFrames={Math.round(b.duration * fps)}
         >
           <BrollItem item={b} />
+        </Sequence>
+      ))}
+      {tl.sfx.map((s, i) => (
+        <Sequence key={`sfx-${i}`} from={Math.round(s.at * fps)} layout="none">
+          <Audio src={staticFile(s.src)} volume={s.volume} />
         </Sequence>
       ))}
       <LightLeak times={leaks} />

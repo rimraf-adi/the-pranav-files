@@ -1,0 +1,29 @@
+{
+  "name": "motion-editor-gui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Next.js GUI for minor timeline.json corrections; previews the Remotion Reel from ../src",
+  "scripts": {
+    "dev": "next dev --webpack -p 3210",
+    "build": "next build --webpack",
+    "start": "next start -p 3210",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/google-fonts": "4.0.536",
+    "@remotion/media": "4.0.536",
+    "@remotion/player": "4.0.536",
+    "immer": "^10.1.1",
+    "next": "16.4.2",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.536",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

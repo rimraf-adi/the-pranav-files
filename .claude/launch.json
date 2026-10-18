@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "motion-editor-gui",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "editor", "run", "dev"],
+      "port": 3210
+    }
+  ]
+}

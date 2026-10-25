@@ -1,0 +1,88 @@
+{
+  "name": "bold",
+  "description": "High energy: punchy captions with stamp-in words, right-aligned stacks with a big cyan word, dark header with icon and no photo, a sound on every graphic. Use for hooks and challenges.",
+  "captionTheme": {
+    "name": "grotesk-pop"
+  },
+  "emphasis_max_ratio": 0.25,
+  "max_moments": 5,
+  "kinds": {
+    "hook": {
+      "template": "hooks-captions-caption-02",
+      "colors": [
+        "#FFFFFF",
+        "#00FFD7",
+        "#FFFFFF",
+        "#F3FF00"
+      ],
+      "scale": 0.8,
+      "header": {
+        "bg": false,
+        "icon": true,
+        "scrim": 0.94,
+        "scrimHeight": 760,
+        "solid": 420,
+        "fadeIn": 0.27
+      }
+    },
+    "stat": {
+      "template": "hooks-captions-caption-02",
+      "colors": [
+        "#FFFFFF",
+        "#00FFD7",
+        "#FFFFFF",
+        "#F3FF00"
+      ],
+      "scale": 0.8,
+      "header": {
+        "bg": false,
+        "icon": true,
+        "scrim": 0.94,
+        "scrimHeight": 760,
+        "solid": 420,
+        "fadeIn": 0.27
+      }
+    },
+    "statement": {
+      "template": "hooks-captions-caption-02",
+      "colors": [
+        "#FFFFFF",
+        "#00FFD7",
+        "#FFFFFF",
+        "#F3FF00"
+      ],
+      "scale": 0.8,
+      "header": {
+        "bg": false,
+        "icon": true,
+        "scrim": 0.94,
+        "scrimHeight": 760,
+        "solid": 420,
+        "fadeIn": 0.27
+      }
+    },
+    "cta": {
+      "template": "hooks-captions-caption-02",
+      "colors": [
+        "#FFFFFF",
+        "#00FFD7",
+        "#FFFFFF",
+        "#F3FF00"
+      ],
+      "scale": 0.8,
+      "header": {
+        "bg": false,
+        "icon": true,
+        "scrim": 0.94,
+        "scrimHeight": 760,
+        "solid": 420,
+        "fadeIn": 0.27
+      }
+    }
+  },
+  "sfx": {
+    "enter": "whoosh-soft",
+    "volume": 0.16,
+    "tick": true
+  }
+}

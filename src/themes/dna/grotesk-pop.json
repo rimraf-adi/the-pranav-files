@@ -1,0 +1,31 @@
+{
+  "name": "grotesk-pop",
+  "voice": "Bold grotesk captions, white with a yellow accent and cyan emphasis, words pop in with a quick scale stamp.",
+  "when": "talking-head reels, tutorials, shortcuts and tips. The workhorse caption look.",
+  "register": "creator-bold",
+  "fonts": {
+    "body": "Inter"
+  },
+  "palette": {
+    "body": "#FFFFFF",
+    "accent": "#F3FF00",
+    "em": "#00F9FF"
+  },
+  "body": {
+    "paradigm": "rail",
+    "layer": "fg",
+    "fontPx": 64,
+    "bottomPx": 150,
+    "letterSpacing": "0.005em",
+    "entrance": "stamp",
+    "exit": "fade",
+    "emScale": 1.16,
+    "glow": "0 4px 16px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.6)"
+  },
+  "plate": {
+    "dim": 0.12,
+    "grain": 4
+  },
+  "linkages": [],
+  "_source": "Derived from the parsed Premiere .mogrt packs (scripts/templates/parse_assets.py -> out/assets_parsed.json): fonts, colours, sizes and effect names are read from the templates; motion is approximated with the existing `rail` paradigm, not copied. From: Caption 01-15 (NHaasGroteskDSPro-75Bd, 100px, #FFFFFF/#F3FF00/#00F9FF; font swapped to Inter, not on Google Fonts)."
+}

@@ -85,17 +85,15 @@ All paths are relative to `public/` (the same convention as `source`) and the re
 `fetch.py` prints exactly this string, and it is the `file` field in `manifest.json`.
 
 ```json
-{"titles":[{"id":"t1","at":2.0,"lines":[
-  {"text":"CLIENT","level":"primary","icon":"projects/demo/assets/icons/client.svg"}]}],
- "broll":[{"id":"b1","kind":"image","at":5.0,"duration":2.5,
+{"broll":[{"id":"b1","kind":"image","at":5.0,"duration":2.5,
   "src":"projects/demo/assets/photos/federal-reserve-eccles.jpg","label":"THE FED"}]}
 ```
 
-- `titles[].lines[].icon` takes an SVG; fetch with `--color` matching the title tone (white `#FFFFFF` on dark grade).
+- Icons have no timeline field now (title stacks were removed); fetch them only if a new component needs them.
 - `broll[].src` (kind `image`) takes a photo.
 - SFX/music have no field in `src/schema/timeline.ts` yet. Files can be fetched (`assets/sfx/`, `assets/music/`) but
   wiring them in is a separate task (new schema field + component), per AGENTS.md rules.
-- Preview a candidate before pasting: `scripts/preview_broll.py` (see `skills/think-loop`).
+- Preview a candidate before pasting: `scripts/pipeline/preview_broll.py` (see `skills/think-loop`).
 
 ## Done checklist
 1. `license_check.py <project>` exits 0.

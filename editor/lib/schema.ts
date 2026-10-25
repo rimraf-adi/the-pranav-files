@@ -123,14 +123,14 @@ export const brollSchemaFor = (kind: string): S =>
   (broll as S).options.find((o: S) => o.shape.kind.value === kind);
 
 /** "segments" is the A-roll: source-video ranges (SOURCE seconds), shown read-only on the timeline. */
-export type TrackKey = "segments" | "words" | "broll" | "cards" | "titles" | "cuts" | "sfx";
+export type TrackKey = "segments" | "words" | "broll" | "cards" | "cuts" | "sfx";
 
 export function itemSchema(track: TrackKey, item?: { kind?: string }): S {
   if (track === "broll") return brollSchemaFor(item?.kind ?? "keyword");
   return elementSchema(track);
 }
 
-/** min/max of an item's `duration` from its schema (b-roll 0.8-12, cards 1.5-60, titles 0.8-3.5). */
+/** min/max of an item's `duration` from its schema (b-roll 0.8-12, cards 1.5-60). */
 export function durationBounds(track: TrackKey, item?: { kind?: string }): { min: number; max: number } {
   const s = itemSchema(track, item);
   const d = s?.shape?.duration;
@@ -139,7 +139,7 @@ export function durationBounds(track: TrackKey, item?: { kind?: string }): { min
   return { min: b.min ?? 0, max: b.max ?? Infinity };
 }
 
-/** Default duration zod applies when `duration` is absent (cards 5s, titles 1.8s). */
+/** Default duration zod applies when `duration` is absent (cards 5s). */
 export function durationOf(track: TrackKey, item: { duration?: number; kind?: string }): number {
   if (typeof item.duration === "number") return item.duration;
   const d = itemSchema(track, item)?.shape?.duration;

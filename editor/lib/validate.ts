@@ -23,11 +23,6 @@ const assetPaths = (doc: Loose): { path: (string | number)[]; value: unknown }[]
     if ("bg" in b) out.push({ path: ["broll", i, "bg"], value: b.bg });
   });
   arr(doc.sfx).forEach((s, i) => out.push({ path: ["sfx", i, "src"], value: s.src }));
-  arr(doc.titles).forEach((t, i) =>
-    arr(t.lines).forEach((l, k) => {
-      if ("icon" in l) out.push({ path: ["titles", i, "lines", k, "icon"], value: l.icon });
-    }),
-  );
   arr(doc.cards).forEach((c, i) => {
     const media = arr((c.content as Loose | undefined)?.media);
     media.forEach((m, k) => out.push({ path: ["cards", i, "content", "media", k, "src"], value: m.src }));
@@ -58,7 +53,7 @@ export function validateTimeline(doc: unknown, knownFiles?: Set<string>): Issue[
   });
 
   // The Reel keys b-roll <Sequence>s by id; duplicates mis-render.
-  for (const key of ["broll", "cards", "titles"] as const) {
+  for (const key of ["broll", "cards"] as const) {
     const seen = new Map<string, number>();
     arr(d[key]).forEach((b, i) => {
       const id = b.id as string;

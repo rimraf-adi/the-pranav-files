@@ -12,8 +12,6 @@ import { OffthreadVideo } from "remotion";
 import { timeline, type Timeline } from "../schema/timeline";
 import { Captions } from "./Captions";
 import { BrollItem } from "./Broll";
-import { TitleStack } from "./TitleStack";
-import { FilmDust, GradeOverlay, LightLeak, gradeFilter } from "./Effects";
 import { PlateFx } from "../themes/PlateFx";
 import { ThemeLayers, useThemeCtx } from "../themes/ThemeLayers";
 import { CaptionGate, CardStage } from "../cards/CardStage";
@@ -28,7 +26,7 @@ const Camera: React.FC<{
   const { fps } = useVideoConfig();
   const t = frame / fps;
   const shots = [
-    { at: 0, scale: 1, originY: 0.4, leak: false },
+    { at: 0, scale: 1, originY: 0.4 },
     ...[...tl.cuts].sort((a, b) => a.at - b.at),
   ];
   let i = 0;
@@ -52,7 +50,6 @@ const Camera: React.FC<{
       style={{
         transform: `translateY(${tl.headroomPercent}%) scale(${zoom})`,
         transformOrigin: `50% ${shot.originY * 100}%`,
-        filter: tl.grade ? gradeFilter : undefined,
       }}
     >
       {children}
@@ -107,10 +104,6 @@ export const Reel: React.FC<Timeline> = (raw) => {
   const { fps } = useVideoConfig();
   const total = tl.segments.reduce((s, g) => s + (g.to - g.from), 0);
   const theme = useThemeCtx(tl.words, tl.captionTheme);
-  const leaks = [
-    ...tl.cuts.filter((c) => c.leak).map((c) => c.at),
-    ...tl.broll.filter((b) => b.leak).flatMap((b) => [b.at, b.at + b.duration]),
-  ];
   const plate = (
     <PlateFx dna={theme?.dna} hero={theme?.hero}>
       <Camera tl={tl} total={total}>
@@ -138,9 +131,6 @@ export const Reel: React.FC<Timeline> = (raw) => {
       ) : (
         plate
       )}
-      {tl.grade ? <GradeOverlay /> : null}
-      {tl.dust ? <FilmDust /> : null}
-      <TitleStack titles={tl.titles} />
       {tl.broll.map((b) => (
         <Sequence
           key={b.id}
@@ -155,7 +145,6 @@ export const Reel: React.FC<Timeline> = (raw) => {
           <Audio src={staticFile(s.src)} volume={s.volume} />
         </Sequence>
       ))}
-      <LightLeak times={leaks} />
       {tl.cards.length ? (
         <CaptionGate cards={tl.cards}>{captions}</CaptionGate>
       ) : (

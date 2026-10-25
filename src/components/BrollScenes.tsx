@@ -1,10 +1,10 @@
 import React from "react";
 import { AbsoluteFill, Easing, continueRender, delayRender, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Broll } from "../schema/timeline";
-import style from "../../styles/gadzhi.json";
+import style from "../../styles/default.json";
 import { clamp, fontFamily, useEnvelope } from "./common";
 
-const S = style.reference.scenes;
+const S = style.scenes;
 const ease = Easing.out(Easing.cubic);
 
 export const LowerThird: React.FC<Extract<Broll, { kind: "lowerThird" }>> = (p) => {

@@ -899,31 +899,26 @@
       "emphasis": false
     }
   ],
-  "titles": [],
   "cuts": [
     {
       "at": 4.62,
       "scale": 1.03,
-      "originY": 0.38,
-      "leak": false
+      "originY": 0.38
     },
     {
       "at": 13.16,
       "scale": 1.0,
-      "originY": 0.38,
-      "leak": false
+      "originY": 0.38
     },
     {
       "at": 21.8,
       "scale": 1.03,
-      "originY": 0.38,
-      "leak": false
+      "originY": 0.38
     },
     {
       "at": 37.5,
       "scale": 1.0,
-      "originY": 0.38,
-      "leak": false
+      "originY": 0.38
     }
   ],
   "broll": [
@@ -1029,7 +1024,7 @@
       ]
     }
   ],
-  "style": "gadzhi",
+  "style": "default",
   "pushInPercent": 2,
   "captionTheme": {
     "name": "plain"

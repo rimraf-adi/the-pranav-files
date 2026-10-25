@@ -29,7 +29,6 @@ const SNAP_PX = 7;
 
 const TRACK_LABEL: Record<TrackKey, string> = {
   segments: "A-roll",
-  titles: "Titles",
   broll: "B-roll",
   cards: "Cards",
   words: "Captions",
@@ -64,8 +63,6 @@ function labelFor(track: TrackKey, it: Item): string {
     }
     case "cards":
       return `${it.style ?? "minimal"} · ${it.content?.title || it.id}`;
-    case "titles":
-      return (it.lines ?? []).map((l: Item) => l.text).join(" / ");
     case "cuts":
       return `×${(it.scale ?? 1).toFixed(2)}`;
     case "sfx":

@@ -2,9 +2,9 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Word } from "../schema/timeline";
 import { fontFamily } from "./common";
-import style from "../../styles/gadzhi.json";
+import style from "../../styles/default.json";
 
-const c = style.reference.captions;
+const c = style.captions;
 type Chunk = { text: string; start: number; end: number };
 
 // 1-3 short words per chunk; break on pauses and sentence punctuation.
@@ -16,8 +16,7 @@ export const chunkWords = (words: Word[]): Chunk[] => {
     out.push({
       text: cur
         .map((w) => w.text.replace(/[.,?!]+$/g, ""))
-        .join(" ")
-        .toLowerCase(),
+        .join(" "),
       start: cur[0].start,
       end: cur[cur.length - 1].end,
     });
@@ -61,7 +60,6 @@ export const Captions: React.FC<{ words: Word[] }> = ({ words }) => {
           right: 0,
           textAlign: "center",
           fontFamily,
-          fontStyle: "italic",
           fontWeight: c.weight,
           fontSize: (width * c.fontPercentOfWidth) / 100,
           color: c.color,

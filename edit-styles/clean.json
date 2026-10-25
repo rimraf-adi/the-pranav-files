@@ -1,0 +1,43 @@
+{
+  "name": "clean",
+  "description": "Minimal: one small opening header and nothing else; captions only, no photo, no icon, no sound design. Use when the speaker and the words should carry the video.",
+  "captionTheme": {
+    "name": "plain"
+  },
+  "emphasis_max_ratio": 0.08,
+  "max_moments": 1,
+  "kinds": {
+    "hook": {
+      "template": "hooks-captions-caption-01",
+      "colors": [
+        "#FFFFFF",
+        "#FFFFFF",
+        "#FFFFFF",
+        "#FFFFFF"
+      ],
+      "scale": 0.7,
+      "header": {
+        "bg": false,
+        "icon": false,
+        "scrim": 0.92,
+        "scrimHeight": 700,
+        "solid": 420,
+        "fadeIn": 0.27
+      }
+    },
+    "stat": {
+      "skip": true
+    },
+    "statement": {
+      "skip": true
+    },
+    "cta": {
+      "skip": true
+    }
+  },
+  "sfx": {
+    "enter": null,
+    "volume": 0.0,
+    "tick": false
+  }
+}

@@ -5,11 +5,11 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Broll, Tone } from "../schema/timeline";
-import style from "../../styles/gadzhi.json";
+import style from "../../styles/default.json";
 import { fontFamily, toneColor } from "./common";
 import { ease, tw } from "../themes/motion";
 
-const M = style.reference.scenes.motion;
+const M = style.scenes.motion;
 const ZB = M.zoneBottomPx;
 /** keeps graphics below the platform header UI (IG/YT/TikTok top bar) */
 const SAFE = M.safeTopPx;

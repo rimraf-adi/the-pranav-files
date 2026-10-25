@@ -15,7 +15,7 @@ import { apply, getState, select, setState, toast, type Doc, type Sel } from "./
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Item = Record<string, any>;
 
-export const TRACKS: TrackKey[] = ["titles", "broll", "cards", "words", "cuts", "sfx"];
+export const TRACKS: TrackKey[] = ["broll", "cards", "words", "cuts", "sfx"];
 export const POINT_TRACKS = new Set<TrackKey>(["cuts", "sfx"]);
 
 export const fpsOf = (doc: Doc | null) => (doc?.fps as number) ?? 30;
@@ -109,10 +109,6 @@ export function addItem(track: TrackKey, kind?: string) {
       if (track === "cards") {
         item.id = uniqueId(arr, "card");
         item.content = { kicker: "", title: "New card", detail: "", tag: "" };
-      }
-      if (track === "titles") {
-        item.id = uniqueId(arr, "title");
-        item.lines = [{ text: "TITLE", level: "primary" }];
       }
       if (track === "sfx") {
         item.src = firstAsset("audio") ?? "";

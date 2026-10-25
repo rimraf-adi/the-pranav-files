@@ -9,16 +9,15 @@ import {
   useVideoConfig,
 } from "remotion";
 import type { Broll } from "../schema/timeline";
-import style from "../../styles/gadzhi.json";
-import { BlurText, Wash, clamp, fitSize, fontFamily, toneColor } from "./common";
-import { FilmDust } from "./Effects";
+import style from "../../styles/default.json";
+import { BlurText, clamp, fitSize, fontFamily, toneColor } from "./common";
 import { Chart, LowerThird, MapScene } from "./BrollScenes";
+import { TemplateScene } from "./TemplateScene";
 import { Flow, Gauge, NameTag, Ticker, Trend, Votes } from "./Motion";
 
 const MAXW = 864;
 
 const Card: React.FC<{ tone: Broll["tone"]; children: React.ReactNode }> = ({
-  tone,
   children,
 }) => (
   <AbsoluteFill
@@ -30,8 +29,6 @@ const Card: React.FC<{ tone: Broll["tone"]; children: React.ReactNode }> = ({
       gap: 28,
     }}
   >
-    <Wash tone={tone} height={100} strength={0.85} />
-    <FilmDust />
     {children}
   </AbsoluteFill>
 );
@@ -105,8 +102,6 @@ const Photo: React.FC<Extract<Broll, { kind: "image" }>> = (p) => {
           }}
         />
       </AbsoluteFill>
-      <Wash tone={p.tone} height={55} strength={0.9} />
-      <FilmDust />
       {p.label ? (
         <div style={{ position: "absolute", top: "4%", left: 0, right: 0 }}>
           <BlurText
@@ -138,7 +133,7 @@ const Montage: React.FC<Extract<Broll, { kind: "montage" }>> = (p) => {
       {/* caption bed: keeps the running captions readable over bright photos */}
       <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 22%, rgba(0,0,0,0) 42%)" }} />
       {s.word ? (
-        <div style={{ position: "absolute", left: 0, right: 0, top: `${style.reference.scenes.montage.captionTopPercent}%`, textAlign: "center", color: "#fff", fontFamily, fontWeight: 500, fontSize: style.reference.scenes.montage.captionSizePx, textTransform: "lowercase", textShadow: "0 2px 12px rgba(0,0,0,.7)" }}>{s.word}</div>
+        <div style={{ position: "absolute", left: 0, right: 0, top: `${style.scenes.montage.captionTopPercent}%`, textAlign: "center", color: "#fff", fontFamily, fontWeight: 500, fontSize: style.scenes.montage.captionSizePx, textTransform: "lowercase", textShadow: "0 2px 12px rgba(0,0,0,.7)" }}>{s.word}</div>
       ) : null}
     </AbsoluteFill>
   );
@@ -152,7 +147,7 @@ const Product: React.FC<Extract<Broll, { kind: "product" }>> = (p) => {
   const words = p.words ?? [];
   const word = words.length ? words[slice(frame, durationInFrames, words.length)] : "";
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(to bottom, ${p.from ?? style.reference.scenes.product.from}, ${p.to ?? style.reference.scenes.product.to})`, justifyContent: "center", alignItems: "center" }}>
+    <AbsoluteFill style={{ background: `linear-gradient(to bottom, ${p.from ?? style.scenes.product.from}, ${p.to ?? style.scenes.product.to})`, justifyContent: "center", alignItems: "center" }}>
       {word ? (
         <div style={{ position: "absolute", top: "9%", left: 0, right: 0, textAlign: "center", color: "#fff", fontFamily, fontWeight: 500, fontSize: 60, textTransform: "lowercase" }}>{word}</div>
       ) : null}
@@ -183,5 +178,6 @@ export const BrollItem: React.FC<{ item: Broll }> = ({ item }) => {
   if (item.kind === "votes") return <Votes {...item} />;
   if (item.kind === "gauge") return <Gauge {...item} />;
   if (item.kind === "flow") return <Flow {...item} />;
+  if (item.kind === "template") return <TemplateScene {...item} />;
   return <Photo {...item} />;
 };

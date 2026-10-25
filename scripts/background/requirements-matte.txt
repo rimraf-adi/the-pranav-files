@@ -1,0 +1,5 @@
+# Installed into ./.venv-matte only (python3.13, macOS arm64). See scripts/background/treat_bg.sh --setup
+torch==2.14.1
+torchvision==0.29.1
+numpy==2.5.4
+opencv-python-headless==5.0.0.93

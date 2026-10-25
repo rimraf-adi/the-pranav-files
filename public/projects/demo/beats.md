@@ -15,7 +15,7 @@ Rules:
   one tick per vote seat, a soft pop on the 12-0 / +0.25 / 2% moments. Felt, not heard.
 - Captions: transcription typos fixed (Warsh, Trump, Fed chief, Senate, favour, wajah...), lines break on commas, never split a name,
   and back-to-back lines hard-switch instead of crossfading.
-- Camera: three quiet cuts on sentence starts (scale 1.0/1.03), no light leaks, 2% slow push.
+- Camera: three quiet cuts on sentence starts (scale 1.0/1.03), 2% slow push.
 
 | t (s) | Spoken | Visual | Kind | Spec |
 |---|---|---|---|---|

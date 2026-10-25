@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  AbsoluteFill,
   Easing,
   interpolate,
   random,
@@ -9,21 +8,19 @@ import {
 } from "remotion";
 import { loadFont } from "@remotion/google-fonts/Montserrat";
 import type { Tone } from "../schema/timeline";
-import style from "../../styles/gadzhi.json";
+import style from "../../styles/default.json";
 
 export const { fontFamily } = loadFont("normal", {
   weights: ["500", "900"],
   subsets: ["latin"],
 });
-loadFont("italic", { weights: ["500", "900"], subsets: ["latin"] });
 
-const ref = style.reference;
+const blur = { lineBlurInSec: 0.25, blurPx: 14, exitSec: 0.12 };
 export const clamp = {
   extrapolateLeft: "clamp",
   extrapolateRight: "clamp",
 } as const;
-export const toneColor = (t: Tone) => ref.title.palette[t];
-export const washColor = (t: Tone) => ref.title.wash.colors[t];
+export const toneColor = (t: Tone) => style.tones[t];
 
 /** Fraction 0..1 of a "fade in at start, fade out at end" envelope, in seconds. */
 export const useEnvelope = (inSec: number, outSec: number) => {
@@ -37,32 +34,13 @@ export const useEnvelope = (inSec: number, outSec: number) => {
   );
 };
 
-/** Colored gradient wash from the top, tinted to the title tone. */
-export const Wash: React.FC<{
-  tone: Tone;
-  height?: number;
-  strength?: number;
-}> = ({ tone, height = 46, strength = 0.95 }) => {
-  const e = useEnvelope(ref.title.wash.fadeInSec, ref.title.anim.exitSec);
-  const c = washColor(tone);
-  return (
-    <AbsoluteFill
-      style={{
-        opacity: e * strength,
-        background: `linear-gradient(to bottom, ${c} 0%, ${c} ${height * 0.45}%, ${c}00 ${height}%)`,
-      }}
-    />
-  );
-};
-
-/** Text that blur-resolves letter by letter (reference title entrance). */
+/** Text that blur-resolves letter by letter . */
 export const BlurText: React.FC<{
   text: string;
   size: number;
   color: string;
   delaySec?: number;
   seed: string;
-  italic?: boolean;
   weight?: 500 | 900;
 }> = ({
   text,
@@ -70,12 +48,11 @@ export const BlurText: React.FC<{
   color,
   delaySec = 0,
   seed,
-  italic = false,
   weight = 900,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
-  const a = ref.title.anim;
+  const a = blur;
   const exitStart = durationInFrames - a.exitSec * fps;
   return (
     <div
@@ -85,7 +62,6 @@ export const BlurText: React.FC<{
         whiteSpace: "pre",
         fontFamily,
         fontWeight: weight,
-        fontStyle: italic ? "italic" : "normal",
         fontSize: size,
         lineHeight: 0.95,
         color,

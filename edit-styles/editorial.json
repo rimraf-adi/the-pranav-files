@@ -1,0 +1,92 @@
+{
+  "name": "editorial",
+  "description": "Calm and literary: serif italic captions, a serif italic key word with a gold and cyan accent, a desaturated photo header, no icons and no sound design. Use for stories, quotes and explainers.",
+  "captionTheme": {
+    "name": "playfair-red"
+  },
+  "emphasis_max_ratio": 0.1,
+  "max_moments": 3,
+  "kinds": {
+    "hook": {
+      "template": "hooks-captions-caption-14",
+      "colors": [
+        "#FFFFFF",
+        "#FFC900",
+        "#00FFD7",
+        "#FFFFFF"
+      ],
+      "scale": 1.15,
+      "header": {
+        "bg": true,
+        "icon": false,
+        "scrim": 1.0,
+        "scrimHeight": 820,
+        "solid": 380,
+        "fadeIn": 0.27,
+        "bgBrightness": 0.5
+      }
+    },
+    "stat": {
+      "template": "hooks-captions-caption-14",
+      "colors": [
+        "#FFFFFF",
+        "#FFC900",
+        "#00FFD7",
+        "#FFFFFF"
+      ],
+      "scale": 1.15,
+      "header": {
+        "bg": true,
+        "icon": false,
+        "scrim": 1.0,
+        "scrimHeight": 820,
+        "solid": 380,
+        "fadeIn": 0.27,
+        "bgBrightness": 0.5
+      }
+    },
+    "statement": {
+      "template": "hooks-captions-caption-14",
+      "colors": [
+        "#FFFFFF",
+        "#FFC900",
+        "#00FFD7",
+        "#FFFFFF"
+      ],
+      "scale": 1.15,
+      "header": {
+        "bg": true,
+        "icon": false,
+        "scrim": 1.0,
+        "scrimHeight": 820,
+        "solid": 380,
+        "fadeIn": 0.27,
+        "bgBrightness": 0.5
+      }
+    },
+    "cta": {
+      "template": "hooks-captions-caption-14",
+      "colors": [
+        "#FFFFFF",
+        "#FFC900",
+        "#00FFD7",
+        "#FFFFFF"
+      ],
+      "scale": 1.15,
+      "header": {
+        "bg": true,
+        "icon": false,
+        "scrim": 1.0,
+        "scrimHeight": 820,
+        "solid": 380,
+        "fadeIn": 0.27,
+        "bgBrightness": 0.5
+      }
+    }
+  },
+  "sfx": {
+    "enter": null,
+    "volume": 0.0,
+    "tick": false
+  }
+}

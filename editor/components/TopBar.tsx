@@ -6,7 +6,7 @@ import { redo, save, select, setAutosave, undo, useStore } from "@/lib/store";
 import type { TrackKey } from "@/lib/schema";
 import { RenderPanel } from "./RenderPanel";
 
-const TRACKS = new Set(["segments", "words", "broll", "cards", "titles", "cuts", "sfx"]);
+const TRACKS = new Set(["segments", "words", "broll", "cards", "cuts", "sfx"]);
 
 export function TopBar() {
   const name = useStore((s) => s.name);

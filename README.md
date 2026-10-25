@@ -10,18 +10,18 @@ Requirements: Node 22+, Python 3.10+, `ffmpeg` and `ffprobe` on PATH. Works on m
 ```console
 npm i --loglevel=error
 cp .env.example .env                 # add GROQ_API_KEY (transcription); never commit .env
-python scripts/link_skills.py        # make skills discoverable by your agent (see Agent setup)
+python scripts/tools/link_skills.py        # make skills discoverable by your agent (see Agent setup)
 npm run dev                          # Remotion Studio
 ```
 
 ## Pipeline
 
 ```console
-python scripts/transcribe.py <video> public/projects/<name>/transcript.json
-python scripts/build_timeline.py public/projects/<name> projects/<name>/raw/<file>
-# edit public/projects/<name>/timeline.json (emphasis, titles, b-roll, cards)
+python scripts/pipeline/transcribe.py <video> public/projects/<name>/transcript.json
+python scripts/pipeline/build_timeline.py public/projects/<name> projects/<name>/raw/<file>
+# edit public/projects/<name>/timeline.json (emphasis, b-roll, cards)
 npx remotion render Reel public/renders/<name>.mp4 --props=public/projects/<name>/timeline.json --scale=0.5
-scripts/contact_sheet.sh public/renders/<name>.mp4 public/renders/<name>_sheet.png   # look at it
+scripts/pipeline/contact_sheet.sh public/renders/<name>.mp4 public/renders/<name>_sheet.png   # look at it
 npx remotion render Reel public/renders/<name>.mp4 --props=public/projects/<name>/timeline.json   # final, scale 1
 ```
 
@@ -29,32 +29,45 @@ Always preview at half scale and inspect the contact sheet before the full rende
 
 ## Layout
 
+Full map and data flow: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
 | Path | Contents |
 |---|---|
-| `src/` | Remotion code: `Root.tsx`, `components/` (Reel, Broll, Captions, TitleStack, Effects), `schema/timeline.ts` (zod schema), `themes/` (25 ported caption themes), `cards/` (takeaway card system) |
-| `public/projects/<name>/` | `raw/` source clip, `timeline.json`, `transcript.json`, `beats.md`, `broll_candidates.json`, `assets/` (licensed icons, photos, SFX + manifest) |
-| `public/renders/` | rendered videos and contact sheets (gitignored) |
-| `styles/` | style definitions (`gadzhi.json`) |
-| `scripts/` | Python CLIs: transcribe, build_timeline, analyze_media, preview_broll/cards/theme, assets/ (search, fetch, license check), matte + background blur, link_skills |
+| `src/` | Remotion renderer: `components/`, `schema/timeline.ts` (the contract), `themes/` (32 caption themes), `templates/` (43 replicated motion templates), `cards/` |
+| `public/projects/<name>/` | one video: `raw/`, `timeline.json`, `transcript.json`, `moments.json`, `beats.md`, `assets/`, `variants/` |
+| `edit-styles/` | reusable edit styles (formal, bold, editorial, clean) as data |
 | `skills/` | agent playbooks; start at `skills/motion-editor/SKILL.md` |
-| `AGENTS.md` | rules every agent follows |
+| `scripts/` | `pipeline/`, `edit_styles/`, `templates/`, `themes/`, `assets/`, `background/`, `tools/` |
+| `editor/` | Next.js timeline GUI |
+| `library/` | third-party packs (gitignored) |
+| `styles/` | neutral renderer tokens |
+
+## Edit styles
+
+```console
+python3 scripts/edit_styles/apply_style.py public/projects/<name> formal      # -> variants/formal.json
+python3 scripts/edit_styles/compare_styles.py public/projects/<name>          # all styles side by side (2x2)
+```
+
+Styles are data (`edit-styles/*.json`) with a skill each (`skills/style-*`); the video-specific plan is `moments.json`. See `skills/edit-styles/SKILL.md`.
 
 ## Features
 
-- **Captions and titles:** Roman-script Hinglish captions, blur-in title stacks, 25 HyperFrames-style caption themes.
+- **Captions:** Roman-script Hinglish captions, 25 HyperFrames-style caption themes.
+- **Motion templates:** 43 replicated After Effects / Premiere text templates usable as `{"kind":"template"}` b-roll (catalog in `skills/motion-templates/CATALOG.md`).
 - **B-roll:** `stat`, `keyword`, `image`, `montage` (word-by-word shots) and `product` (phone mockup or logo on a gradient), plus takeaway **cards** (11 styles incl. `media` for b-roll on top with the speaker below; 4 layouts).
-- **Plan as markdown:** write `public/projects/<name>/beats.md` and run `python scripts/beats_to_timeline.py public/projects/<name> --validate` to generate the `broll` and `cards` entries.
+- **Plan as markdown:** write `public/projects/<name>/beats.md` and run `python scripts/pipeline/beats_to_timeline.py public/projects/<name> --validate` to generate the `broll` and `cards` entries.
 - **Assets:** copyright-safe icons, photos and SFX via `scripts/assets/` with license checking.
 - **Background treatment (optional):** speaker matte and a blurred, darkened background, same resolution, fps and audio.
 
 ```console
-python scripts/treat_bg.py --setup                       # one-time (~440MB of Python deps, own venv)
-python scripts/treat_bg.py <video> <project_dir>         # writes matte.mp4 and base_bg.mp4
+python scripts/background/treat_bg.py --setup                       # one-time (~440MB of Python deps, own venv)
+python scripts/background/treat_bg.py <video> <project_dir>         # writes matte.mp4 and base_bg.mp4
 ```
 
 ## Agent setup (Claude Code, Codex, Antigravity, others)
 
-`skills/` is the single source of truth and `AGENTS.md` holds the rules. Run `python scripts/link_skills.py` once after cloning
+`skills/` is the single source of truth and `AGENTS.md` holds the rules. Run `python scripts/tools/link_skills.py` once after cloning
 (use `python3` on macOS/Linux; add `--copy` if symlinks are unavailable, e.g. Windows without Developer Mode), then restart the agent
 so it picks up the new skill folders. Every agent starts from the root skill, `skills/motion-editor/SKILL.md`.
 
@@ -84,15 +97,15 @@ Keys: put `GROQ_API_KEY` (and any asset-source keys) in `.env`; agents must neve
 |---|---|---|---|
 | Install ffmpeg | `brew install ffmpeg` | `winget install Gyan.FFmpeg` (restart the terminal) | `sudo apt install ffmpeg` (or your distro's package) |
 | Python command | `python3` | `python` or `py -3` | `python3` |
-| Link skills | `python3 scripts/link_skills.py` | `python scripts\link_skills.py --copy` (symlinks need Developer Mode or admin; re-run after editing a skill) | `python3 scripts/link_skills.py` |
+| Link skills | `python3 scripts/tools/link_skills.py` | `python scripts\tools\link_skills.py --copy` (symlinks need Developer Mode or admin; re-run after editing a skill) | `python3 scripts/tools/link_skills.py` |
 | Matte venv | `.venv-matte/bin/python` | `.venv-matte\Scripts\python.exe` | `.venv-matte/bin/python` |
-| Matte install | `python3 scripts/treat_bg.py --setup` | `python scripts\treat_bg.py --setup` | `python3 scripts/treat_bg.py --setup` (CPU torch by default; add `--cuda` for the GPU build) |
+| Matte install | `python3 scripts/background/treat_bg.py --setup` | `python scripts\background\treat_bg.py --setup` | `python3 scripts/background/treat_bg.py --setup` (CPU torch by default; add `--cuda` for the GPU build) |
 | Google Antigravity | [download](https://antigravity.google/download) | [download](https://antigravity.google/download) (Windows 10+ 64-bit, x64 or ARM64) | [download](https://antigravity.google/download) (x64 or ARM64, glibc 2.28+, e.g. Ubuntu 20, Debian 10, Fedora 36) |
 
 Antigravity reads project skills from `.agent/skills/` (created by `link_skills.py`). Pick your platform on the official
 [download page](https://antigravity.google/download); versions and system requirements change, so check it before installing.
 Skill authoring reference: [Authoring Google Antigravity Skills](https://codelabs.developers.google.com/getting-started-with-antigravity-skills).
-Windows tip: run the Python commands from PowerShell or Git Bash; shell scripts such as `scripts/contact_sheet.sh` need Git Bash or WSL.
+Windows tip: run the Python commands from PowerShell or Git Bash; shell scripts such as `scripts/pipeline/contact_sheet.sh` need Git Bash or WSL.
 
 ## Commands
 

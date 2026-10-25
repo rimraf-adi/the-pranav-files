@@ -45,7 +45,7 @@ Use a card for a data moment the viewer must *read*: a big number, a before/afte
 `frame`, `accentIndex`, `content {kicker, title with *highlight*, detail, data{value,label}, list[]}`. Palette: `cardPalette.themeId`.
 - A card shrinks/moves the speaker into the layout, so it is a heavy visual: max one per ~8s, 2-5s long, never next to a b-roll card.
 - Vary `style` between cards; text verbatim from the transcript; no invented numbers.
-- ALWAYS preview: `python3 scripts/preview_cards.py` (styles x palettes) and a half-scale render + contact sheet before the full render.
+- ALWAYS preview: `python3 scripts/pipeline/preview_cards.py` (styles x palettes) and a half-scale render + contact sheet before the full render.
 
 ## 3c. Patterns from a strong reference reel (startup breakdown, 67s, inferred from 1 fps frames; scene cuts at 3.7, 5.1, 6.8, 8.5, 12.3, 16.2, 20.0, 21.4, 31.8, 42.8 s)
 Plan the WHOLE reel as an arc, not isolated cutaways:
@@ -62,17 +62,17 @@ Rules extracted: every cutaway answers a specific spoken word; montages are word
 
 ## 3d. Write the plan as data: beats.md -> timeline.json
 Put the beat table in `public/projects/<name>/beats.md` with a `Spec` column (key=value pairs) and run
-`python scripts/beats_to_timeline.py public/projects/<name> --validate`. It rewrites only `broll` and `cards`
-(titles stay hand-edited) and validates through Remotion. Full spec syntax is in the script's docstring. Examples:
+`python scripts/pipeline/beats_to_timeline.py public/projects/<name> --validate`. It rewrites only `broll` and `cards`
+and validates through Remotion. Full spec syntax is in the script's docstring. Examples:
 `broll montage` `shots="a.jpg:book;b.jpg:pet"`, `broll product` `variant=phone src=... words="website;experts"`,
 `card media/split` `media="a.jpg:fed;b.jpg:oil"` (b-roll top, face below), `card swiss/split` `title="Still above *target*" value=3.7%`.
-Preview kinds first with `scripts/preview_broll.py`; render a still of a card with `npx remotion still Reel ... --frame=N`.
+Preview kinds first with `scripts/pipeline/preview_broll.py`; render a still of a card with `npx remotion still Reel ... --frame=N`.
 
 ## 4. Pacing and restraint (user feedback: previous edits zoomed too much)
 - NO punch-in/jump zooms. Per speaker shot at most one slow push-in (<= 2-3%). Variety comes from b-roll, not camera moves.
 - B-roll covers <= 35% of runtime; one idea per card; 1.5-3.5s; >= 0.6s of face between cards; never two cards in a row of the same kind.
 - Anchor `at` to the first word of the trigger phrase (or 0.2s before). Captions stay on top.
-- Use effects "wisely": one hero moment per ~10s (a stat, a title, a light leak). Everything else stays quiet.
+- Use effects "wisely": one hero moment per ~10s (a stat or a hero graphic). Everything else stays quiet.
 - Never invent facts. Numbers on cards must be spoken in the video or marked `(verify)` and cross-checked.
 
 ## 5. Source tiers for stills (free)
@@ -81,11 +81,11 @@ Pollinations anonymous (1 image / 45 s per IP, watermark, 576x1024; fine for a f
 Record provenance in the project's `assets/manifest.json`. Generated images: say "AI-generated" in the manifest.
 
 ## 6. Hand off to think-loop
-Write approved candidates to `broll_candidates.json`, run `scripts/preview_broll.py`, LOOK at the sheet, paste, render a
-half-scale preview, inspect `scripts/contact_sheet.sh`. Report: beats planned, kinds used, kinds requested but missing,
+Write approved candidates to `broll_candidates.json`, run `scripts/pipeline/preview_broll.py`, LOOK at the sheet, paste, render a
+half-scale preview, inspect `scripts/pipeline/contact_sheet.sh`. Report: beats planned, kinds used, kinds requested but missing,
 assets with licenses, anything unverified.
 
 ## 7. Style variants (same raw, different looks)
 To compare looks, copy `timeline.json` to `public/projects/<name>/variants/<variant>.json`, change only `style`,
-`captionTheme`, `source` (e.g. `base_bg.mp4` from `scripts/treat_bg.py`), `pushInPercent`, `cuts[].scale`, then render
+`captionTheme`, `source` (e.g. `base_bg.mp4` from `scripts/background/treat_bg.py`), `pushInPercent`, `cuts[].scale`, then render
 each with `--props=` at `--scale=0.5` and compare contact sheets. Never edit the project's real timeline for an experiment.

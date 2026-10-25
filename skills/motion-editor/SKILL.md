@@ -11,14 +11,17 @@ This skill only routes. Open the sub-skill's `SKILL.md` BEFORE acting; do not wo
 ## Routing table
 | The request is about... | Open | Notes |
 |---|---|---|
+| Edit in a style / compare looks / several versions | `skills/edit-styles/SKILL.md` -> `skills/style-{formal,bold,editorial,clean}` | `apply_style.py`, `compare_styles.py` |
+| Animated intro film (engraving / typographic) | `skills/engraving-film/SKILL.md` | composition `EngravingIntro`; reference in `docs/references/engraving-film.md` |
 | Whole pipeline, raw footage to reel | `skills/edit-workflow/SKILL.md` | ordered steps, commands |
-| Visual style (titles, captions, grade, motion) | `skills/style-gadzhi/SKILL.md`, `styles/*.json` | no zoom spam: punchIn is off by default |
+| Replicate an AE/Premiere template or preset | `skills/motion-templates/SKILL.md` | 43 templates + 233 presets as md specs |
+| Caption look | `src/themes/`, `captionTheme` in timeline.json | no zoom spam; there is no house style, tokens in `styles/default.json` are neutral |
 | Which b-roll for which spoken beat | `skills/broll-director/SKILL.md` | planning layer |
-| Beat table -> timeline JSON | `python scripts/beats_to_timeline.py public/projects/<name> --validate` | spec syntax in the script docstring |
+| Beat table -> timeline JSON | `python scripts/pipeline/beats_to_timeline.py public/projects/<name> --validate` | spec syntax in the script docstring |
 | Previewing/pasting/verifying b-roll | `skills/think-loop/SKILL.md` | perceive -> preview -> paste -> verify |
 | Icons, photos, SFX, music (licensed) | `skills/find-assets/SKILL.md` | goes through `scripts/assets/` |
 | Porting a HyperFrames caption theme | `skills/port-hyperframes-theme/SKILL.md` | touches `src/themes/` only |
-| Subject matte / blurred dark background | `python scripts/treat_bg.py --setup`, then `treat_bg.py <video> <project_dir>` | outputs `matte.mp4`, `base_bg.mp4` (drop-in source) |
+| Subject matte / blurred dark background | `python scripts/background/treat_bg.py --setup`, then `treat_bg.py <video> <project_dir>` | outputs `matte.mp4`, `base_bg.mp4` (drop-in source) |
 
 ## Typical order
 transcribe -> build_timeline -> style pass (`edit-workflow`) -> beat sheet (`broll-director`) -> preview/paste (`think-loop`)
@@ -28,7 +31,7 @@ Comparing looks: copy the timeline to `public/projects/<name>/variants/<variant>
 ## How agents find these skills (run once after cloning)
 Canonical skills are in `skills/` (agent-agnostic). Run:
 ```bash
-python scripts/link_skills.py        # python3 on macOS/Linux; add --copy if symlinks are unavailable
+python scripts/tools/link_skills.py        # python3 on macOS/Linux; add --copy if symlinks are unavailable
 ```
 It links every `skills/<name>/` into the folder each tool reads:
 - Claude Code: `.claude/skills/<name>/SKILL.md`
@@ -44,7 +47,7 @@ Restart the agent session after the first link, since newly created skill folder
 
 ## Working agreements (every agent: Claude Code, Codex, Antigravity)
 1. **Preview before the expensive render.** Order: schema/lint check -> stills for new b-roll/cards -> half-scale render
-   (`--scale=0.5`) -> `scripts/contact_sheet.sh` -> LOOK at the PNG -> only then the full-resolution render.
+   (`--scale=0.5`) -> `scripts/pipeline/contact_sheet.sh` -> LOOK at the PNG -> only then the full-resolution render.
    Anything that re-lays out the video (takeaway cards, split/pip layouts) MUST be seen in a contact sheet first.
 2. **Never `pkill`/`killall` renders.** Other agents may be rendering in this repo. Stop only your own process, matched by
    your unique output filename (`pkill -f "my_output.mp4"`), or let it finish.

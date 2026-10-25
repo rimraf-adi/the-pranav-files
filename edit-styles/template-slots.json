@@ -1,0 +1,48 @@
+{
+  "_note": "How the 4 semantic lines [tiny, big, accent, tail] map onto each template's text items, plus the max characters each slot holds before it overflows the frame, and the header y offset (canvas px, at scale 0.85) that parks the stack in the top zone.",
+  "hooks-captions-caption-01": {
+    "order": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "limits": [
+      26,
+      8,
+      10,
+      26
+    ],
+    "y": -930
+  },
+  "hooks-captions-caption-02": {
+    "order": [
+      0,
+      1,
+      3,
+      2
+    ],
+    "limits": [
+      15,
+      8,
+      16,
+      17
+    ],
+    "y": -930
+  },
+  "hooks-captions-caption-14": {
+    "order": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "limits": [
+      18,
+      9,
+      15,
+      26
+    ],
+    "y": -985
+  }
+}

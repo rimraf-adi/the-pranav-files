@@ -1,0 +1,31 @@
+{
+  "name": "playfair-red",
+  "voice": "Editorial serif captions, off-white with a red accent, soft fade in and out, gentle glow.",
+  "when": "interviews, quotes, storytelling, place and title cards.",
+  "register": "creator-bold",
+  "fonts": {
+    "body": "Playfair Display"
+  },
+  "palette": {
+    "body": "#F7F7F7",
+    "accent": "#FF0000",
+    "em": "#FF3B30"
+  },
+  "body": {
+    "paradigm": "rail",
+    "layer": "fg",
+    "fontPx": 60,
+    "bottomPx": 150,
+    "letterSpacing": "0.01em",
+    "entrance": "fade",
+    "exit": "fade",
+    "emScale": 1.1,
+    "glow": "0 3px 14px rgba(0,0,0,0.65), 0 0 20px rgba(255,255,255,0.12)"
+  },
+  "plate": {
+    "dim": 0.12,
+    "grain": 4
+  },
+  "linkages": [],
+  "_source": "Derived from the parsed Premiere .mogrt packs (scripts/templates/parse_assets.py -> out/assets_parsed.json): fonts, colours, sizes and effect names are read from the templates; motion is approximated with the existing `rail` paradigm, not copied. From: TEXT 15, PLACE 11, TXTFX 8, Caption 05/13/14 (PlayfairDisplay-Black/Italic, #F7F7F7/#FF0000, CC Light Sweep)."
+}

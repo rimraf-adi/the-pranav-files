@@ -26,7 +26,6 @@ const TITLE: Record<TrackKey, string> = {
   words: "Caption word",
   broll: "B-roll",
   cards: "Card",
-  titles: "Title",
   cuts: "Cut",
   sfx: "Sound effect",
 };
@@ -111,7 +110,7 @@ function Selection() {
           ) : null}
           . <b>from/to are SOURCE-video seconds.</b> Changing them changes the reel length and shifts every caption,
           b-roll, card, cut and sfx after this segment; those are not re-timed for you. For re-cuts use{" "}
-          <code>scripts/build_timeline.py --keep</code>.
+          <code>scripts/pipeline/build_timeline.py --keep</code>.
         </p>
       ) : null}
       <ObjectFields schema={schema} value={item} path={path} omit={omit} />
@@ -132,7 +131,7 @@ function KindSwitch({ item, index }: { item: Item; index: number }) {
           if (!window.confirm(`Convert "${item.id}" to ${kind}? Fields that ${kind} doesn't have are dropped.`)) return;
           apply((d) => {
             const fresh = newBroll(kind, d);
-            const keep = { id: item.id, at: item.at, duration: item.duration, tone: item.tone, leak: item.leak };
+            const keep = { id: item.id, at: item.at, duration: item.duration, tone: item.tone };
             const next: Item = { ...fresh, ...Object.fromEntries(Object.entries(keep).filter(([, v]) => v !== undefined)) };
             next.kind = kind;
             d.broll[index] = next;
@@ -298,7 +297,7 @@ function ProjectPanel({ hint }: { hint?: boolean }) {
   const meta = useContext(MetaContext);
   const total = totalOf(doc);
   const ct = doc.captionTheme as { name: string; hero?: number } | undefined;
-  const styles = Array.from(new Set([...(meta.styles ?? []), doc.style ?? "gadzhi"]));
+  const styles = Array.from(new Set([...(meta.styles ?? []), doc.style ?? "default"]));
   const themes = Array.from(new Set([...(meta.themes ?? []), ...(ct ? [ct.name] : [])]));
   const ctSchema = unwrap(timelineShape.captionTheme).schema;
   return (
@@ -310,15 +309,13 @@ function ProjectPanel({ hint }: { hint?: boolean }) {
           <div className="field-label">
             <label title={timelineShape.style.description}>Style</label>
           </div>
-          <select value={doc.style ?? "gadzhi"} onChange={(e) => setField(["style"], e.target.value)}>
+          <select value={doc.style ?? "default"} onChange={(e) => setField(["style"], e.target.value)}>
             {styles.map((s) => (
               <option key={s}>{s}</option>
             ))}
           </select>
           <div className="field-help">styles/&lt;name&gt;.json</div>
         </div>
-        <Field name="grade" schema={timelineShape.grade} value={doc.grade} path={["grade"]} />
-        <Field name="dust" schema={timelineShape.dust} value={doc.dust} path={["dust"]} />
         <Field name="pushInPercent" schema={timelineShape.pushInPercent} value={doc.pushInPercent} path={["pushInPercent"]} />
         <Field name="headroomPercent" schema={timelineShape.headroomPercent} value={doc.headroomPercent} path={["headroomPercent"]} />
         <Field name="cardPalette" schema={timelineShape.cardPalette} value={doc.cardPalette} path={["cardPalette"]} />
@@ -400,7 +397,7 @@ function ProjectPanel({ hint }: { hint?: boolean }) {
             <td>counts</td>
             <td>
               {(doc.words ?? []).length} words · {(doc.broll ?? []).length} b-roll · {(doc.cards ?? []).length} cards ·{" "}
-              {(doc.titles ?? []).length} titles · {(doc.cuts ?? []).length} cuts · {(doc.sfx ?? []).length} sfx
+              {(doc.cuts ?? []).length} cuts · {(doc.sfx ?? []).length} sfx
             </td>
           </tr>
         </tbody>

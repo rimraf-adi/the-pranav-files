@@ -8,7 +8,7 @@ description: Use when asked to add b-roll, cutaways, graphics or "make this vide
 Never paste b-roll blind. Each pass has an artifact the agent must LOOK at.
 
 ## 1. Perceive
-- `python3 scripts/analyze_media.py public/projects/<name>/raw/<file> out/<name>` then view `out/<name>/contact_sheet.png` and read `analysis.json` (silences, scene changes, loudness).
+- `python3 scripts/pipeline/analyze_media.py public/projects/<name>/raw/<file> out/<name>` then view `out/<name>/contact_sheet.png` and read `analysis.json` (silences, scene changes, loudness).
 - Read `public/projects/<name>/timeline.json` words (output-timeline times). Timeline times, not source times, are what `broll.at` uses.
 - Note: is the speaker moving/locked-off? One continuous shot means b-roll is the only visual variety.
 
@@ -24,8 +24,8 @@ Rules:
 
 ## 3. Preview before placing
 - Write candidates to `public/projects/<name>/broll_candidates.json` as `{"broll":[...]}` matching `src/schema/timeline.ts`.
-- `python3 scripts/preview_broll.py public/projects/<name>/broll_candidates.json out/<name>/broll` then view `broll_sheet.png` (3 stills per card: start/mid/end).
-- Critique: legible at phone size? text inside safe area? animation reaches its end state? numbers correct? Does it look like the style in `skills/style-gadzhi`?
+- `python3 scripts/pipeline/preview_broll.py public/projects/<name>/broll_candidates.json out/<name>/broll` then view `broll_sheet.png` (3 stills per card: start/mid/end).
+- Critique: legible at phone size? text inside safe area? animation reaches its end state? numbers correct?
 
 ## 4. Revise (max 3 rounds)
 Fix props or, if the look itself is weak, change `src/components/Broll.tsx` as a separate deliberate task (see AGENTS.md rules), then re-preview. Stop when the sheet passes the critique.
@@ -35,6 +35,6 @@ Copy approved items into `timeline.json -> broll`. Set `emphasis` on the matchin
 
 ## 6. Verify
 - `npx remotion render Reel out/preview.mp4 --props=public/projects/<name>/timeline.json --scale=0.5`
-- `scripts/contact_sheet.sh out/preview.mp4 out/sheet.png 1.5` and view it.
+- `scripts/pipeline/contact_sheet.sh out/preview.mp4 out/sheet.png 1.5` and view it.
 - Check: face visible between cards, captions not colliding with card text, b-roll <=35%, every card lands on its spoken trigger, no card starts mid-fade of another.
 - Report what was added (id, time, quote) and anything uncertain.

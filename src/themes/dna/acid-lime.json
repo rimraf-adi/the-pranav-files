@@ -1,0 +1,31 @@
+{
+  "name": "acid-lime",
+  "voice": "Condensed caps with an acid-lime halo, flickering on and cutting out.",
+  "when": "gaming, tech, nightlife, anything loud on a dark plate.",
+  "register": "creator-bold",
+  "fonts": {
+    "body": "Anton"
+  },
+  "palette": {
+    "body": "#FFFFFF",
+    "accent": "#C5FF00",
+    "em": "#D3FF00"
+  },
+  "body": {
+    "paradigm": "rail",
+    "layer": "fg",
+    "fontPx": 70,
+    "bottomPx": 150,
+    "letterSpacing": "0.012em",
+    "entrance": "bootflick",
+    "exit": "powercut",
+    "emScale": 1.15,
+    "glow": "0 0 18px rgba(197,255,0,0.55), 0 4px 12px rgba(0,0,0,0.65)"
+  },
+  "plate": {
+    "dim": 0.12,
+    "grain": 4
+  },
+  "linkages": [],
+  "_source": "Derived from the parsed Premiere .mogrt packs (scripts/templates/parse_assets.py -> out/assets_parsed.json): fonts, colours, sizes and effect names are read from the templates; motion is approximated with the existing `rail` paradigm, not copied. From: PLACE 12, TEXT 13, TEXT 14/Untitled (Anton, GillSans-UltraBold, #C5FF00/#D3FF00/#18FF00, Glow)."
+}

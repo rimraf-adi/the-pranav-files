@@ -2,12 +2,13 @@ import { Composition } from "remotion";
 import { z } from "zod";
 import { BrollItem } from "./components/Broll";
 import { Reel } from "./components/Reel";
+import { TemplateScene } from "./components/TemplateScene";
+import { templates } from "./templates/registry.generated";
+import { EngravingFilm, filmSchema } from "./films/engraving/EngravingFilm";
 import { CardPreview, cardPreviewSchema } from "./cards/CardPreview";
-import { TitleView } from "./components/TitleStack";
 import {
   broll,
   timeline,
-  title,
   totalSeconds,
   type Timeline,
 } from "./schema/timeline";
@@ -19,7 +20,7 @@ const defaults: Timeline = timeline.parse({
 });
 
 const brollPreview = z.object({ item: broll });
-const titlePreview = z.object({ title });
+const templatePreview = z.object({ template: z.string(), speed: z.number().default(1) });
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -47,30 +48,31 @@ export const RemotionRoot: React.FC = () => (
       })}
     />
     <Composition
-      id="TitlePreview"
-      component={({ title: t }: z.infer<typeof titlePreview>) => (
-        <TitleView title={t} />
+      id="TemplatePreview"
+      component={({ template, speed }: z.infer<typeof templatePreview>) => (
+        <div style={{ width: "100%", height: "100%", background: "linear-gradient(#15161b, #0a0a0d)" }}>
+          <TemplateScene id="p" kind="template" at={0} duration={4} tone="neutral" template={template} texts={[]} colors={[]} x={0} y={0} scale={1} speed={speed} fadeIn={0.27} bgBrightness={0.66} bgFocus="50% 50%" scrim={0} solidHeight={0} scrimHeight={760} />
+        </div>
       )}
-      schema={titlePreview}
-      defaultProps={{
-        title: title.parse({
-          id: "demo",
-          at: 0,
-          tone: "attention",
-          lines: [
-            { text: "100", level: "primary" },
-            { text: "days", level: "secondary" },
-            { text: "breakdown", level: "modifier" },
-          ],
-        }),
-      }}
+      schema={templatePreview}
+      defaultProps={{ template: "hooks-captions-caption-01", speed: 1 }}
       fps={30}
       width={1080}
       height={1920}
-      durationInFrames={54}
+      durationInFrames={300}
       calculateMetadata={({ props }) => ({
-        durationInFrames: Math.round(props.title.duration * 30),
+        durationInFrames: Math.max(1, Math.round((templates[props.template]?.durationSec ?? 5) * 30 / props.speed)),
       })}
+    />
+    <Composition
+      id="EngravingIntro"
+      component={EngravingFilm}
+      schema={filmSchema}
+      defaultProps={{ name: "Better Call PJ", tagline: ["Sound knowledge,", "steady profit."] }}
+      fps={30}
+      width={1920}
+      height={1080}
+      durationInFrames={435}
     />
     <Composition
       id="CardPreview"

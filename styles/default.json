@@ -1,0 +1,65 @@
+{
+  "name": "default",
+  "font": "Montserrat",
+  "note": "Neutral renderer tokens. Not a look: change per project via timeline.json, not here.",
+  "captions": {
+    "fontPercentOfWidth": 5.5,
+    "topPercent": 78,
+    "weight": 600,
+    "color": "#FFFFFF",
+    "shadow": "0 2px 8px rgba(0,0,0,.6)"
+  },
+  "tones": {
+    "attention": "#FF1111",
+    "positive": "#3DFF1F",
+    "process": "#00E5D4",
+    "neutral": "#FFFFFF"
+  },
+  "scenes": {
+    "note": "defaults read by src/components/BrollScenes.tsx and Broll.tsx product/montage; override per item in timeline.json",
+    "product": {
+      "from": "#5c1a2e",
+      "to": "#1c0610",
+      "captionSizePx": 60
+    },
+    "montage": {
+      "captionSizePx": 64,
+      "captionTopPercent": 62
+    },
+    "lowerThird": {
+      "bar": "#FFFFFF",
+      "title": "#FFFFFF",
+      "sub": "#D8D8E0",
+      "bg": "rgba(8,8,12,.78)",
+      "topPercent": 60
+    },
+    "chart": {
+      "bg": "#050507",
+      "bar": "#FF1111",
+      "barMuted": "#3a3a44",
+      "text": "#FFFFFF",
+      "line": "#00E5D4"
+    },
+    "map": {
+      "bg": "#07090f",
+      "land": "#1b2230",
+      "stroke": "#2c3548",
+      "highlight": "#FF1111",
+      "pin": "#FFD60A",
+      "text": "#FFFFFF"
+    },
+    "motion": {
+      "note": "top-zone data graphics (trend, ticker, votes, gauge, flow) in src/components/Motion.tsx",
+      "red": "#FF2D2D",
+      "green": "#2EE59D",
+      "text": "#FFFFFF",
+      "muted": "rgba(255,255,255,0.58)",
+      "faint": "rgba(255,255,255,0.16)",
+      "glass": "rgba(14,14,20,0.74)",
+      "stroke": "rgba(255,255,255,0.14)",
+      "scrim": "4,4,8",
+      "zoneBottomPx": 520,
+      "safeTopPx": 72
+    }
+  }
+}

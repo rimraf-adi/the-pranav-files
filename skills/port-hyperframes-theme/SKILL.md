@@ -15,7 +15,7 @@ read it, never execute it.
 - `src/themes/dna/<name>.json`: copy of upstream DNA (add `"_port": {...notes}` if you change a value).
 - `src/themes/paradigms/<paradigm>.tsx`: `export default { Component, heroInline? } satisfies Paradigm`.
 - `src/themes/setpieces/<setpiece>.tsx`: `export default { Behind?, Front?, inline? } satisfies Setpiece`.
-- Shared paradigm/setpiece already present? Reuse it, do not duplicate. Then run `node scripts/gen-theme-registry.mjs`.
+- Shared paradigm/setpiece already present? Reuse it, do not duplicate. Then run `node scripts/themes/gen-theme-registry.mjs`.
 - Header comment on every ported file: `// Ported from heygen-com/hyperframes (Apache-2.0), skills/embedded-captions/scripts/make-theme.cjs, <function/section>. Re-implemented for Remotion.`
 
 ## Contracts (see `src/themes/types.ts`)
@@ -34,7 +34,7 @@ read it, never execute it.
 
 ## Verify (required before reporting done)
 1. `npm run lint` clean.
-2. `python3 scripts/preview_theme.py <name> demo` renders stills (before hero, at hero, after hero) into `out/themes/<name>/`
+2. `python3 scripts/themes/preview_theme.py <name> demo` renders stills (before hero, at hero, after hero) into `out/themes/<name>/`
    and a contact sheet. LOOK at it. Check: text legible and inside safe zone, hero word actually the apex, no overflow,
    animation reaches its end state, behaves with the real Hinglish transcript (words are Roman, short, fast).
 3. Compare against the upstream description in `themes/README.md` (voice/when fields in the DNA) and say honestly what is

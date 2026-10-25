@@ -1,0 +1,10 @@
+export const PAPER = "#FFFFFF";
+export const GRID = "#E9EFEB";
+export const INK = "#0E1A2B";
+export const ACCENT = "#12805C"; // emerald: profit
+export const SERIF = "'Playfair Display', Georgia, serif";
+export const MONO = "'IBM Plex Mono', ui-monospace, monospace";
+export const W = 1920;
+export const H = 1080;
+export const CX = W / 2;
+export const CY = H / 2;

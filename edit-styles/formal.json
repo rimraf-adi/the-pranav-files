@@ -1,0 +1,88 @@
+{
+  "name": "formal",
+  "description": "Restrained and professional: calm plain captions, at most three header graphics, each a short label plus one big word over a relevant photo with a long soft fade. One accent colour.",
+  "captionTheme": {
+    "name": "plain"
+  },
+  "emphasis_max_ratio": 0.12,
+  "max_moments": 3,
+  "kinds": {
+    "hook": {
+      "template": "hooks-captions-caption-01",
+      "colors": [
+        "#FFFFFF",
+        "#FFFFFF",
+        "#F3FF00",
+        "#FFFFFF"
+      ],
+      "scale": 0.85,
+      "header": {
+        "bg": true,
+        "icon": true,
+        "scrim": 0.85,
+        "scrimHeight": 800,
+        "solid": 400,
+        "fadeIn": 0.27
+      }
+    },
+    "stat": {
+      "template": "hooks-captions-caption-01",
+      "colors": [
+        "#FFFFFF",
+        "#FFFFFF",
+        "#F3FF00",
+        "#FFFFFF"
+      ],
+      "scale": 0.85,
+      "header": {
+        "bg": true,
+        "icon": true,
+        "scrim": 0.85,
+        "scrimHeight": 800,
+        "solid": 400,
+        "fadeIn": 0.27
+      }
+    },
+    "statement": {
+      "template": "hooks-captions-caption-01",
+      "colors": [
+        "#FFFFFF",
+        "#FFFFFF",
+        "#F3FF00",
+        "#FFFFFF"
+      ],
+      "scale": 0.85,
+      "header": {
+        "bg": true,
+        "icon": true,
+        "scrim": 0.85,
+        "scrimHeight": 800,
+        "solid": 400,
+        "fadeIn": 0.27
+      }
+    },
+    "cta": {
+      "template": "hooks-captions-caption-01",
+      "colors": [
+        "#FFFFFF",
+        "#FFFFFF",
+        "#F3FF00",
+        "#FFFFFF"
+      ],
+      "scale": 0.85,
+      "header": {
+        "bg": true,
+        "icon": true,
+        "scrim": 0.85,
+        "scrimHeight": 800,
+        "solid": 400,
+        "fadeIn": 0.27
+      }
+    }
+  },
+  "sfx": {
+    "enter": "whoosh-soft",
+    "volume": 0.12,
+    "tick": false
+  }
+}

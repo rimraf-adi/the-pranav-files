@@ -22,31 +22,11 @@ export const segment = z.object({
   to: z.number().min(0),
 });
 
-export const titleLine = z.object({
-  text: z.string(),
-  level: z.enum(["primary", "secondary", "modifier"]).default("primary"),
-  tone: tone.optional().describe("overrides the title tone for this line"),
-  italic: z.boolean().default(false),
-  icon: z
-    .string()
-    .optional()
-    .describe("path relative to /public, shown after the text"),
-});
-
-export const title = z.object({
-  id: z.string(),
-  at: z.number().min(0),
-  duration: z.number().min(0.8).max(3.5).default(1.8),
-  tone: tone.default("neutral"),
-  lines: z.array(titleLine).min(1).max(4),
-});
-
-// A cut starts a new "shot": camera scale resets, slow push-in restarts, optional light leak.
+// A cut starts a new "shot": camera scale resets and the slow push-in restarts.
 export const cut = z.object({
   at: z.number().min(0),
   scale: z.number().min(1).max(1.6).default(1),
   originY: z.number().min(0).max(1).default(0.4),
-  leak: z.boolean().default(true),
 });
 
 const brollBase = {
@@ -54,7 +34,6 @@ const brollBase = {
   at: z.number().min(0).describe("start on OUTPUT timeline, seconds"),
   duration: z.number().min(0.8).max(12),
   tone: tone.default("attention"),
-  leak: z.boolean().default(false).describe("light leak on entry and exit"),
 };
 
 export const shot = z.object({
@@ -177,6 +156,25 @@ export const broll = z.discriminatedUnion("kind", [
   }),
   z.object({
     ...brollBase,
+    kind: z.literal("template"),
+    template: z.string().describe("slug of a replicated template in src/templates (see skills/motion-templates/INDEX.md)"),
+    texts: z.array(z.string()).default([]).describe("override the template's text items, in order"),
+    colors: z.array(z.string()).default([]).describe("override the template's colour controls, in order (#RRGGBB)"),
+    x: z.number().default(0).describe("offset in canvas px"),
+    y: z.number().default(0).describe("offset in canvas px"),
+    scale: z.number().min(0.1).max(4).default(1),
+    speed: z.number().min(0.25).max(4).default(1),
+    bg: z.string().optional().describe("illustration photo behind the template, path relative to /public; darkened and faded out softly toward the bottom"),
+    fadeIn: z.number().min(0).max(1).default(0.27).describe("seconds to fade the header in (0 = instant, use it when hiding a baked-in overlay from frame 0)"),
+    bgBrightness: z.number().min(0.2).max(1).default(0.66).describe("brightness of the bg photo (lower = darker, more legible text)"),
+    bgFocus: z.string().default("50% 50%").describe("CSS object-position for the bg photo, e.g. '30% 40%' to keep the subject in the header"),
+    icon: z.string().optional().describe("flat icon (svg) shown top-right of the header, path relative to /public"),
+    scrim: z.number().min(0).max(1).default(0).describe("dark top gradient behind the template, hides baked-in overlays and lifts legibility"),
+    solidHeight: z.number().min(0).max(1920).default(0).describe("px kept fully opaque at the top before the soft fade starts (0 = 40% of scrimHeight); use it to hide a baked-in overlay"),
+    scrimHeight: z.number().min(100).max(1920).default(760).describe("scrim height in canvas px"),
+  }),
+  z.object({
+    ...brollBase,
     kind: z.literal("flow"),
     bg: zoneBg,
     nodes: z
@@ -207,7 +205,6 @@ export const timeline = z.object({
     .describe("path relative to /public, e.g. projects/demo/raw/clip.mp4"),
   segments: z.array(segment).min(1),
   words: z.array(word).default([]),
-  titles: z.array(title).default([]),
   cuts: z.array(cut).default([]),
   sfx: z
     .array(
@@ -252,13 +249,10 @@ export const timeline = z.object({
     .default(9)
     .describe("push footage down to free the title zone"),
   pushInPercent: z.number().min(0).max(15).default(6),
-  grade: z.boolean().default(true),
-  dust: z.boolean().default(true),
-  style: z.string().default("gadzhi"),
+  style: z.string().default("default"),
 });
 
 export type Timeline = z.infer<typeof timeline>;
-export type Title = z.infer<typeof title>;
 export type Cut = z.infer<typeof cut>;
 export type Broll = z.infer<typeof broll>;
 export type Word = z.infer<typeof word>;

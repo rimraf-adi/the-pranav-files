@@ -1,0 +1,31 @@
+{
+  "name": "hook-cyan",
+  "voice": "Large centred hook lines in white, cyan accent and yellow emphasis, stamped in.",
+  "when": "the first 3-5 seconds: hook lines, promises, numbered lists.",
+  "register": "creator-bold",
+  "fonts": {
+    "body": "Inter"
+  },
+  "palette": {
+    "body": "#FFFFFF",
+    "accent": "#00F9FF",
+    "em": "#F3FF00"
+  },
+  "body": {
+    "paradigm": "rail",
+    "layer": "fg",
+    "fontPx": 86,
+    "bottomPx": 300,
+    "letterSpacing": "0.0em",
+    "entrance": "stamp",
+    "exit": "fade",
+    "emScale": 1.12,
+    "glow": "0 6px 24px rgba(0,0,0,0.75), 0 0 2px rgba(0,0,0,0.8)"
+  },
+  "plate": {
+    "dim": 0.12,
+    "grain": 4
+  },
+  "linkages": [],
+  "_source": "Derived from the parsed Premiere .mogrt packs (scripts/templates/parse_assets.py -> out/assets_parsed.json): fonts, colours, sizes and effect names are read from the templates; motion is approximated with the existing `rail` paradigm, not copied. From: Hook 01-05 (NHaasGroteskDSPro-75Bd, 100px, #00F9FF/#F3FF00/#FFFFFF; Hook 05 pairs it with PlayfairDisplay-BoldItalic)."
+}

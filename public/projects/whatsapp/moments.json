@@ -1,0 +1,77 @@
+{
+ "_note": "Style-independent plan of the graphic moments. kind: hook | stat | statement | cta. lines = [tiny label, big word, accent, tail]; empty strings are fine. bg/icon are used only by styles that want them. cover_top_px hides a baked-in overlay at the top (opening label) and makes the header appear instantly.",
+ "emphasis": [
+  "3",
+  "90%",
+  "Beginners.",
+  "Risk",
+  "Management",
+  "Technical",
+  "Analysis",
+  "capital"
+ ],
+ "moments": [
+  {
+   "id": "opening",
+   "kind": "hook",
+   "at": 0.0,
+   "duration": 3.3,
+   "lines": [
+    "YEARS OF TRADING",
+    "3 YEARS",
+    "",
+    ""
+   ],
+   "bg": "projects/whatsapp/assets/photos/px-trading-chart.jpg",
+   "bgFocus": "62% 50%",
+   "icon": "projects/whatsapp/assets/icons/trend-up.svg",
+   "cover_top_px": 575,
+   "lines_by_style": {
+    "bold": [
+     "TRADING FOR",
+     "3 YEARS",
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "id": "ahead",
+   "kind": "stat",
+   "at": 30.2,
+   "duration": 3.0,
+   "lines": [
+    "YOU'RE AHEAD OF",
+    "90%",
+    "of traders",
+    ""
+   ],
+   "bg": "projects/whatsapp/assets/photos/px-trader-desk.jpg",
+   "bgFocus": "28% 45%",
+   "icon": "projects/whatsapp/assets/icons/traders.svg"
+  },
+  {
+   "id": "save",
+   "kind": "cta",
+   "at": 33.6,
+   "duration": 1.9,
+   "lines": [
+    "WORTH KEEPING?",
+    "save",
+    "& share",
+    "with a future trader"
+   ],
+   "bg": "projects/whatsapp/assets/photos/px-friends-phone.jpg",
+   "bgFocus": "55% 22%",
+   "icon": "projects/whatsapp/assets/icons/bookmark.svg",
+   "lines_by_style": {
+    "bold": [
+     "WORTH KEEPING?",
+     "save",
+     "& share",
+     "for traders"
+    ]
+   }
+  }
+ ]
+}

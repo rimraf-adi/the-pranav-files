@@ -1,0 +1,31 @@
+{
+  "name": "impact-red",
+  "voice": "Heavy condensed uppercase-feel captions, white with red emphasis and a hard drop shadow, stamp in and drop out.",
+  "when": "high-energy hooks, lyrics, shout-outs, hype edits.",
+  "register": "creator-bold",
+  "fonts": {
+    "body": "Anton"
+  },
+  "palette": {
+    "body": "#FFFFFF",
+    "accent": "#FF0000",
+    "em": "#FF0000"
+  },
+  "body": {
+    "paradigm": "rail",
+    "layer": "fg",
+    "fontPx": 76,
+    "bottomPx": 150,
+    "letterSpacing": "0.01em",
+    "entrance": "stamp",
+    "exit": "drop",
+    "emScale": 1.2,
+    "glow": "0 6px 0 rgba(0,0,0,0.55), 0 0 26px rgba(255,0,0,0.35)"
+  },
+  "plate": {
+    "dim": 0.12,
+    "grain": 4
+  },
+  "linkages": [],
+  "_source": "Derived from the parsed Premiere .mogrt packs (scripts/templates/parse_assets.py -> out/assets_parsed.json): fonts, colours, sizes and effect names are read from the templates; motion is approximated with the existing `rail` paradigm, not copied. From: LYRICS 1/7/Animation, PUT LYRICS, TEXT 19/20/22, animations jishan (Impact/Anton, 134px, #FF0000/#FFFFFF, Drop Shadow + Glow)."
+}

@@ -17,7 +17,6 @@
   --c-word: #33404f;
   --c-emph: #b5532a;
   --c-card: #3d5a2a;
-  --c-title: #6a5a1a;
   --c-cut: #c9c9c9;
   --c-sfx: #2f5d8a;
   color-scheme: dark;
@@ -996,9 +995,6 @@ input[type="range"] {
 }
 .blk-cards {
   background: var(--c-card);
-}
-.blk-titles {
-  background: var(--c-title);
 }
 .blk-cuts {
   background: var(--c-cut);
